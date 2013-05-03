@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ControllerManager : MonoBehaviour
+public class CharacterInput : MonoBehaviour
 {
 	public int controller;
 	
