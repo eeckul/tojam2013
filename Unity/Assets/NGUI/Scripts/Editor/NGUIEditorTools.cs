@@ -549,7 +549,7 @@ public class NGUIEditorTools
 			settings.readable = false;
 			settings.maxTextureSize = 4096;
 			settings.textureFormat = TextureImporterFormat.RGBA32;
-			settings.filterMode = FilterMode.Trilinear;
+			settings.filterMode = FilterMode.Point;
 			settings.aniso = 4;
 			settings.wrapMode = TextureWrapMode.Clamp;
 			settings.npotScale = TextureImporterNPOTScale.ToNearest;
