@@ -31,7 +31,7 @@ public class InputDebug : SingletonMonoBehaviour<InputDebug>
 		"DPadDown",
 		"DPadLeft",
 		"DPadRight"
-#else
+#elif UNITY_STANDALONE_WIN
 		"DPadX",
 		"DPadY"
 #endif
