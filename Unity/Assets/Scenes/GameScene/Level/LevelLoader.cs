@@ -6,8 +6,10 @@ public class LevelLoader : MonoBehaviour
 	public GameObject levelRoot;
 	public GameObject enemiesRoot;
 	
-	public string textureName;
-	private Texture2D colliderMap;
+	public Player[] playerObjects;
+	private BetterList<Player> spawnPlayerList = new BetterList<Player>();
+	
+	public Texture2D colliderMap;
 	private int width;
 	private int height;
 	private Color[] colors;
@@ -17,6 +19,8 @@ public class LevelLoader : MonoBehaviour
 	
 	public GameObject platformShortPrefab;
 	public Color platformShortColor = RGBColor(0, 0, 64);
+	public GameObject platformShortMediumPrefab;
+	public Color platformShortMediumColor = RGBColor(192, 0, 0);
 	public GameObject platformMediumPrefab;
 	public Color platformMediumColor = RGBColor(0, 0, 128);
 	public GameObject platformLongPrefab;
@@ -43,9 +47,15 @@ public class LevelLoader : MonoBehaviour
 	public GameObject doorPrefab2;
 	public Color doorColor2 = RGBColor(128, 0, 0);
 	
+	public Color spawnColor = RGBColor(192, 192, 0);
+	
 	private void Awake()
 	{
-		colliderMap = Resources.Load(textureName) as Texture2D;
+		foreach (Player playerObject in playerObjects)
+		{
+			spawnPlayerList.Add(playerObject);
+		}
+		
 		width = colliderMap.width;
 		height = colliderMap.height;
 		colors = colliderMap.GetPixels();
@@ -106,6 +116,7 @@ public class LevelLoader : MonoBehaviour
 				Color color = colors[w + h * width];
 				
 				CreateObject(color, platformShortColor, platformShortPrefab, levelRoot, w, h, true);
+				CreateObject(color, platformShortMediumColor, platformShortMediumPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformMediumColor, platformMediumPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformLongColor, platformLongPrefab, levelRoot, w, h, true);
 				
@@ -119,6 +130,8 @@ public class LevelLoader : MonoBehaviour
 				
 				CreateObject(color, doorColor1, doorPrefab1, levelRoot, w, h);
 				CreateObject(color, doorColor2, doorPrefab2, levelRoot, w, h);
+				
+				SpawnPlayer(color, spawnColor, w, h);
 			}
 		}
 	}
@@ -142,6 +155,23 @@ public class LevelLoader : MonoBehaviour
 			prefabObject.transform.localPosition = new Vector3(x + prefabCollider.size.x * 0.5f,
 				(topAnchor ? y - prefabCollider.size.y * 0.5f : y + prefabCollider.size.y * 0.5f),
 				0);
+		}
+	}
+	
+	private void SpawnPlayer(Color pixelColor, Color spawnColor, int x, int y)
+	{
+		if (pixelColor == spawnColor)
+		{
+			int randomIndex = UnityEngine.Random.Range(0, spawnPlayerList.size);
+			Player randomPlayer = spawnPlayerList[randomIndex];
+			spawnPlayerList.RemoveAt(randomIndex);
+			
+			Debug.Log("Spawning " + randomPlayer.name + " at (" + x + ", " + y + ")");
+			
+			Vector3 spawnPosition = randomPlayer.transform.localPosition;
+			spawnPosition.x = x + randomPlayer.boxCollider.size.x * 0.5f;
+			spawnPosition.y = y + randomPlayer.boxCollider.size.y * 0.5f;
+			randomPlayer.transform.localPosition = spawnPosition;
 		}
 	}
 }

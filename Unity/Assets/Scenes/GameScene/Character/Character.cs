@@ -124,12 +124,12 @@ public class Character : MonoBehaviour
 	{
 		foreach (ContactPoint contact in collisionInfo.contacts)
 		{
-			if (contact.normal.x == -1)
+			if (contact.normal.x < -0.9f)
 			{
 				rightBlockingObjects.Add(collisionInfo.gameObject);
 			}
 			
-			if (contact.normal.x == 1)
+			if (contact.normal.x > 0.9f)
 			{
 				leftBlockingObjects.Add(collisionInfo.gameObject);
 			}

@@ -8,6 +8,7 @@ public class Player : Character
 	#region Input Info
 	
 	private bool isHoldingDown;
+	private bool allowDoubleJump = true;
 	
 	#endregion
 	
@@ -32,6 +33,11 @@ public class Player : Character
 		UpdateInput();
 		
 		base.FixedUpdate();
+		
+		if (isGrounded)
+		{
+			allowDoubleJump = true;
+		}
 	}
 	
 	#region Input
@@ -61,20 +67,18 @@ public class Player : Character
 			{
 				
 			}
-			else if (isGrounded)
+			else if (isGrounded && isHoldingDown)
 			{
-				if (isHoldingDown)
+				if (IsPlatformDownJumpable(currentPlatform))
 				{
-					if (IsPlatformDownJumpable(currentPlatform))
-					{
-						isDownJumping = true;
-						downJumpingPlatform = currentPlatform;
-					}
+					isDownJumping = true;
+					downJumpingPlatform = currentPlatform;
 				}
-				else
-				{
-					TriggerJump();
-				}
+			}
+			else if (isGrounded || allowDoubleJump)
+			{
+				allowDoubleJump = false;
+				TriggerJump();
 			}
 		}
 	}

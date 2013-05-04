@@ -6,6 +6,8 @@ public class GameCamera : MonoBehaviour
 	public Camera gameCamera;
 	public TweenPosition cameraTween;
 	public BoxCollider boxCollider;
+	public BoxCollider leftBoundary;
+	public BoxCollider rightBoundary;
 	
 	private float levelScreenWidth;
 	
@@ -17,15 +19,25 @@ public class GameCamera : MonoBehaviour
 		camPosition.y = gameCamera.orthographicSize;
 		transform.localPosition = camPosition;
 		
-		Vector3 size = boxCollider.size;
-		size.x = levelScreenWidth;
-		size.y = gameCamera.orthographicSize * 2f;
-		size.z = gameCamera.farClipPlane - gameCamera.nearClipPlane;
-		boxCollider.size = size;
+		boxCollider.size = new Vector3(levelScreenWidth,
+			gameCamera.orthographicSize * 2f,
+			gameCamera.farClipPlane - gameCamera.nearClipPlane);
+		
+		leftBoundary.size = new Vector3(5f, boxCollider.size.y, boxCollider.size.z);
+		rightBoundary.size = new Vector3(5f, boxCollider.size.y, boxCollider.size.z);
+		
+		Vector3 boundaryCenter = leftBoundary.center;
+		boundaryCenter.x = -levelScreenWidth * 0.5f - 2.5f;
+		leftBoundary.center = boundaryCenter;
+		boundaryCenter.x = levelScreenWidth * 0.5f + 2.5f;
+		rightBoundary.center = boundaryCenter;
 	}
 	
 	public void NextScreen()
 	{
+		NGUITools.SetActive(leftBoundary.gameObject, false);
+		NGUITools.SetActive(rightBoundary.gameObject, false);
+		
 		Vector3 camPosition = transform.localPosition;
 		cameraTween.from = camPosition;
 		camPosition.x += levelScreenWidth;
@@ -36,6 +48,7 @@ public class GameCamera : MonoBehaviour
 	
 	private void CameraTweenFinished(UITweener tween)
 	{
-		
+		NGUITools.SetActive(leftBoundary.gameObject, true);
+		NGUITools.SetActive(rightBoundary.gameObject, true);
 	}
 }
