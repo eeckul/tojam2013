@@ -264,7 +264,7 @@ public class Character : MonoBehaviour
 			sprite.spriteName = frameSpriteName;
 			
 			currentFrameTime = 0;
-			currentFrameIndex = (currentFrameIndex + 1) % (currentFrameCount + 1);
+			currentFrameIndex = (currentFrameIndex + 1) % currentFrameCount;
 		}
 	}
 	

@@ -34,10 +34,7 @@ public class Player : Character
 		
 		base.FixedUpdate();
 		
-		if (isGrounded)
-		{
-			allowDoubleJump = true;
-		}
+		UpdateInteraction();
 	}
 	
 	#region Input
@@ -57,6 +54,11 @@ public class Player : Character
 		}
 		
 		isHoldingDown = leftStickInput.y > 0.5f;
+		
+		if (isGrounded)
+		{
+			allowDoubleJump = true;
+		}
 	}
 	
 	private void OnAPress(bool pressed)
@@ -87,6 +89,14 @@ public class Player : Character
 	
 	#region Interaction
 	
+	private void UpdateInteraction()
+	{
+		if (isInteracting)
+		{
+			ToggleCurrentInteractive(true);
+		}
+	}
+	
 	protected override void OnTriggerEnter(Collider other)
 	{
 		base.OnTriggerEnter(other);
@@ -108,9 +118,28 @@ public class Player : Character
 		{
 			if (currentInteractive == interactive)
 			{
+				ToggleCurrentInteractive(false);
 				isInteracting = false;
 				currentInteractive = null;
 			}
+		}
+	}
+	
+	private void ToggleCurrentInteractive(bool toggle)
+	{
+		InteractiveTerminal terminal = currentInteractive.GetComponent<InteractiveTerminal>();
+		if (terminal != null)
+		{
+			terminal.ToggleButton(toggle);
+		}
+	}
+	
+	private void ActivateInteractive()
+	{
+		InteractiveTerminal terminal = currentInteractive.GetComponent<InteractiveTerminal>();
+		if (terminal != null)
+		{
+			terminal.Activate();
 		}
 	}
 	
