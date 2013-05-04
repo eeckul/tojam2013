@@ -667,7 +667,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933984806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.694885254, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296809405}
@@ -834,9 +834,9 @@ MonoBehaviour:
   terminalXColor: {r: 0, g: .250980407, b: .250980407, a: 1}
   terminalYPrefab: {fileID: 100002, guid: b22d36e2094ca4b7385ed74a6e66001b, type: 2}
   terminalYColor: {r: 0, g: .501960814, b: .501960814, a: 1}
-  doorPrefab1: {fileID: 0}
+  doorPrefab1: {fileID: 100002, guid: f2c12f5213777494cbc578e8b1475bc1, type: 2}
   doorColor1: {r: .250980407, g: 0, b: 0, a: 1}
-  doorPrefab2: {fileID: 0}
+  doorPrefab2: {fileID: 100002, guid: 1d68aa100020541698afdcba21db506b, type: 2}
   doorColor2: {r: .501960814, g: 0, b: 0, a: 1}
 --- !u!1 &1296809403
 GameObject:

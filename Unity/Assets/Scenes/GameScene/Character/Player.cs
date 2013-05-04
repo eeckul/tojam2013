@@ -25,11 +25,11 @@ public class Player : Character
 		input.OnAPress += OnAPress;
 	}
 	
-	protected override void Update()
+	protected override void FixedUpdate()
 	{
 		UpdateInput();
 		
-		base.Update();
+		base.FixedUpdate();
 	}
 	
 	#region Input

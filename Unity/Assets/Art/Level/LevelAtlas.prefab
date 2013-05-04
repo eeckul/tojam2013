@@ -111,6 +111,24 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: door
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 166
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 166
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

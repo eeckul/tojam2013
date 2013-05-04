@@ -1,22 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
-public class InteractiveTerminal : LevelInteractive
+public class InteractiveDoor : LevelInteractive
 {
-	public enum TerminalType
+	public enum DoorType
 	{
 		A,
-		B,
-		X,
-		Y
+		B
 	}
 	
-	public TerminalType terminalType;
+	public DoorType doorType;
 	
 	private void Start()
 	{
 		Vector3 size = boxCollider.size;
-		size.x *= 3f;
+		size.x *= 1.25f;
+		size.y *= 1.25f;
 		boxCollider.size = size;
 	}
 }

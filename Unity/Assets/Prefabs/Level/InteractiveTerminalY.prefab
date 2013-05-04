@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bde106b842a7e4664a039797998ce993, type: 3}
   m_Name: 
+  boxCollider: {fileID: 6500000}
   terminalType: 3
 --- !u!1001 &100100000
 Prefab:

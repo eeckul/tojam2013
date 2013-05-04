@@ -116,16 +116,19 @@ public class LevelLoader : MonoBehaviour
 				CreateObject(color, terminalBColor, terminalBPrefab, levelRoot, w, h);
 				CreateObject(color, terminalXColor, terminalXPrefab, levelRoot, w, h);
 				CreateObject(color, terminalYColor, terminalYPrefab, levelRoot, w, h);
+				
+				CreateObject(color, doorColor1, doorPrefab1, levelRoot, w, h);
+				CreateObject(color, doorColor2, doorPrefab2, levelRoot, w, h);
 			}
 		}
 	}
 	
 	private void CreateGroundCollider(int blockStart, int blockWidth, int blockHeight)
 	{
-		BoxCollider groundCollider = NGUITools.AddChild(levelRoot, groundPrefab).GetComponent<BoxCollider>();
-		groundCollider.size = new Vector3(blockWidth, blockHeight, 50f);
-		groundCollider.center = new Vector3(blockWidth * 0.5f, blockHeight * 0.5f, 0);
-		groundCollider.transform.localPosition = new Vector3(blockStart, 0, 0);
+		LevelFloor ground = NGUITools.AddChild(levelRoot, groundPrefab).GetComponent<LevelFloor>();
+		ground.boxCollider.size = new Vector3(blockWidth, blockHeight, 50f);
+		ground.boxCollider.center = new Vector3(blockWidth * 0.5f, -blockHeight * 0.5f, 0);
+		ground.transform.localPosition = new Vector3(blockStart, blockHeight, 0);
 	}
 	
 	private void CreateObject(Color pixelColor, Color objectColor, GameObject prefab, GameObject rootObject, int x, int y, bool topAnchor = false)
