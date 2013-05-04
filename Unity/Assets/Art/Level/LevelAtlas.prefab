@@ -42,16 +42,70 @@ MonoBehaviour:
   - name: sprite_computer1
     outer:
       serializedVersion: 2
-      x: 0
-      y: 0
+      x: 101
+      y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 0
+      x: 101
+      y: 195
       width: 32
       height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: platform_long
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 228
+      width: 300
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 228
+      width: 300
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: platform_medium
+    outer:
+      serializedVersion: 2
+      x: 301
+      y: 228
+      width: 200
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 301
+      y: 228
+      width: 200
+      height: 28
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: platform_small
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 199
+      width: 100
+      height: 28
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 199
+      width: 100
+      height: 28
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
