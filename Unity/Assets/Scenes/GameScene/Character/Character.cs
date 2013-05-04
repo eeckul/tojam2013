@@ -56,8 +56,18 @@ public class Character : MonoBehaviour
 	
 	#endregion
 	
+	#region Combat Info
+	
+	public int maxHealth;
+	public int currHealth;
+	public int damage;
+	
+	#endregion
+	
 	protected virtual void Start()
 	{
+		currHealth = maxHealth;
+		
 		SetAnimationInfo(standingFrameCount, standingFrameRate);
 	}
 	

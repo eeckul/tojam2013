@@ -176,6 +176,9 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
+  maxHealth: 100
+  currHealth: 0
+  damage: 10
   input: {fileID: 11400006}
 --- !u!114 &11400006
 MonoBehaviour:
