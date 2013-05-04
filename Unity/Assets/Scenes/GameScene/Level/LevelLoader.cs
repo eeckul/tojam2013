@@ -4,6 +4,7 @@ using System.Collections;
 public class LevelLoader : MonoBehaviour
 {
 	public GameObject levelRoot;
+	public GameObject enemiesRoot;
 	
 	public string textureName;
 	private Texture2D colliderMap;
@@ -12,14 +13,35 @@ public class LevelLoader : MonoBehaviour
 	private Color[] colors;
 	
 	public GameObject groundPrefab;
-	private Color groundColor = RGBColor(0, 0, 0);
+	public Color groundColor = RGBColor(0, 0, 0);
 	
-	public GameObject platformPrefab1;
-	private Color platformColor1 = RGBColor(0, 0, 64);
-	public GameObject platformPrefab2;
-	private Color platformColor2 = RGBColor(0, 0, 128);
-	public GameObject platformPrefab3;
-	private Color platformColor3 = RGBColor(0, 0, 192);
+	public GameObject platformShortPrefab;
+	public Color platformShortColor = RGBColor(0, 0, 64);
+	public GameObject platformMediumPrefab;
+	public Color platformMediumColor = RGBColor(0, 0, 128);
+	public GameObject platformLongPrefab;
+	public Color platformLongColor = RGBColor(0, 0, 192);
+	
+	public GameObject enemyPrefab1;
+	public Color enemyColor1 = RGBColor(0, 64, 0);
+	public GameObject enemyPrefab2;
+	public Color enemyColor2 = RGBColor(0, 128, 0);
+	public GameObject enemyPrefab3;
+	public Color enemyColor3 = RGBColor(0, 192, 0);
+	
+	public GameObject terminalAPrefab;
+	public Color terminalAColor = RGBColor(64, 64, 0);
+	public GameObject terminalBPrefab;
+	public Color terminalBColor = RGBColor(128, 128, 0);
+	public GameObject terminalXPrefab;
+	public Color terminalXColor = RGBColor(0, 64, 64);
+	public GameObject terminalYPrefab;
+	public Color terminalYColor = RGBColor(0, 128, 128);
+	
+	public GameObject doorPrefab1;
+	public Color doorColor1 = RGBColor(64, 0, 0);
+	public GameObject doorPrefab2;
+	public Color doorColor2 = RGBColor(128, 0, 0);
 	
 	private void Awake()
 	{
@@ -83,9 +105,17 @@ public class LevelLoader : MonoBehaviour
 			{
 				Color color = colors[w + h * width];
 				
-				CreateObject(color, platformColor1, platformPrefab1, w, h, true);
-				CreateObject(color, platformColor2, platformPrefab2, w, h, true);
-				CreateObject(color, platformColor3, platformPrefab3, w, h, true);
+				CreateObject(color, platformShortColor, platformShortPrefab, levelRoot, w, h, true);
+				CreateObject(color, platformMediumColor, platformMediumPrefab, levelRoot, w, h, true);
+				CreateObject(color, platformLongColor, platformLongPrefab, levelRoot, w, h, true);
+				
+				CreateObject(color, enemyColor1, enemyPrefab1, enemiesRoot, w, h, false);
+				CreateObject(color, enemyColor2, enemyPrefab2, enemiesRoot, w, h, false);
+				
+				CreateObject(color, terminalAColor, terminalAPrefab, levelRoot, w, h);
+				CreateObject(color, terminalBColor, terminalBPrefab, levelRoot, w, h);
+				CreateObject(color, terminalXColor, terminalXPrefab, levelRoot, w, h);
+				CreateObject(color, terminalYColor, terminalYPrefab, levelRoot, w, h);
 			}
 		}
 	}
@@ -98,14 +128,14 @@ public class LevelLoader : MonoBehaviour
 		groundCollider.transform.localPosition = new Vector3(blockStart, 0, 0);
 	}
 	
-	private void CreateObject(Color pixelColor, Color objectColor, GameObject prefab, int x, int y, bool topAnchor = false)
+	private void CreateObject(Color pixelColor, Color objectColor, GameObject prefab, GameObject rootObject, int x, int y, bool topAnchor = false)
 	{
 		if (pixelColor == objectColor)
 		{
 			Debug.Log("Creating " + prefab.name + " at (" + x + ", " + y + ")");
 			
-			GameObject prefabObject = NGUITools.AddChild(levelRoot, prefab);
-			BoxCollider prefabCollider = prefabObject.GetComponent<BoxCollider>();
+			GameObject prefabObject = NGUITools.AddChild(rootObject, prefab);
+			BoxCollider prefabCollider = prefabObject.GetComponentInChildren<BoxCollider>();
 			prefabObject.transform.localPosition = new Vector3(x + prefabCollider.size.x * 0.5f,
 				(topAnchor ? y - prefabCollider.size.y * 0.5f : y + prefabCollider.size.y * 0.5f),
 				0);

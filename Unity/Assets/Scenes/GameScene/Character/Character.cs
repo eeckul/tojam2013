@@ -4,24 +4,22 @@ using System.Collections;
 public class Character : MonoBehaviour
 {
 	public UISprite sprite;
-	public CharacterInput input;
 	public BoxCollider boxCollider;
 	
-	#region Motion Info
+	#region Input & Motion Info
 	
 	public float movementForce;
 	public float movementMax;
 	public float jumpSpeed;
 	
-	private float movementMagnitude;
-	private bool isHoldingDown;
+	protected float movementMagnitude;
 	
-	private bool isGrounded;
-	private LevelPlatform currentPlatform;
+	protected bool isGrounded;
+	protected LevelPlatform currentPlatform;
 	
 	private bool isUpJumping;
-	private bool isDownJumping;
-	private LevelPlatform downJumpingPlatform;
+	protected bool isDownJumping;
+	protected LevelPlatform downJumpingPlatform;
 	
 	#endregion
 	
@@ -51,49 +49,17 @@ public class Character : MonoBehaviour
 	
 	#endregion
 	
-	#region Interaction Info
-	
-	private bool isInteracting;
-	private LevelInteractive currentInteractive;
-	
-	#endregion
-	
-	private void Start()
+	protected virtual void Start()
 	{
-		input.OnAPress += JumpPressed;
-		
 		SetAnimationInfo(standingFrameCount, standingFrameRate);
 	}
 	
-	private void Update()
+	protected virtual void Update()
 	{
-		UpdateInput();
-		
 		UpdateMotion();
 		
 		UpdateAnimation();
 	}
-	
-	#region Input
-	
-	private void UpdateInput()
-	{
-		Vector2 leftStickInput = input.GetStick(CharacterInput.Stick.Left);
-		
-		if (leftStickInput.x == 0)
-		{
-			movementMagnitude = 0;
-		}
-		else
-		{
-			transform.localScale = new Vector3(leftStickInput.x > 0 ? 1 : -1, 1, 1);
-			movementMagnitude = leftStickInput.x;
-		}
-		
-		isHoldingDown = leftStickInput.y > 0.5f;
-	}
-	
-	#endregion
 	
 	#region Motion
 	
@@ -141,30 +107,6 @@ public class Character : MonoBehaviour
 		}
 	}
 	
-	private void JumpPressed(bool pressed)
-	{
-		if (pressed)
-		{
-			if (!isInteracting && isGrounded)
-			{
-				if (isHoldingDown)
-				{
-					if (IsPlatformDownJumpable(currentPlatform))
-					{
-						isDownJumping = true;
-						downJumpingPlatform = currentPlatform;
-					}
-				}
-				else
-				{
-					Vector3 velocity = rigidbody.velocity;
-					velocity.y = jumpSpeed;
-					rigidbody.velocity = velocity;
-				}
-			}
-		}
-	}
-	
 	private void OnCollisionEnter(Collision collisionInfo)
 	{
 		LevelPlatform platform = collisionInfo.gameObject.GetComponent<LevelPlatform>();
@@ -188,14 +130,21 @@ public class Character : MonoBehaviour
 		}
 	}
 	
+	protected void TriggerJump()
+	{
+		Vector3 velocity = rigidbody.velocity;
+		velocity.y = jumpSpeed;
+		rigidbody.velocity = velocity;
+	}
+	
 	private void ToggleJumpCollider(bool enable)
 	{
 		Vector3 center = boxCollider.center;
-		center.z = enable ? -25f : 0;
+		center.z = enable ? -26f : 0;
 		boxCollider.center = center;
 	}
 	
-	private bool IsPlatformDownJumpable(LevelPlatform platform)
+	protected bool IsPlatformDownJumpable(LevelPlatform platform)
 	{
 		BoxCollider platformCollider = (BoxCollider)platform.collider;
 		return platformCollider.size.z <= 25f;
@@ -254,33 +203,6 @@ public class Character : MonoBehaviour
 			
 			currentFrameTime = 0;
 			currentFrameIndex = (currentFrameIndex + 1) % (currentFrameCount + 1);
-		}
-	}
-	
-	#endregion
-	
-	#region Interaction
-	
-	private void OnTriggerEnter(Collider other)
-	{
-		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
-		if (interactive != null)
-		{
-			isInteracting = true;
-			currentInteractive = interactive;
-		}
-	}
-	
-	private void OnTriggerExit(Collider other)
-	{
-		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
-		if (interactive != null)
-		{
-			if (currentInteractive == interactive)
-			{
-				isInteracting = false;
-				currentInteractive = null;
-			}
 		}
 	}
 	
