@@ -5,6 +5,7 @@ public class Character : MonoBehaviour
 {
 	public UISprite sprite;
 	public CharacterInput input;
+	public BoxCollider boxCollider;
 	
 	#region Motion Info
 	
@@ -13,7 +14,14 @@ public class Character : MonoBehaviour
 	public float jumpSpeed;
 	
 	private float movementMagnitude;
-	private bool isGrounded = false;
+	private bool isHoldingDown;
+	
+	private bool isGrounded;
+	private LevelPlatform currentPlatform;
+	
+	private bool isUpJumping;
+	private bool isDownJumping;
+	private LevelPlatform downJumpingPlatform;
 	
 	#endregion
 	
@@ -40,6 +48,13 @@ public class Character : MonoBehaviour
 	private float currentFrameInterval;
 	private int currentFrameIndex;
 	private float currentFrameTime;
+	
+	#endregion
+	
+	#region Interaction Info
+	
+	private bool isInteracting;
+	private LevelInteractive currentInteractive;
 	
 	#endregion
 	
@@ -74,6 +89,8 @@ public class Character : MonoBehaviour
 			transform.localScale = new Vector3(leftStickInput.x > 0 ? 1 : -1, 1, 1);
 			movementMagnitude = leftStickInput.x;
 		}
+		
+		isHoldingDown = leftStickInput.y > 0.5f;
 	}
 	
 	#endregion
@@ -107,32 +124,81 @@ public class Character : MonoBehaviour
 		{
 			animationState = AnimationState.Standing;
 		}
+		
+		isUpJumping = rigidbody.velocity.y > jumpSpeed * 0.05f;
+		ToggleJumpCollider(isUpJumping || isDownJumping);
+		
+		if (isDownJumping)
+		{
+			float characterY = rigidbody.position.y + boxCollider.size.y * 0.5f + boxCollider.center.y;
+			BoxCollider platformCollider = (BoxCollider)downJumpingPlatform.collider;
+			float platformY = downJumpingPlatform.transform.localPosition.y - platformCollider.size.y * 0.5f + platformCollider.center.y;
+			
+			if (characterY < platformY)
+			{
+				isDownJumping = false;
+			}	
+		}
 	}
 	
 	private void JumpPressed(bool pressed)
 	{
 		if (pressed)
 		{
-			Vector3 velocity = rigidbody.velocity;
-			velocity.y = jumpSpeed;
-			rigidbody.velocity = velocity;
+			if (!isInteracting && isGrounded)
+			{
+				if (isHoldingDown)
+				{
+					if (IsPlatformDownJumpable(currentPlatform))
+					{
+						isDownJumping = true;
+						downJumpingPlatform = currentPlatform;
+					}
+				}
+				else
+				{
+					Vector3 velocity = rigidbody.velocity;
+					velocity.y = jumpSpeed;
+					rigidbody.velocity = velocity;
+				}
+			}
 		}
 	}
 	
 	private void OnCollisionEnter(Collision collisionInfo)
 	{
-		if (collisionInfo.gameObject.GetComponent<LevelPlatform>() != null)
+		LevelPlatform platform = collisionInfo.gameObject.GetComponent<LevelPlatform>();
+		if (platform != null)
 		{
 			isGrounded = true;
+			currentPlatform = platform;
 		}
 	}
 	
 	private void OnCollisionExit(Collision collisionInfo)
 	{
-		if (collisionInfo.gameObject.GetComponent<LevelPlatform>() != null)
+		LevelPlatform platform = collisionInfo.gameObject.GetComponent<LevelPlatform>();
+		if (platform != null)
 		{
-			isGrounded = false;
+			if (currentPlatform == platform)
+			{
+				isGrounded = false;
+				currentPlatform = null;
+			}
 		}
+	}
+	
+	private void ToggleJumpCollider(bool enable)
+	{
+		Vector3 center = boxCollider.center;
+		center.z = enable ? -25f : 0;
+		boxCollider.center = center;
+	}
+	
+	private bool IsPlatformDownJumpable(LevelPlatform platform)
+	{
+		BoxCollider platformCollider = (BoxCollider)platform.collider;
+		return platformCollider.size.z <= 25f;
 	}
 	
 	#endregion
@@ -188,6 +254,33 @@ public class Character : MonoBehaviour
 			
 			currentFrameTime = 0;
 			currentFrameIndex = (currentFrameIndex + 1) % (currentFrameCount + 1);
+		}
+	}
+	
+	#endregion
+	
+	#region Interaction
+	
+	private void OnTriggerEnter(Collider other)
+	{
+		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
+		if (interactive != null)
+		{
+			isInteracting = true;
+			currentInteractive = interactive;
+		}
+	}
+	
+	private void OnTriggerExit(Collider other)
+	{
+		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
+		if (interactive != null)
+		{
+			if (currentInteractive == interactive)
+			{
+				isInteracting = false;
+				currentInteractive = null;
+			}
 		}
 	}
 	

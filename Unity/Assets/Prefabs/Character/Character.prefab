@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   sprite: {fileID: 11400002}
   input: {fileID: 11400006}
+  boxCollider: {fileID: 6500000}
   movementForce: 500
   movementMax: 50
   jumpSpeed: 150
