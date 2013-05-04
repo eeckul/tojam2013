@@ -153,7 +153,7 @@ MonoBehaviour:
   standingSpriteName: sprite_enemy2_idle
   standingFrameCount: 2
   standingFrameRate: 4
-  runningSpriteName: sprite_enemy_walk
+  runningSpriteName: sprite_enemy2_walk
   runningFrameCount: 3
   runningFrameRate: 9
 --- !u!114 &11400004

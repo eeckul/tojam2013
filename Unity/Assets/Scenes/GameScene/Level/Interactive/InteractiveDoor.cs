@@ -5,8 +5,8 @@ public class InteractiveDoor : LevelInteractive
 {
 	public enum DoorType
 	{
-		A,
-		B
+		Enemy,
+		Exit
 	}
 	
 	public DoorType doorType;

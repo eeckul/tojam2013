@@ -27,7 +27,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400002}
   m_Layer: 9
-  m_Name: InteractiveDoorB
+  m_Name: InteractiveDoorExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
