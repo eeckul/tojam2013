@@ -623,7 +623,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 765780759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 404, y: 128, z: 25}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
   m_LocalScale: {x: 808, y: 256, z: 1}
   m_Children: []
   m_Father: {fileID: 323769806}
@@ -640,12 +640,12 @@ MonoBehaviour:
   mMat: {fileID: 2100000, guid: a162815790f3147698d8eccf715a4837, type: 2}
   mTex: {fileID: 2800000, guid: a68e25c4edc994ddcba766de5accb12f, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 2
+  mPivot: 6
+  mDepth: 0
   mAtlas: {fileID: 11400000, guid: 8980a291e9a5a4b3cb90c53136a57a3f, type: 2}
   mSpriteName: level_bg
   mFillCenter: 1
-  mType: 0
+  mType: 2
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
@@ -919,12 +919,13 @@ MonoBehaviour:
   m_Name: 
   levelRoot: {fileID: 323769805}
   enemiesRoot: {fileID: 441676073}
+  backgroundSprite: {fileID: 765780761}
   playerObjects:
   - {fileID: 291969662}
   - {fileID: 1433223903}
   - {fileID: 1786441827}
   - {fileID: 1668434881}
-  colliderMap: {fileID: 2800000, guid: e302a23bcedcf4f0a99ee49b00e4f764, type: 3}
+  colliderMap: {fileID: 2800000, guid: 0a85647624c0f428eaa6d014f3e8bca3, type: 3}
   groundPrefab: {fileID: 100000, guid: 5add1de3740ce4c5e991118004e143df, type: 2}
   groundColor: {r: 0, g: 0, b: 0, a: 1}
   platformShortPrefab: {fileID: 100002, guid: 7cd048ad8350a473d81d096a87754c1f, type: 2}

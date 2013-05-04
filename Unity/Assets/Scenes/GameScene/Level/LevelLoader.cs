@@ -6,6 +6,8 @@ public class LevelLoader : MonoBehaviour
 	public GameObject levelRoot;
 	public GameObject enemiesRoot;
 	
+	public UISprite backgroundSprite;
+	
 	public Player[] playerObjects;
 	private BetterList<Player> spawnPlayerList = new BetterList<Player>();
 	
@@ -105,6 +107,10 @@ public class LevelLoader : MonoBehaviour
 				CreateGroundCollider(blockStart, blockWidth, blockHeight);
 			}
 		}
+		
+		Vector3 backgroundScale = backgroundSprite.transform.localScale;
+		backgroundScale.x = (float)width;
+		backgroundSprite.transform.localScale = backgroundScale;
 	}
 	
 	private void ObjectPass()

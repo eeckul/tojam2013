@@ -12,11 +12,4 @@ public class InteractiveTerminal : LevelInteractive
 	}
 	
 	public TerminalType terminalType;
-	
-	private void Start()
-	{
-		Vector3 size = boxCollider.size;
-		size.x *= 3f;
-		boxCollider.size = size;
-	}
 }
