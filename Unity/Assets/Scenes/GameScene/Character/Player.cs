@@ -22,6 +22,8 @@ public class Player : Character
 	{
 		base.Start();
 		
+		GameRoot.current.players.Add(this);
+		
 		input.OnAPress += OnAPress;
 	}
 	
@@ -81,8 +83,10 @@ public class Player : Character
 	
 	#region Interaction
 	
-	private void OnTriggerEnter(Collider other)
+	protected override void OnTriggerEnter(Collider other)
 	{
+		base.OnTriggerEnter(other);
+		
 		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
 		if (interactive != null)
 		{
@@ -91,8 +95,10 @@ public class Player : Character
 		}
 	}
 	
-	private void OnTriggerExit(Collider other)
+	protected override void OnTriggerExit(Collider other)
 	{
+		base.OnTriggerExit(other);
+		
 		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
 		if (interactive != null)
 		{

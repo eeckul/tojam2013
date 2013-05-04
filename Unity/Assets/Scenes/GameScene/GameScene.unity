@@ -86,6 +86,9 @@ GameObject:
   - 124: {fileID: 26403956}
   - 92: {fileID: 26403955}
   - 81: {fileID: 26403954}
+  - 114: {fileID: 26403958}
+  - 65: {fileID: 26403959}
+  - 114: {fileID: 26403960}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -100,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 26403952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 228.16127, y: 128, z: 0}
+  m_LocalPosition: {x: 227.582993, y: 128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1287820665}
@@ -153,6 +156,67 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
+--- !u!114 &26403958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26403952}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  method: 0
+  style: 0
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 26403952}
+  callWhenFinished: CameraTweenFinished
+  from: {x: 0, y: 0, z: 0}
+  to: {x: 0, y: 0, z: 0}
+--- !u!65 &26403959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26403952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &26403960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26403952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14edbc2f75544c998bc0e107a4c101f, type: 3}
+  m_Name: 
+  gameCamera: {fileID: 26403957}
+  cameraTween: {fileID: 26403958}
+  boxCollider: {fileID: 26403959}
 --- !u!1 &36281811
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +844,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae33090b9e6e34db49ea2387e84252cd, type: 3}
   m_Name: 
+  gameCamera: {fileID: 26403960}
 --- !u!114 &1287820667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +886,7 @@ MonoBehaviour:
   platformLongPrefab: {fileID: 100002, guid: 1355f9dc1b54a4a18a13ff70f472e103, type: 2}
   platformLongColor: {r: 0, g: 0, b: .752941191, a: 1}
   enemyPrefab1: {fileID: 100004, guid: 58e4abcc6b7c14e459a2a3ba7164a3ba, type: 2}
-  enemyColor1: {r: 0, g: 0, b: 0, a: 0}
+  enemyColor1: {r: 0, g: .250980407, b: 0, a: 1}
   enemyPrefab2: {fileID: 100004, guid: 30bd8e6830777439d8822d3fe8e27c0f, type: 2}
   enemyColor2: {r: 0, g: .501960814, b: 0, a: 1}
   enemyPrefab3: {fileID: 0}

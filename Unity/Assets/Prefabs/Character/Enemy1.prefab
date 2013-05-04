@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c286b6113e59a4f1d97586897b812b94, type: 3}
+  m_Script: {fileID: 11500000, guid: faad77e41a8e643aeb8c024e9594f103, type: 3}
   m_Name: 
   sprite: {fileID: 11400000}
   boxCollider: {fileID: 6500000}

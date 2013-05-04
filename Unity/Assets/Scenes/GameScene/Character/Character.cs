@@ -26,6 +26,8 @@ public class Character : MonoBehaviour
 	protected bool isBlockedOnLeft;
 	protected BetterList<GameObject> leftBlockingObjects = new BetterList<GameObject>();
 	
+	protected bool isOnCamera;
+	
 	#endregion
 	
 	#region Animation Info
@@ -161,6 +163,22 @@ public class Character : MonoBehaviour
 				isGrounded = false;
 				currentPlatform = null;
 			}
+		}
+	}
+	
+	protected virtual void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject == GameRoot.current.gameCamera.gameObject)
+		{
+			isOnCamera = true;
+		}
+	}
+	
+	protected virtual void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == GameRoot.current.gameCamera.gameObject)
+		{
+			isOnCamera = false;
 		}
 	}
 	

@@ -94,7 +94,7 @@ MonoBehaviour:
   mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 1
+  mDepth: 2
   mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
   mSpriteName: sprite_computer1
   mFillCenter: 1

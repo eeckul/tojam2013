@@ -53,7 +53,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 25}
-  m_LocalScale: {x: 100, y: 28, z: 1}
+  m_LocalScale: {x: 100, y: 175, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
 --- !u!65 &6500000
@@ -96,7 +96,7 @@ MonoBehaviour:
   mPivot: 0
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: platform_small
+  mSpriteName: 100_raisedplatform
   mFillCenter: 1
   mType: 2
   mFillDirection: 4
