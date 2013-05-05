@@ -244,6 +244,7 @@ MonoBehaviour:
   movementSpeed: 40
   minCombatDistance: 32
   minJumpDistance: 32
+  behaviour: 1
   direction: 0
 --- !u!114 &11400004
 MonoBehaviour:

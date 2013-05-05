@@ -17,6 +17,14 @@ public class Enemy : Character
 		Right
 	}
 	
+	public enum AIBehaviour
+	{
+		Hunter,
+		Guard
+	}
+	
+	public AIBehaviour behaviour;
+	
 	public Direction direction;
 	
 	protected override void Start()
@@ -44,39 +52,79 @@ public class Enemy : Character
 	{
 		bool combatRange = false;
 		
-		if ( targetPlayer == -1 || GameRoot.current.players[targetPlayer].IsDead() )
+		switch(behaviour)
 		{
-			targetPlayer = FindClosestPlayer();
-		}
+			case AIBehaviour.Hunter:
+			{
 		
-		if ( targetPlayer != -1 )
-		{
-			if ( GameRoot.current.players[targetPlayer].transform.localPosition.x < transform.localPosition.x )
-			{
-				combatRange = (transform.localPosition.x - GameRoot.current.players[targetPlayer].transform.localPosition.x) < minCombatDistance;
+				if ( targetPlayer == -1 || GameRoot.current.players[targetPlayer].IsDead() )
+				{
+					targetPlayer = FindClosestPlayer();
+				}
+		
+				if ( targetPlayer != -1 )
+				{
+					if ( GameRoot.current.players[targetPlayer].transform.localPosition.x < transform.localPosition.x )
+					{
+						combatRange = (transform.localPosition.x - GameRoot.current.players[targetPlayer].transform.localPosition.x) < minCombatDistance;
 				
-				direction = Direction.Left;
-			}
-			else
-			{
-				combatRange = (GameRoot.current.players[targetPlayer].transform.localPosition.x - transform.localPosition.x) < minCombatDistance;
+						direction = Direction.Left;
+					}
+					else
+					{
+						combatRange = (GameRoot.current.players[targetPlayer].transform.localPosition.x - transform.localPosition.x) < minCombatDistance;
 				
-				direction = Direction.Right;
-			}
+						direction = Direction.Right;
+					}
 			
-			if ( jumpSpeed > 0 )
+					if ( jumpSpeed > 0 )
+					{
+						if ( isGrounded && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance && nextAttackState == AttackState.None)
+						{
+							TriggerJump();
+						}	
+						else if ( isGrounded 
+							&& (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) < -minJumpDistance 
+							&& nextAttackState == AttackState.None && IsPlatformDownJumpable(currentPlatform) )
+						{
+							isDownJumping = true;
+							downJumpingPlatform = currentPlatform;
+						}
+					}
+				}
+				break;
+			}
+			case AIBehaviour.Guard:
 			{
-				if ( isGrounded && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance && nextAttackState == AttackState.None)
+				if ( direction == Direction.Left )
 				{
-					TriggerJump();
+					if ( (currentPlatform.transform.localPosition.x) > (transform.localPosition.x - 16) )
+					{
+						direction = Direction.Right;
+					}
 				}
-				else if ( isGrounded 
-					&& (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) < -minJumpDistance 
-					&& nextAttackState == AttackState.None && IsPlatformDownJumpable(currentPlatform) )
+				else 
 				{
-					isDownJumping = true;
-					downJumpingPlatform = currentPlatform;
+					if ( (currentPlatform.transform.localPosition.x + currentPlatform.boxCollider.size.x) < (transform.localPosition.x + 16) )
+					{
+						direction = Direction.Left;
+					}
 				}
+			
+				targetPlayer = FindPlayerInfront();
+			
+				if ( targetPlayer != -1 )
+				{
+					if ( direction == Direction.Left )
+					{
+						combatRange = (transform.localPosition.x - GameRoot.current.players[targetPlayer].transform.localPosition.x) < minCombatDistance;
+					}
+					else
+					{
+						combatRange = (GameRoot.current.players[targetPlayer].transform.localPosition.x - transform.localPosition.x) < minCombatDistance;
+					}
+				}
+				break;
 			}
 		}
 		
@@ -125,6 +173,32 @@ public class Enemy : Character
 		
 		return minPlayer;
 	}
+	
+	private int FindPlayerInfront()
+	{
+		float minDistance = -1;
+		int minPlayer = -1;
+		
+		int directionMult = 1;
+		if ( direction == Direction.Left )
+		{
+			directionMult = -1;
+		}
+		
+		for (int i = 0; i < GameRoot.current.players.size; i++)
+		{
+			float currentDistance = (GameRoot.current.players[i].transform.localPosition.x - transform.localPosition.x) * directionMult;
+			
+			if ( currentDistance > 0 && (minDistance == -1 || minDistance > currentDistance) && !GameRoot.current.players[i].IsDead() )
+			{
+				minPlayer = i;
+				minDistance = currentDistance;
+			}
+		}
+	
+		return minPlayer;
+	}
+			
 	
 	#endregion
 	
