@@ -111,6 +111,8 @@ public class Character : MonoBehaviour
 	
 	#region Combat Info
 	
+	public BoxCollider hitBox;
+	
 	public int maxHealth;
 	public int currHealth;
 	public int damage;
@@ -120,6 +122,8 @@ public class Character : MonoBehaviour
 	protected virtual void Start()
 	{
 		currHealth = maxHealth;
+		
+		NGUITools.SetActive(hitBox.gameObject, false);
 		
 		SetAnimationInfo(standingFrameCount, standingFrameRate);
 	}
@@ -360,6 +364,12 @@ public class Character : MonoBehaviour
 		{
 			isOnCamera = true;
 		}
+		
+		HitBox hitBox = other.gameObject.GetComponent<HitBox>();
+		if (hitBox != null)
+		{
+			Debug.Log(name + " got hit by " + other.gameObject.name);
+		}
 	}
 	
 	protected virtual void OnTriggerExit(Collider other)
@@ -368,6 +378,17 @@ public class Character : MonoBehaviour
 		{
 			isOnCamera = false;
 		}
+		
+		HitBox hitBox = other.gameObject.GetComponent<HitBox>();
+		if (hitBox != null)
+		{
+			Debug.Log(name + " left " + other.gameObject.name);
+		}
+	}
+	
+	public void ReceivedHit()
+	{
+		Debug.Log(name + " got hit!");
 	}
 	
 	protected void TriggerJump()
@@ -443,25 +464,25 @@ public class Character : MonoBehaviour
 			}
 			case AnimationState.LightAttack:
 			{
-				if (changedState) SetAnimationInfo(lightAttackFrameCount, lightAttackFrameRate);
+				if (changedState) SetAnimationInfo(lightAttackFrameCount, lightAttackFrameRate, true);
 				Animate (lightAttackSpriteName);
 				break;
 			}
 			case AnimationState.LightAttack2:
 			{
-				if (changedState) SetAnimationInfo(lightAttack2FrameCount, lightAttack2FrameRate);
+				if (changedState) SetAnimationInfo(lightAttack2FrameCount, lightAttack2FrameRate, true);
 				Animate (lightAttack2SpriteName);
 				break;
 			}
 			case AnimationState.HeavyAttack:
 			{
-				if (changedState) SetAnimationInfo(heavyAttackFrameCount, heavyAttackFrameRate);
+				if (changedState) SetAnimationInfo(heavyAttackFrameCount, heavyAttackFrameRate, true);
 				Animate (heavyAttackSpriteName);
 				break;
 			}
 			case AnimationState.HeavyAttackChain:
 			{
-				if (changedState) SetAnimationInfo(heavyAttackChainFrameCount, heavyAttackChainFrameRate);
+				if (changedState) SetAnimationInfo(heavyAttackChainFrameCount, heavyAttackChainFrameRate, true);
 				Animate (heavyAttackChainSpriteName);
 				break;
 			}
@@ -496,13 +517,15 @@ public class Character : MonoBehaviour
 		}
 	}
 	
-	private void SetAnimationInfo(int frameCount, float frameRate)
+	private void SetAnimationInfo(int frameCount, float frameRate, bool isAttack = false)
 	{
 		currentFrameCount = frameCount;
 		currentFrameInterval = frameRate > 0 ? 1f / frameRate : 0;
 		currentFrameIndex = 0;
 		currentFrameTime = currentFrameInterval;
 		currentLoopCount = -1;
+		
+		NGUITools.SetActive(hitBox.gameObject, isAttack);
 	}
 	
 	private void Animate(string baseSpriteName)
