@@ -84,7 +84,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 1
   mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: door4
+  mSpriteName: door_bad4
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -104,9 +104,12 @@ MonoBehaviour:
   sprite: {fileID: 11400000}
   doorType: 0
   isOpen: 0
-  animationBaseName: 
-  animationFrameCount: 0
-  animationFrameRate: 0
+  animationBaseName: door_bad
+  animationFrameCount: 4
+  animationFrameRate: 12
+  isReady: 0
+  spawnedEnemies: 0
+  enemyCount: 050000000300000000000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

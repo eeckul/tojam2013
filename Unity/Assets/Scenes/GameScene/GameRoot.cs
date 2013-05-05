@@ -14,12 +14,18 @@ public class GameRoot : MonoBehaviour
 	public BetterList<Enemy> enemiesOnCamera = new BetterList<Enemy>();
 	public BetterList<LevelInteractive> interactivesOnCamera = new BetterList<LevelInteractive>();
 	
+	public GameObject enemiesRoot;
+	public GameObject enemyPrefab1;
+	public GameObject enemyPrefab2;
+	public GameObject enemyPrefab3;
+	
 	private bool allEnemiesKilled;
+	private bool hasTerminals;
 	private bool allTerminalsActivated;
 	private bool allTerminalsCorrect;
 	private InteractiveDoor exitDoor = null;
+	private BetterList<InteractiveDoor> enemyDoors = new BetterList<InteractiveDoor>();
 	
-	private bool terminalPenaltyTriggered;
 	private bool isScreenReady;
 	public bool screenTransitionReady;
 	private bool nextLevelTriggered;
@@ -48,17 +54,23 @@ public class GameRoot : MonoBehaviour
 	{
 		UIManager.current.ToggleNextScreenArrow(false);
 		
-		terminalPenaltyTriggered = false;
 		isScreenReady = true;
 		exitDoor = null;
+		enemyDoors.Clear();
 		
 		foreach (LevelInteractive interactive in interactivesOnCamera)
 		{
 			InteractiveDoor door = interactive as InteractiveDoor;
-			if (door != null && door.doorType == InteractiveDoor.DoorType.Exit)
+			if (door != null)
 			{
-				exitDoor = door;
-				break;
+				if (door.doorType == InteractiveDoor.DoorType.Exit)
+				{
+					exitDoor = door;
+				}
+				else if (door.doorType == InteractiveDoor.DoorType.Enemy)
+				{
+					enemyDoors.Add(door);
+				}
 			}
 		}
 		
@@ -89,6 +101,7 @@ public class GameRoot : MonoBehaviour
 	
 	private void UpdateTerminalStates()
 	{
+		hasTerminals = false;
 		allTerminalsActivated = true;
 		allTerminalsCorrect = true;
 		
@@ -97,6 +110,8 @@ public class GameRoot : MonoBehaviour
 			InteractiveTerminal terminal = interactive as InteractiveTerminal;
 			if (terminal != null)
 			{
+				hasTerminals = true;
+				
 				if (!terminal.isActivated)
 				{
 					allTerminalsActivated = false;
@@ -115,12 +130,19 @@ public class GameRoot : MonoBehaviour
 	{
 		allEnemiesKilled = true;
 		
-		foreach (Enemy enemy in enemiesOnCamera)
+		if (EnemyDoorsSpawning())
 		{
-			if (!enemy.IsDead())
+			allEnemiesKilled = false;
+		}
+		else
+		{
+			foreach (Enemy enemy in enemiesOnCamera)
 			{
-				allEnemiesKilled = false;
-				break;
+				if (!enemy.IsDead())
+				{
+					allEnemiesKilled = false;
+					break;
+				}
 			}
 		}
 	}
@@ -129,19 +151,29 @@ public class GameRoot : MonoBehaviour
 	{
 		if (allEnemiesKilled)
 		{
-			if (allTerminalsActivated)
+			if (!hasTerminals)
+			{
+				if (HasClosedEnemyDoors())
+				{
+					OpenEnemyDoors();
+				}
+				else
+				{
+					StartCoroutine(TriggerNextScreen());
+				}
+			}
+			else if (allTerminalsActivated)
 			{
 				if (exitDoor != null)
 				{
-					exitDoor.isOpen = true;
-						
-					if (allTerminalsCorrect || terminalPenaltyTriggered)
+					if (allTerminalsCorrect || !HasClosedEnemyDoors())
 					{
+						exitDoor.isOpen = true;
 						exitDoor.isReady = true;
 					}
 					else
 					{
-						TriggerTerminalPenalty();
+						OpenEnemyDoors();
 					}
 				}
 				else if (isScreenReady)
@@ -152,9 +184,38 @@ public class GameRoot : MonoBehaviour
 		}
 	}
 	
-	private void TriggerTerminalPenalty()
+	private bool HasClosedEnemyDoors()
 	{
-		terminalPenaltyTriggered = true;
+		foreach (InteractiveDoor door in enemyDoors)
+		{
+			if (!door.IsFullyOpen)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private bool EnemyDoorsSpawning()
+	{
+		foreach (InteractiveDoor door in enemyDoors)
+		{
+			if (door.isSpawning)
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private void OpenEnemyDoors()
+	{
+		foreach (InteractiveDoor door in enemyDoors)
+		{
+			door.isOpen = true;
+		}
 	}
 	
 	private IEnumerator TriggerNextScreen()

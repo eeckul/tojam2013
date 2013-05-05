@@ -1245,6 +1245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae33090b9e6e34db49ea2387e84252cd, type: 3}
   m_Name: 
   gameCamera: {fileID: 26403960}
+  enemiesRoot: {fileID: 441676073}
+  enemyPrefab1: {fileID: 100004, guid: 58e4abcc6b7c14e459a2a3ba7164a3ba, type: 2}
+  enemyPrefab2: {fileID: 100004, guid: 30bd8e6830777439d8822d3fe8e27c0f, type: 2}
+  enemyPrefab3: {fileID: 0}
   screenTransitionReady: 0
 --- !u!114 &1287820667
 MonoBehaviour:
@@ -1283,7 +1287,7 @@ MonoBehaviour:
   - {fileID: 1433223903}
   - {fileID: 1786441827}
   - {fileID: 1668434881}
-  levelMap: {fileID: 2800000, guid: 81869204c56204a259f773892cd41f9e, type: 3}
+  levelMap: {fileID: 2800000, guid: 26472fb0e1d8a47308ac33730517a4ae, type: 3}
   groundPrefab: {fileID: 100000, guid: 5add1de3740ce4c5e991118004e143df, type: 2}
   groundColor: {r: 0, g: 0, b: 0, a: 1}
   platformReallyShortPrefab: {fileID: 100002, guid: c06aaafc7e11f41049071d88123afbae,
@@ -1312,10 +1316,10 @@ MonoBehaviour:
   terminalXColor: {r: 0, g: .250980407, b: .250980407, a: 1}
   terminalYPrefab: {fileID: 100002, guid: b22d36e2094ca4b7385ed74a6e66001b, type: 2}
   terminalYColor: {r: 0, g: .501960814, b: .501960814, a: 1}
-  doorPrefab1: {fileID: 100002, guid: f2c12f5213777494cbc578e8b1475bc1, type: 2}
-  doorColor1: {r: .250980407, g: 0, b: 0, a: 1}
-  doorPrefab2: {fileID: 100002, guid: 1d68aa100020541698afdcba21db506b, type: 2}
-  doorColor2: {r: .501960814, g: 0, b: 0, a: 1}
+  doorEnemyPrefab: {fileID: 100002, guid: f2c12f5213777494cbc578e8b1475bc1, type: 2}
+  doorEnemyColor: {r: .250980407, g: 0, b: 0, a: 1}
+  doorExitPrefab: {fileID: 100002, guid: 1d68aa100020541698afdcba21db506b, type: 2}
+  doorExitColor: {r: .501960814, g: 0, b: 0, a: 1}
   spawnColor: {r: .752941191, g: .752941191, b: 0, a: 1}
 --- !u!1 &1296809403
 GameObject:

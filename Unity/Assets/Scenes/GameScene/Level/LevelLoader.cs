@@ -46,10 +46,10 @@ public class LevelLoader : MonoBehaviour
 	public GameObject terminalYPrefab;
 	public Color terminalYColor = RGBColor(0, 128, 128);
 	
-	public GameObject doorPrefab1;
-	public Color doorColor1 = RGBColor(64, 0, 0);
-	public GameObject doorPrefab2;
-	public Color doorColor2 = RGBColor(128, 0, 0);
+	public GameObject doorEnemyPrefab;
+	public Color doorEnemyColor = RGBColor(64, 0, 0);
+	public GameObject doorExitPrefab;
+	public Color doorExitColor = RGBColor(128, 0, 0);
 	
 	public Color spawnColor = RGBColor(192, 192, 0);
 	
@@ -127,6 +127,7 @@ public class LevelLoader : MonoBehaviour
 			for (int h = 0; h < height; h++)
 			{
 				Color color = colors[w + h * width];
+				Color nextColor = (h + 1) < height ? colors[w + (h + 1) * width] : Color.white;
 				
 				CreateObject(color, platformReallyShortColor, platformReallyShortPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformShortColor, platformShortPrefab, levelRoot, w, h, true);
@@ -142,8 +143,8 @@ public class LevelLoader : MonoBehaviour
 				CreateObject(color, terminalXColor, terminalXPrefab, levelRoot, w, h);
 				CreateObject(color, terminalYColor, terminalYPrefab, levelRoot, w, h);
 				
-				CreateObject(color, doorColor1, doorPrefab1, levelRoot, w, h);
-				CreateObject(color, doorColor2, doorPrefab2, levelRoot, w, h);
+				CreateEnemyDoor(color, doorEnemyColor, nextColor, doorEnemyPrefab, levelRoot, w, h);
+				CreateObject(color, doorExitColor, doorExitPrefab, levelRoot, w, h);
 				
 				SpawnPlayer(color, spawnColor, w, h);
 			}
@@ -158,7 +159,7 @@ public class LevelLoader : MonoBehaviour
 		ground.transform.localPosition = new Vector3(blockStart, blockHeight, 0);
 	}
 	
-	private void CreateObject(Color pixelColor, Color objectColor, GameObject prefab, GameObject rootObject, int x, int y, bool topAnchor = false)
+	private GameObject CreateObject(Color pixelColor, Color objectColor, GameObject prefab, GameObject rootObject, int x, int y, bool topAnchor = false)
 	{
 		if (pixelColor == objectColor)
 		{
@@ -169,6 +170,26 @@ public class LevelLoader : MonoBehaviour
 			prefabObject.transform.localPosition = new Vector3(x + prefabCollider.size.x * 0.5f,
 				(topAnchor ? y - prefabCollider.size.y * 0.5f : y + prefabCollider.size.y * 0.5f),
 				0);
+			
+			return prefabObject;
+		}
+		
+		return null;
+	}
+	
+	private void CreateEnemyDoor(Color pixelColor, Color objectColor, Color nextColor, GameObject prefab, GameObject rootObject, int x, int y, bool topAnchor = false)
+	{
+		GameObject enemyDoorObject = CreateObject(pixelColor, objectColor, prefab, rootObject, x, y, topAnchor);
+		
+		if (enemyDoorObject != null && pixelColor == objectColor && nextColor != Color.white)
+		{
+			InteractiveDoor door = enemyDoorObject.GetComponent<InteractiveDoor>();
+			if (door != null)
+			{
+				door.enemyCount[0] = Mathf.RoundToInt(nextColor.r * 255f);
+				door.enemyCount[1] = Mathf.RoundToInt(nextColor.g * 255f);
+				door.enemyCount[2] = Mathf.RoundToInt(nextColor.b * 255f);
+			}
 		}
 	}
 	
