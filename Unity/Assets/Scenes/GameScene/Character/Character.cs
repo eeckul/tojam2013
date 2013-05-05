@@ -43,7 +43,8 @@ public class Character : MonoBehaviour
 		Block,
 		KnockBack,
 		Jump,
-		Down
+		Down,
+		Win
 	}
 	
 	public enum AttackState
@@ -53,7 +54,8 @@ public class Character : MonoBehaviour
 		Attack2,
 		Attack3,
 		Attack4,
-		Attack5
+		Attack5,
+		Block
 	}
 	
 	public AnimationState animationState = AnimationState.Standing;
@@ -106,6 +108,10 @@ public class Character : MonoBehaviour
 	public int downFrameCount;
 	public float downFrameRate;
 	
+	public string winSpriteName;
+	public int winFrameCount;
+	public float winFrameRate;
+	
 	private int currentFrameCount;
 	private float currentFrameInterval;
 	private int currentFrameIndex;
@@ -119,6 +125,17 @@ public class Character : MonoBehaviour
 	private float damageFlashRate;
 	private float damageFlashTimeSinceLastFlash;
 	
+	public enum VictoryState
+	{
+		None,
+		Win,
+		Lose
+	}
+	
+	public VictoryState victoryState;
+	
+	public bool playInteractionAnimation;
+		
 	#endregion
 	
 	#region Combat Info
@@ -183,7 +200,7 @@ public class Character : MonoBehaviour
 		}
 		else
 		{
-			if ( IsDead() )
+			if ( IsDead() && lives > 0 )
 			{
 				Respawn();
 			}
@@ -201,6 +218,21 @@ public class Character : MonoBehaviour
 		if (IsDead())
 		{
 			animationState = AnimationState.Down;
+		}
+		else if (victoryState != VictoryState.None)
+		{
+			if ( victoryState == VictoryState.Win )
+			{
+				animationState = AnimationState.Win;
+			}
+			else
+			{
+				animationState = AnimationState.Down;
+			}
+		}
+		else if (playInteractionAnimation)
+		{
+			animationState = AnimationState.Standing;	
 		}
 		else if (knockbackTime > 0.0f)
 		{
@@ -654,6 +686,12 @@ public class Character : MonoBehaviour
 			{
 				if (changedState) SetAnimationInfo(downFrameCount, downFrameRate);
 				Animate(downSpriteName);
+				break;
+			}
+			case AnimationState.Win:
+			{
+				if (changedState) SetAnimationInfo(winFrameCount, winFrameRate);
+				Animate(winSpriteName);
 				break;
 			}
 			default:

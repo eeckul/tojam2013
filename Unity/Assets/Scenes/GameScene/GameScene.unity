@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-GameManager:
+LevelGameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -437,11 +437,11 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 2100000, guid: 2e0d9dd4252d5490195515fb95a27b6d, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 2800000, guid: e09114b278cd248f7bd8b44bf9b90790, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
   m_RootGameObject: {fileID: 291969658}
@@ -817,6 +817,10 @@ MonoBehaviour:
   downSpriteName: sprite_downstate
   downFrameCount: 3
   downFrameRate: 4
+  winSpriteName: sprite_win
+  winFrameCount: 4
+  winFrameRate: 4
+  victoryState: 0
   hitBox: {fileID: 63545919}
   maxHealth: 100
   currHealth: 0
@@ -1972,7 +1976,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933984806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -.266666681, y: .265625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296809405}
@@ -2654,11 +2658,11 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 2100000, guid: 76a7bc2faa7f54cbb81cfd7bbc57270f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 2800000, guid: 125c06de522364bfcabc94d69b0a31ab, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: controller
       value: 3
@@ -2788,6 +2792,10 @@ Prefab:
       propertyPath: attack5SpriteName
       value: sprite4_2heavyattack
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: winSpriteName
+      value: sprite4_win
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
   m_RootGameObject: {fileID: 1668434878}
@@ -2857,11 +2865,11 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 2100000, guid: f0498ba7c19444cf79deae3be25b1457, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 2800000, guid: 734ba170d33644ba0a8d1259ff1c6128, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: controller
       value: 1
@@ -2990,6 +2998,10 @@ Prefab:
     - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: attack5SpriteName
       value: sprite2_2heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: winSpriteName
+      value: sprite2_win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3243,6 +3255,10 @@ MonoBehaviour:
   downSpriteName: sprite2_downstate
   downFrameCount: 3
   downFrameRate: 4
+  winSpriteName: sprite2_win
+  winFrameCount: 4
+  winFrameRate: 4
+  victoryState: 0
   hitBox: {fileID: 570218097}
   maxHealth: 100
   currHealth: 0
@@ -3307,11 +3323,11 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 2100000, guid: cf6c269a6af434daaab53016fb49eaf6, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 2800000, guid: 9b88cb24599bd4884ae90e9e50810b55, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: controller
       value: 2
@@ -3440,6 +3456,10 @@ Prefab:
     - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: attack5SpriteName
       value: sprite3_2heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: winSpriteName
+      value: sprite3_win
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3801,6 +3821,10 @@ MonoBehaviour:
   downSpriteName: sprite4_downstate
   downFrameCount: 3
   downFrameRate: 4
+  winSpriteName: sprite4_win
+  winFrameCount: 4
+  winFrameRate: 4
+  victoryState: 0
   hitBox: {fileID: 1195186708}
   maxHealth: 100
   currHealth: 0
@@ -3999,6 +4023,10 @@ MonoBehaviour:
   downSpriteName: sprite3_downstate
   downFrameCount: 3
   downFrameRate: 4
+  winSpriteName: sprite3_win
+  winFrameCount: 4
+  winFrameRate: 4
+  victoryState: 0
   hitBox: {fileID: 2119457282}
   maxHealth: 100
   currHealth: 0

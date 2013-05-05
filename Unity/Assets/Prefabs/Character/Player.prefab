@@ -290,6 +290,10 @@ MonoBehaviour:
   downSpriteName: sprite_downstate
   downFrameCount: 3
   downFrameRate: 4
+  winSpriteName: sprite_win
+  winFrameCount: 4
+  winFrameRate: 4
+  victoryState: 0
   hitBox: {fileID: 6500002}
   maxHealth: 100
   currHealth: 0
