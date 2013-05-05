@@ -317,7 +317,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 63545918}
@@ -335,7 +335,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 63545917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -347,20 +347,20 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500002, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 63545917}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 16, z: 25}
-  m_Center: {x: 24, y: 0, z: 0}
+  m_Size: {x: 10, y: 16, z: 25}
+  m_Center: {x: 10, y: 0, z: 0}
 --- !u!114 &63545920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400008, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 63545917}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -372,7 +372,7 @@ Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5400002, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 63545917}
   serializedVersion: 2
   m_Mass: 1
@@ -383,7 +383,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &66715382
+--- !u!1001 &75489048
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -496,56 +496,6 @@ MonoBehaviour:
   mType: 3
   mFillDirection: 1
   mFillAmount: .75999999
-  mInvert: 0
---- !u!1 &181095525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1345828639}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 181095526}
-  - 114: {fileID: 181095527}
-  m_Layer: 10
-  m_Name: SaboteurButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &181095526
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1345828639}
-  m_GameObject: {fileID: 181095525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
-  m_LocalScale: {x: 32, y: 32, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1433223901}
---- !u!114 &181095527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
-    type: 2}
-  m_PrefabInternal: {fileID: 1345828639}
-  m_GameObject: {fileID: 181095525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
-  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 1
-  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: DC_buttons_A
-  mFillCenter: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
   mInvert: 0
 --- !u!1 &183779196
 GameObject:
@@ -695,11 +645,61 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
+--- !u!1 &236560597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 75489048}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 236560599}
+  - 114: {fileID: 236560598}
+  m_Layer: 10
+  m_Name: SaboteurButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &236560598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
+    type: 2}
+  m_PrefabInternal: {fileID: 75489048}
+  m_GameObject: {fileID: 236560597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
+  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
+  mSpriteName: DC_buttons_A
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+--- !u!4 &236560599
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 75489048}
+  m_GameObject: {fileID: 236560597}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_Children: []
+  m_Father: {fileID: 291969659}
 --- !u!1 &291969658
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 291969659}
@@ -718,7 +718,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 291969658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 83.4664536, y: 60, z: 12.5}
@@ -726,7 +726,7 @@ Transform:
   m_Children:
   - {fileID: 1848200146}
   - {fileID: 63545918}
-  - {fileID: 1183387013}
+  - {fileID: 236560599}
   - {fileID: 1926815754}
   m_Father: {fileID: 36281812}
 --- !u!54 &291969660
@@ -734,7 +734,7 @@ Rigidbody:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5400000, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 291969658}
   serializedVersion: 2
   m_Mass: 1
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 291969658}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 291969658}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -783,24 +783,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightattack
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite_2lightattack
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite_heavyattack
-  heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite_heavyattack
-  heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite_lightattack
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite_2lightattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite_heavattack
+  attack3FrameCount: 1
+  attack3FrameRate: 2
+  attack4SpriteName: sprite_2heavyattack
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite_2heavyattack
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -816,18 +820,23 @@ MonoBehaviour:
   hitBox: {fileID: 63545919}
   maxHealth: 100
   currHealth: 0
-  damage: 10
+  attack1Damage: 20
+  attack2Damage: 25
+  attack3Damage: 30
+  attack4Damage: 35
+  attack5Damage: 40
+  lives: 5
   characterType: 0
   input: {fileID: 291969663}
   hud: {fileID: 586081016}
   playerIndex: 0
-  saboteurButton: {fileID: 1183387014}
+  saboteurButton: {fileID: 236560598}
 --- !u!114 &291969663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400006, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 291969658}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1267,8 +1276,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 16, z: 25}
-  m_Center: {x: 24, y: 0, z: 0}
+  m_Size: {x: 10, y: 16, z: 25}
+  m_Center: {x: 10, y: 0, z: 0}
 --- !u!114 &570218098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1567,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 32, z: 25}
+  m_Size: {x: 18, y: 32, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &706056120
 GameObject:
@@ -1820,7 +1829,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 32, z: 25}
+  m_Size: {x: 18, y: 32, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &806069478
 Prefab:
@@ -1890,106 +1899,6 @@ Prefab:
   m_RootGameObject: {fileID: 586081014}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &847105242
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1303121654}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 847105243}
-  - 114: {fileID: 847105244}
-  m_Layer: 10
-  m_Name: SaboteurButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &847105243
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1303121654}
-  m_GameObject: {fileID: 847105242}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
-  m_LocalScale: {x: 32, y: 32, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1668434879}
---- !u!114 &847105244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
-    type: 2}
-  m_PrefabInternal: {fileID: 1303121654}
-  m_GameObject: {fileID: 847105242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
-  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 1
-  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: DC_buttons_A
-  mFillCenter: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
---- !u!1 &889939724
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1492078360}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 889939725}
-  - 114: {fileID: 889939726}
-  m_Layer: 10
-  m_Name: SaboteurButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &889939725
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 1492078360}
-  m_GameObject: {fileID: 889939724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
-  m_LocalScale: {x: 32, y: 32, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1786441825}
---- !u!114 &889939726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
-    type: 2}
-  m_PrefabInternal: {fileID: 1492078360}
-  m_GameObject: {fileID: 889939724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
-  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 1
-  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: DC_buttons_A
-  mFillCenter: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
 --- !u!1 &929289970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,56 +2331,6 @@ MonoBehaviour:
   mClipping: 1
   mClipRange: {x: 0, y: 0, z: 18, w: 18}
   mClipSoftness: {x: 40, y: 40}
---- !u!1 &1183387012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1183387013}
-  - 114: {fileID: 1183387014}
-  m_Layer: 10
-  m_Name: SaboteurButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1183387013
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
-  m_GameObject: {fileID: 1183387012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 24, z: 0}
-  m_LocalScale: {x: 32, y: 32, z: 1}
-  m_Children: []
-  m_Father: {fileID: 291969659}
---- !u!114 &1183387014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
-    type: 2}
-  m_PrefabInternal: {fileID: 66715382}
-  m_GameObject: {fileID: 1183387012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
-  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 1
-  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: DC_buttons_A
-  mFillCenter: 1
-  mType: 0
-  mFillDirection: 4
-  mFillAmount: 1
-  mInvert: 0
 --- !u!1 &1195186706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,8 +2371,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 16, z: 25}
-  m_Center: {x: 24, y: 0, z: 0}
+  m_Size: {x: 10, y: 16, z: 25}
+  m_Center: {x: 10, y: 0, z: 0}
 --- !u!114 &1195186709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,6 +2752,14 @@ Prefab:
       propertyPath: playerIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mMat
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mTex
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
@@ -2900,6 +2767,26 @@ Prefab:
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack1SpriteName
+      value: sprite4_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack2SpriteName
+      value: sprite4_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack3SpriteName
+      value: sprite4_heavattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack4SpriteName
+      value: sprite4_2heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack5SpriteName
+      value: sprite4_2heavyattack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3068,6 +2955,14 @@ Prefab:
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mMat
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mTex
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
@@ -3075,6 +2970,26 @@ Prefab:
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack1SpriteName
+      value: sprite2_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack2SpriteName
+      value: sprite2_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack3SpriteName
+      value: sprite2_heavattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack4SpriteName
+      value: sprite2_2heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack5SpriteName
+      value: sprite2_2heavyattack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3261,7 +3176,7 @@ Transform:
   m_Children:
   - {fileID: 797837959}
   - {fileID: 570218096}
-  - {fileID: 181095526}
+  - {fileID: 1699046363}
   - {fileID: 1095192392}
   m_Father: {fileID: 36281812}
 --- !u!114 &1433223902
@@ -3294,24 +3209,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite2_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite2_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite2_lightattack
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite2_2lightattack
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite2_heavyattack
-  heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite2_heavyattack
-  heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite2_lightattack
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite2_2lightattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite2_heavattack
+  attack3FrameCount: 1
+  attack3FrameRate: 2
+  attack4SpriteName: sprite2_2heavyattack
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite2_2heavyattack
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite2_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -3327,12 +3246,17 @@ MonoBehaviour:
   hitBox: {fileID: 570218097}
   maxHealth: 100
   currHealth: 0
-  damage: 10
+  attack1Damage: 20
+  attack2Damage: 25
+  attack3Damage: 30
+  attack4Damage: 35
+  attack5Damage: 40
+  lives: 5
   characterType: 0
   input: {fileID: 1433223902}
   hud: {fileID: 2051797695}
   playerIndex: 1
-  saboteurButton: {fileID: 181095527}
+  saboteurButton: {fileID: 1699046364}
 --- !u!54 &1433223904
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3481,6 +3405,14 @@ Prefab:
       propertyPath: playerIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mMat
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mTex
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
@@ -3488,6 +3420,26 @@ Prefab:
     - target: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack1SpriteName
+      value: sprite3_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack2SpriteName
+      value: sprite3_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack3SpriteName
+      value: sprite3_heavattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack4SpriteName
+      value: sprite3_2heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: attack5SpriteName
+      value: sprite3_2heavyattack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3749,7 +3701,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 32, z: 25}
+  m_Size: {x: 18, y: 32, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1668434878
 GameObject:
@@ -3782,7 +3734,7 @@ Transform:
   m_Children:
   - {fileID: 673561718}
   - {fileID: 1195186707}
-  - {fileID: 847105243}
+  - {fileID: 1952720479}
   - {fileID: 788032583}
   m_Father: {fileID: 36281812}
 --- !u!114 &1668434880
@@ -3815,24 +3767,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite4_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite4_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite4_lightattack
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite4_2lightattack
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite4_heavyattack
-  heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite4_heavyattack
-  heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite4_lightattack
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite4_2lightattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite4_heavattack
+  attack3FrameCount: 1
+  attack3FrameRate: 2
+  attack4SpriteName: sprite4_2heavyattack
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite4_2heavyattack
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite4_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -3848,12 +3804,17 @@ MonoBehaviour:
   hitBox: {fileID: 1195186708}
   maxHealth: 100
   currHealth: 0
-  damage: 10
+  attack1Damage: 20
+  attack2Damage: 25
+  attack3Damage: 30
+  attack4Damage: 35
+  attack5Damage: 40
+  lives: 5
   characterType: 0
   input: {fileID: 1668434880}
   hud: {fileID: 761252248}
   playerIndex: 3
-  saboteurButton: {fileID: 847105244}
+  saboteurButton: {fileID: 1952720480}
 --- !u!54 &1668434882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3890,6 +3851,56 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
   mClipSoftness: {x: 40, y: 40}
+--- !u!1 &1699046362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1345828639}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1699046363}
+  - 114: {fileID: 1699046364}
+  m_Layer: 10
+  m_Name: SaboteurButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1699046363
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1345828639}
+  m_GameObject: {fileID: 1699046362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1433223901}
+--- !u!114 &1699046364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
+    type: 2}
+  m_PrefabInternal: {fileID: 1345828639}
+  m_GameObject: {fileID: 1699046362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
+  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
+  mSpriteName: DC_buttons_A
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &1786441824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,7 +3932,7 @@ Transform:
   m_Children:
   - {fileID: 1661649119}
   - {fileID: 2119457281}
-  - {fileID: 889939725}
+  - {fileID: 2067002128}
   - {fileID: 235964973}
   m_Father: {fileID: 36281812}
 --- !u!114 &1786441826
@@ -3954,24 +3965,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite3_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite3_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite3_lightattack
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite3_2lightattack
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite3_heavyattack
-  heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite3_heavyattack
-  heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite3_lightattack
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite3_2lightattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite3_heavattack
+  attack3FrameCount: 1
+  attack3FrameRate: 2
+  attack4SpriteName: sprite3_2heavyattack
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite3_2heavyattack
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite3_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -3987,12 +4002,17 @@ MonoBehaviour:
   hitBox: {fileID: 2119457282}
   maxHealth: 100
   currHealth: 0
-  damage: 10
+  attack1Damage: 20
+  attack2Damage: 25
+  attack3Damage: 30
+  attack4Damage: 35
+  attack5Damage: 40
+  lives: 5
   characterType: 0
   input: {fileID: 1786441826}
   hud: {fileID: 1346385177}
   playerIndex: 2
-  saboteurButton: {fileID: 889939726}
+  saboteurButton: {fileID: 2067002129}
 --- !u!54 &1786441828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4033,7 +4053,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1848200146}
@@ -4049,7 +4069,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 1848200145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4061,13 +4081,13 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6500000, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 1848200145}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 32, z: 25}
+  m_Size: {x: 18, y: 32, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1891209884
 GameObject:
@@ -4121,7 +4141,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1926815754}
@@ -4137,7 +4157,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 1926815753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -4149,7 +4169,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815,
     type: 2}
-  m_PrefabInternal: {fileID: 66715382}
+  m_PrefabInternal: {fileID: 75489048}
   m_GameObject: {fileID: 1926815753}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -4162,6 +4182,56 @@ MonoBehaviour:
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: c1daf95a0b7184e7598ae670879a725c, type: 2}
   mSpriteName: sprite_idle1
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+--- !u!1 &1952720478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1303121654}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1952720479}
+  - 114: {fileID: 1952720480}
+  m_Layer: 10
+  m_Name: SaboteurButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1952720479
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1303121654}
+  m_GameObject: {fileID: 1952720478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1668434879}
+--- !u!114 &1952720480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
+    type: 2}
+  m_PrefabInternal: {fileID: 1303121654}
+  m_GameObject: {fileID: 1952720478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
+  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
+  mSpriteName: DC_buttons_A
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -4211,6 +4281,56 @@ MonoBehaviour:
   healthSprite: {fileID: 999016263}
   minFill: .25999999
   maxFill: .75999999
+--- !u!1 &2067002127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1492078360}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2067002128}
+  - 114: {fileID: 2067002129}
+  m_Layer: 10
+  m_Name: SaboteurButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067002128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+  m_PrefabInternal: {fileID: 1492078360}
+  m_GameObject: {fileID: 2067002127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 24, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1786441825}
+--- !u!114 &2067002129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: e3683268dbffb4c1785348035a9cf815,
+    type: 2}
+  m_PrefabInternal: {fileID: 1492078360}
+  m_GameObject: {fileID: 2067002127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
+  mTex: {fileID: 2800000, guid: 3e5faba5cdc8547bab79ed4e4a544a53, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 1
+  mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
+  mSpriteName: DC_buttons_A
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &2095495591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,8 +4448,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 16, z: 25}
-  m_Center: {x: 24, y: 0, z: 0}
+  m_Size: {x: 10, y: 16, z: 25}
+  m_Center: {x: 10, y: 0, z: 0}
 --- !u!114 &2119457283
 MonoBehaviour:
   m_ObjectHideFlags: 0
