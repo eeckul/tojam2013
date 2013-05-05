@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: DC_Arrow
     outer:
       serializedVersion: 2
-      x: 291
-      y: 348
+      x: 130
+      y: 65
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 291
-      y: 348
+      x: 130
+      y: 65
       width: 32
       height: 32
     rotated: 0
@@ -60,14 +60,14 @@ MonoBehaviour:
   - name: DC_Display_Health_Empty
     outer:
       serializedVersion: 2
-      x: 226
-      y: 330
+      x: 0
+      y: 15
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 226
-      y: 330
+      x: 0
+      y: 15
       width: 64
       height: 50
     rotated: 0
@@ -78,14 +78,14 @@ MonoBehaviour:
   - name: DC_Healthgoo
     outer:
       serializedVersion: 2
-      x: 251
-      y: 279
+      x: 65
+      y: 15
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 251
-      y: 279
+      x: 65
+      y: 15
       width: 64
       height: 50
     rotated: 0
@@ -96,14 +96,14 @@ MonoBehaviour:
   - name: DC_Robots Win
     outer:
       serializedVersion: 2
-      x: 0
-      y: 48
+      x: 226
+      y: 432
       width: 150
       height: 80
     inner:
       serializedVersion: 2
-      x: 0
-      y: 48
+      x: 226
+      y: 432
       width: 150
       height: 80
     rotated: 0
@@ -114,14 +114,14 @@ MonoBehaviour:
   - name: DC_Goats Win
     outer:
       serializedVersion: 2
-      x: 151
-      y: 48
+      x: 226
+      y: 351
       width: 128
       height: 80
     inner:
       serializedVersion: 2
-      x: 151
-      y: 48
+      x: 226
+      y: 351
       width: 128
       height: 80
     rotated: 0
@@ -132,52 +132,16 @@ MonoBehaviour:
   - name: heart
     outer:
       serializedVersion: 2
-      x: 0
-      y: 15
+      x: 129
+      y: 98
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 15
+      x: 129
+      y: 98
       width: 32
       height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: DC_Controls
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 511
-      width: 808
-      height: 256
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 511
-      width: 808
-      height: 256
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: DC_Credits
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 768
-      width: 808
-      height: 256
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 768
-      width: 808
-      height: 256
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -187,13 +151,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 280
+      y: 282
       width: 225
       height: 230
     inner:
       serializedVersion: 2
       x: 0
-      y: 280
+      y: 282
       width: 225
       height: 230
     rotated: 0
@@ -205,13 +169,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 129
+      y: 131
       width: 250
       height: 150
     inner:
       serializedVersion: 2
       x: 0
-      y: 129
+      y: 131
       width: 250
       height: 150
     rotated: 0
@@ -223,13 +187,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 226
-      y: 446
+      y: 286
       width: 128
       height: 64
     inner:
       serializedVersion: 2
       x: 226
-      y: 446
+      y: 286
       width: 128
       height: 64
     rotated: 0
@@ -240,14 +204,14 @@ MonoBehaviour:
   - name: DC_start_button
     outer:
       serializedVersion: 2
-      x: 226
-      y: 381
+      x: 0
+      y: 66
       width: 128
       height: 64
     inner:
       serializedVersion: 2
-      x: 226
-      y: 381
+      x: 0
+      y: 66
       width: 128
       height: 64
     rotated: 0
