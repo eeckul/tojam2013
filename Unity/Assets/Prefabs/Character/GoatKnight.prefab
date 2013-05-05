@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 230.397446, y: 60.6995201, z: 0}
+  m_LocalPosition: {x: 148.171295, y: 62.6534424, z: -9.92803574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -155,7 +155,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 32, z: 25}
+  m_Size: {x: 18, y: 32, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6500002
 BoxCollider:
@@ -167,8 +167,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 16, z: 25}
-  m_Center: {x: 16, y: 0, z: 0}
+  m_Size: {x: 10, y: 16, z: 25}
+  m_Center: {x: 12, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,24 +205,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite_gknight_idle
   standingFrameCount: 3
   standingFrameRate: 6
   runningSpriteName: sprite_gknight_walk
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_gknight_lightattack
-  lightAttackFrameCount: 1
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite_gknight_lightattack
-  lightAttack2FrameCount: 1
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite_gknight_heavyattack
-  heavyAttackFrameCount: 2
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite_gknight_heavyattack
-  heavyAttackChainFrameCount: 2
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: lightattack
+  attack1FrameCount: 1
+  attack1FrameRate: 4
+  attack2SpriteName: heavyattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: lightattack
+  attack3FrameCount: 1
+  attack3FrameRate: 4
+  attack4SpriteName: lightattack
+  attack4FrameCount: 1
+  attack4FrameRate: 4
+  attack5SpriteName: lightattack
+  attack5FrameCount: 1
+  attack5FrameRate: 4
   blockSpriteName: sprite_gknight_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -238,7 +242,12 @@ MonoBehaviour:
   hitBox: {fileID: 6500002}
   maxHealth: 50
   currHealth: 0
-  damage: 10
+  attack1Damage: 10
+  attack2Damage: 10
+  attack3Damage: 10
+  attack4Damage: 10
+  attack5Damage: 10
+  lives: 0
   characterType: 1
   isEnabled: 0
   movementSpeed: 40

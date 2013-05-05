@@ -35,10 +35,11 @@ public class Character : MonoBehaviour
 	{
 		Standing,
 		Running,
-		LightAttack,
-		LightAttack2,
-		HeavyAttack,
-		HeavyAttackChain,
+		Attack1,
+		Attack2,
+		Attack3,
+		Attack4,
+		Attack5,
 		Block,
 		KnockBack,
 		Jump,
@@ -48,17 +49,18 @@ public class Character : MonoBehaviour
 	public enum AttackState
 	{
 		None,
-		LightAttack,
-		LightAttack2,
-		HeavyAttack,
-		HeavyAttackChain
+		Attack1,
+		Attack2,
+		Attack3,
+		Attack4,
+		Attack5
 	}
 	
 	public AnimationState animationState = AnimationState.Standing;
 	private AnimationState currentState = AnimationState.Standing;
 	
 	protected AttackState nextAttackState = AttackState.None;
-	protected AttackState currentAttackState = AttackState.None;
+	public AttackState currentAttackState = AttackState.None;
 	
 	public string standingSpriteName;
 	public int standingFrameCount;
@@ -68,21 +70,25 @@ public class Character : MonoBehaviour
 	public int runningFrameCount;
 	public float runningFrameRate;
 	
-	public string lightAttackSpriteName;
-	public int lightAttackFrameCount;
-	public float lightAttackFrameRate;
+	public string attack1SpriteName;
+	public int attack1FrameCount;
+	public float attack1FrameRate;
 	
-	public string lightAttack2SpriteName;
-	public int lightAttack2FrameCount;
-	public float lightAttack2FrameRate;
+	public string attack2SpriteName;
+	public int attack2FrameCount;
+	public float attack2FrameRate;
 	
-	public string heavyAttackSpriteName;
-	public int heavyAttackFrameCount;
-	public float heavyAttackFrameRate;
+	public string attack3SpriteName;
+	public int attack3FrameCount;
+	public float attack3FrameRate;
 	
-	public string heavyAttackChainSpriteName;
-	public int heavyAttackChainFrameCount;
-	public float heavyAttackChainFrameRate;
+	public string attack4SpriteName;
+	public int attack4FrameCount;
+	public float attack4FrameRate;
+	
+	public string attack5SpriteName;
+	public int attack5FrameCount;
+	public float attack5FrameRate;
 	
 	public string blockSpriteName;
 	public int blockFrameCount;
@@ -121,7 +127,12 @@ public class Character : MonoBehaviour
 	
 	public int maxHealth;
 	public int currHealth;
-	public int damage;
+	public int attack1Damage;
+	public int attack2Damage;
+	public int attack3Damage;
+	public int attack4Damage;
+	public int attack5Damage;
+	public int lives;
 	
 	public enum CharacterType
 	{
@@ -130,6 +141,8 @@ public class Character : MonoBehaviour
 	}
 	
 	public CharacterType characterType;
+	
+	protected int attackCount;
 	
 	#endregion
 	
@@ -170,6 +183,11 @@ public class Character : MonoBehaviour
 		}
 		else
 		{
+			if ( IsDead() )
+			{
+				Respawn();
+			}
+			
 			Color c = sprite.color;
 			c.a = 1.0f;
 			sprite.color = c;
@@ -203,12 +221,137 @@ public class Character : MonoBehaviour
 		{
 			switch ( nextAttackState )
 			{
-				case AttackState.LightAttack:
+				case AttackState.Attack1:
 				{
 					switch ( currentAttackState )
 					{
-						case AttackState.LightAttack:
+						case AttackState.Attack1:
 						{
+							if ( currentLoopCount > 0 )
+							{
+								attackCount --;
+								if ( attackCount == 0 )
+								{
+									//end animation
+									nextAttackState = AttackState.None;
+									currentAttackState = AttackState.None;
+								}
+								else
+								{
+									nextAttackState = AttackState.Attack2;
+								}
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.Attack1;
+							currentAttackState = AttackState.Attack1;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.Attack2:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.Attack2:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								attackCount --;
+								if ( attackCount == 0 )
+								{
+									//end animation
+									nextAttackState = AttackState.None;
+									currentAttackState = AttackState.None;
+								}
+								else
+								{
+									nextAttackState = AttackState.Attack3;
+								}
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.Attack2;
+							currentAttackState = AttackState.Attack2;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.Attack3:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.Attack3:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								attackCount --;
+								if ( attackCount == 0 )
+								{
+									//end animation
+									nextAttackState = AttackState.None;
+									currentAttackState = AttackState.None;
+								}
+								else
+								{
+									nextAttackState = AttackState.Attack4;
+								}
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.Attack3;
+							currentAttackState = AttackState.Attack3;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.Attack4:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.Attack4:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								attackCount --;
+								if ( attackCount == 0 )
+								{
+									//end animation
+									nextAttackState = AttackState.None;
+									currentAttackState = AttackState.None;
+								}
+								else
+								{
+									nextAttackState = AttackState.Attack5;
+								}
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.Attack4;
+							currentAttackState = AttackState.Attack4;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.Attack5:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.Attack5:
+						{
+							attackCount = 0;
 							if ( currentLoopCount > 0 )
 							{
 								//end animation
@@ -219,82 +362,14 @@ public class Character : MonoBehaviour
 						}
 						default:
 						{
-							animationState = AnimationState.LightAttack;
-							currentAttackState = AttackState.LightAttack;
+							animationState = AnimationState.Attack5;
+							currentAttackState = AttackState.Attack5;
 							break;
 						}					
 					}
 					break;
 				}
-				case AttackState.LightAttack2:
-				{
-					switch ( currentAttackState )
-					{
-						case AttackState.LightAttack2:
-						{
-							if ( currentLoopCount > 0 )
-							{
-								//end animation
-								nextAttackState = AttackState.None;
-								currentAttackState = AttackState.None;
-							}
-							break;
-						}
-						default:
-						{
-							animationState = AnimationState.LightAttack2;
-							currentAttackState = AttackState.LightAttack2;
-							break;
-						}					
-					}
-					break;
-				}
-				case AttackState.HeavyAttack:
-				{
-					switch ( currentAttackState )
-					{
-						case AttackState.HeavyAttack:
-						{
-							if ( currentLoopCount > 0 )
-							{
-								//end animation
-								nextAttackState = AttackState.None;
-								currentAttackState = AttackState.None;
-							}
-							break;
-						}
-						default:
-						{
-							animationState = AnimationState.HeavyAttack;
-							currentAttackState = AttackState.HeavyAttack;
-							break;
-						}					
-					}
-					break;
-				}
-				case AttackState.HeavyAttackChain:
-				{
-					switch ( currentAttackState )
-					{
-						case AttackState.HeavyAttackChain:
-						{
-							if ( currentLoopCount > 0 )
-							{
-								//end animation
-								nextAttackState = AttackState.None;
-								currentAttackState = AttackState.None;
-							}
-							break;
-						}
-						default:
-						{
-							animationState = AnimationState.HeavyAttackChain;
-							currentAttackState = AttackState.HeavyAttackChain;
-							break;
-						}					
-					}
-					break;
-				}
+
 				default:
 				{
 					//DO NOTHING
@@ -468,27 +543,26 @@ public class Character : MonoBehaviour
 		return platformCollider.size.z <= 25f;
 	}
 	
-	protected void TriggerLightAttack()
+	protected void TriggerPlayerAttack()
 	{
+		attackCount++;
+		
+		if (attackCount >= 5)
+		{
+			attackCount = 5;
+		}
 		if ( nextAttackState == AttackState.None )
 		{
-			nextAttackState = AttackState.LightAttack;
+			nextAttackState = AttackState.Attack1;
 		}
-		else if ( nextAttackState == AttackState.LightAttack )
-		{
-			nextAttackState = AttackState.LightAttack2;
-		}		
 	}
 	
-	protected void TriggerHeavyAttack()
+	protected void TriggerEnemyAttack()
 	{
 		if ( nextAttackState == AttackState.None )
 		{
-			nextAttackState = AttackState.HeavyAttack;
-		}
-		else if ( nextAttackState == AttackState.LightAttack || nextAttackState == AttackState.LightAttack2 )
-		{
-			nextAttackState = AttackState.HeavyAttackChain;
+			attackCount = 1;
+			nextAttackState = AttackState.Attack1;
 		}
 	}
 	
@@ -528,28 +602,34 @@ public class Character : MonoBehaviour
 				Animate(runningSpriteName);
 				break;
 			}
-			case AnimationState.LightAttack:
+			case AnimationState.Attack1:
 			{
-				if (changedState) SetAnimationInfo(lightAttackFrameCount, lightAttackFrameRate, true);
-				Animate (lightAttackSpriteName);
+				if (changedState) SetAnimationInfo(attack1FrameCount, attack1FrameRate, true);
+				Animate (attack1SpriteName);
 				break;
 			}
-			case AnimationState.LightAttack2:
+			case AnimationState.Attack2:
 			{
-				if (changedState) SetAnimationInfo(lightAttack2FrameCount, lightAttack2FrameRate, true);
-				Animate (lightAttack2SpriteName);
+				if (changedState) SetAnimationInfo(attack2FrameCount, attack2FrameRate, true);
+				Animate (attack2SpriteName);
 				break;
 			}
-			case AnimationState.HeavyAttack:
+			case AnimationState.Attack3:
 			{
-				if (changedState) SetAnimationInfo(heavyAttackFrameCount, heavyAttackFrameRate, true);
-				Animate (heavyAttackSpriteName);
+				if (changedState) SetAnimationInfo(attack3FrameCount, attack3FrameRate, true);
+				Animate (attack3SpriteName);
 				break;
 			}
-			case AnimationState.HeavyAttackChain:
+			case AnimationState.Attack4:
 			{
-				if (changedState) SetAnimationInfo(heavyAttackChainFrameCount, heavyAttackChainFrameRate, true);
-				Animate (heavyAttackChainSpriteName);
+				if (changedState) SetAnimationInfo(attack4FrameCount, attack4FrameRate, true);
+				Animate (attack4SpriteName);
+				break;
+			}
+			case AnimationState.Attack5:
+			{
+				if (changedState) SetAnimationInfo(attack5FrameCount, attack5FrameRate, true);
+				Animate (attack5SpriteName);
 				break;
 			}
 			case AnimationState.Block:
@@ -648,7 +728,35 @@ public class Character : MonoBehaviour
 				return;
 			}		
 		
-			int damage = attacker.damage;
+			int damage = 0;
+			switch (attacker.currentAttackState)
+			{
+				case AttackState.Attack1:
+				{
+					damage = attacker.attack1Damage;
+					break;
+				}
+				case AttackState.Attack2:
+				{
+					damage = attacker.attack2Damage;
+					break;
+				}
+				case AttackState.Attack3:
+				{
+					damage = attacker.attack3Damage;
+					break;
+				}
+				case AttackState.Attack4:
+				{
+					damage = attacker.attack4Damage;
+					break;
+				}
+				case AttackState.Attack5:
+				{
+					damage = attacker.attack5Damage;
+					break;
+				}
+			}			
 		
 			if ( attacker.transform.localPosition.x < transform.localPosition.x )
 			{
@@ -676,6 +784,21 @@ public class Character : MonoBehaviour
 	protected virtual void HandleAggro(Character attacker)
 	{
 		
+	}
+	
+	protected void Respawn()
+	{
+		if ( lives > 0 )
+		{
+			Vector3 playerPosition = transform.localPosition;
+			playerPosition.y = 300;
+			transform.localPosition = playerPosition;
+			damageFlashTime = 4.0f;
+			
+			knockbackTime = 0;
+			currHealth = maxHealth;
+			lives--;
+		}		
 	}
 	
 	#endregion

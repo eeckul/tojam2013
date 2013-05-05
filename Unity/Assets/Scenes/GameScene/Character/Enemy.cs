@@ -137,7 +137,7 @@ public class Enemy : Character
 		
 		if ( combatRange && isGrounded )
 		{
-			TriggerLightAttack();
+			TriggerEnemyAttack();
 		}
 		
 		Vector2 leftStickInput = new Vector2(movementSpeed * directionMult * 10, 0);
