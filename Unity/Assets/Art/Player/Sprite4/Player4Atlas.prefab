@@ -60,14 +60,14 @@ MonoBehaviour:
   - name: sprite4_switch1
     outer:
       serializedVersion: 2
-      x: 0
-      y: 191
+      x: 33
+      y: 125
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 191
+      x: 33
+      y: 125
       width: 32
       height: 32
     rotated: 0
@@ -78,14 +78,14 @@ MonoBehaviour:
   - name: sprite4_switch3
     outer:
       serializedVersion: 2
-      x: 0
-      y: 158
+      x: 66
+      y: 92
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 158
+      x: 66
+      y: 92
       width: 32
       height: 32
     rotated: 0
@@ -96,14 +96,14 @@ MonoBehaviour:
   - name: sprite4_run1
     outer:
       serializedVersion: 2
-      x: 0
-      y: 125
+      x: 198
+      y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 125
+      x: 198
+      y: 224
       width: 32
       height: 32
     rotated: 0
@@ -114,14 +114,14 @@ MonoBehaviour:
   - name: sprite4_lightattack2
     outer:
       serializedVersion: 2
-      x: 0
-      y: 92
+      x: 33
+      y: 59
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 92
+      x: 33
+      y: 59
       width: 32
       height: 32
     rotated: 0
@@ -132,14 +132,14 @@ MonoBehaviour:
   - name: sprite4_2heavyattack1
     outer:
       serializedVersion: 2
-      x: 0
-      y: 59
+      x: 66
+      y: 158
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 59
+      x: 66
+      y: 158
       width: 32
       height: 32
     rotated: 0
@@ -150,14 +150,14 @@ MonoBehaviour:
   - name: sprite4_standing1
     outer:
       serializedVersion: 2
-      x: 0
-      y: 26
+      x: 66
+      y: 191
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 26
+      x: 66
+      y: 191
       width: 32
       height: 32
     rotated: 0
@@ -168,14 +168,14 @@ MonoBehaviour:
   - name: sprite4_blocking2
     outer:
       serializedVersion: 2
-      x: 33
-      y: 224
+      x: 0
+      y: 59
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 33
-      y: 224
+      x: 0
+      y: 59
       width: 32
       height: 32
     rotated: 0
@@ -186,14 +186,14 @@ MonoBehaviour:
   - name: sprite4_run2
     outer:
       serializedVersion: 2
-      x: 66
-      y: 224
+      x: 33
+      y: 191
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 66
-      y: 224
+      x: 33
+      y: 191
       width: 32
       height: 32
     rotated: 0
@@ -204,13 +204,13 @@ MonoBehaviour:
   - name: sprite4_jump2
     outer:
       serializedVersion: 2
-      x: 99
+      x: 33
       y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 99
+      x: 33
       y: 224
       width: 32
       height: 32
@@ -223,13 +223,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 132
-      y: 224
+      y: 158
       width: 32
       height: 32
     inner:
       serializedVersion: 2
       x: 132
-      y: 224
+      y: 158
       width: 32
       height: 32
     rotated: 0
@@ -240,14 +240,14 @@ MonoBehaviour:
   - name: sprite4_2heavyattack3
     outer:
       serializedVersion: 2
-      x: 165
-      y: 224
+      x: 66
+      y: 59
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 165
-      y: 224
+      x: 66
+      y: 59
       width: 32
       height: 32
     rotated: 0
@@ -258,14 +258,14 @@ MonoBehaviour:
   - name: sprite4_idle2
     outer:
       serializedVersion: 2
-      x: 198
-      y: 224
+      x: 33
+      y: 92
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 198
-      y: 224
+      x: 33
+      y: 92
       width: 32
       height: 32
     rotated: 0
@@ -276,14 +276,14 @@ MonoBehaviour:
   - name: sprite4_downstate2
     outer:
       serializedVersion: 2
-      x: 33
-      y: 191
+      x: 0
+      y: 26
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 33
-      y: 191
+      x: 0
+      y: 26
       width: 32
       height: 32
     rotated: 0
@@ -294,13 +294,13 @@ MonoBehaviour:
   - name: sprite4_switch2
     outer:
       serializedVersion: 2
-      x: 33
+      x: 0
       y: 158
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 33
+      x: 0
       y: 158
       width: 32
       height: 32
@@ -312,14 +312,14 @@ MonoBehaviour:
   - name: sprite4_downstate1
     outer:
       serializedVersion: 2
-      x: 33
-      y: 125
+      x: 165
+      y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 33
-      y: 125
+      x: 165
+      y: 224
       width: 32
       height: 32
     rotated: 0
@@ -331,13 +331,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 33
-      y: 92
+      y: 158
       width: 32
       height: 32
     inner:
       serializedVersion: 2
       x: 33
-      y: 92
+      y: 158
       width: 32
       height: 32
     rotated: 0
@@ -348,14 +348,14 @@ MonoBehaviour:
   - name: sprite4_knockback1
     outer:
       serializedVersion: 2
-      x: 33
-      y: 59
+      x: 0
+      y: 191
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 33
-      y: 59
+      x: 0
+      y: 191
       width: 32
       height: 32
     rotated: 0
@@ -384,14 +384,14 @@ MonoBehaviour:
   - name: sprite4_lightattack1
     outer:
       serializedVersion: 2
-      x: 66
-      y: 191
+      x: 99
+      y: 158
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 66
-      y: 191
+      x: 99
+      y: 158
       width: 32
       height: 32
     rotated: 0
@@ -402,14 +402,14 @@ MonoBehaviour:
   - name: sprite4_run3
     outer:
       serializedVersion: 2
-      x: 99
-      y: 191
+      x: 66
+      y: 125
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 99
-      y: 191
+      x: 66
+      y: 125
       width: 32
       height: 32
     rotated: 0
@@ -420,14 +420,14 @@ MonoBehaviour:
   - name: sprite4_idle1
     outer:
       serializedVersion: 2
-      x: 132
-      y: 191
+      x: 0
+      y: 92
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 132
-      y: 191
+      x: 0
+      y: 92
       width: 32
       height: 32
     rotated: 0
@@ -438,14 +438,14 @@ MonoBehaviour:
   - name: sprite4_jump1
     outer:
       serializedVersion: 2
-      x: 165
-      y: 191
+      x: 0
+      y: 125
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 165
-      y: 191
+      x: 0
+      y: 125
       width: 32
       height: 32
     rotated: 0
@@ -456,14 +456,14 @@ MonoBehaviour:
   - name: sprite4_blocking1
     outer:
       serializedVersion: 2
-      x: 198
-      y: 191
+      x: 132
+      y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 198
-      y: 191
+      x: 132
+      y: 224
       width: 32
       height: 32
     rotated: 0
@@ -475,13 +475,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 66
-      y: 158
+      y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
       x: 66
-      y: 158
+      y: 224
       width: 32
       height: 32
     rotated: 0
@@ -492,14 +492,122 @@ MonoBehaviour:
   - name: sprite4_idle3
     outer:
       serializedVersion: 2
+      x: 99
+      y: 224
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 99
+      y: 224
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_win1
+    outer:
+      serializedVersion: 2
+      x: 99
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 99
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_win4
+    outer:
+      serializedVersion: 2
+      x: 132
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 132
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_win2
+    outer:
+      serializedVersion: 2
+      x: 165
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 165
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_heavyattack3
+    outer:
+      serializedVersion: 2
+      x: 198
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 198
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_win3
+    outer:
+      serializedVersion: 2
       x: 66
-      y: 125
+      y: 26
       width: 32
       height: 32
     inner:
       serializedVersion: 2
       x: 66
-      y: 125
+      y: 26
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite4_heavyattack2
+    outer:
+      serializedVersion: 2
+      x: 165
+      y: 158
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 165
+      y: 158
       width: 32
       height: 32
     rotated: 0
