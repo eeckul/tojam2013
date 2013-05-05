@@ -480,19 +480,19 @@ MonoBehaviour:
   runningFrameRate: 9
   lightAttackSpriteName: sprite_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 2
+  lightAttackFrameRate: 4
   lightAttack2SpriteName: sprite_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 2
+  lightAttack2FrameRate: 4
   heavyAttackSpriteName: sprite_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 2
+  heavyAttackFrameRate: 4
   heavyAttackChainSpriteName: sprite_heavyattack
   heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite_block
   blockFrameCount: 2
-  blockFrameRate: 2
+  blockFrameRate: 4
   knockBackSpriteName: sprite_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
@@ -506,6 +506,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 0
   damage: 10
+  characterType: 0
   input: {fileID: 291969663}
 --- !u!114 &291969663
 MonoBehaviour:
@@ -1689,19 +1690,19 @@ MonoBehaviour:
   runningFrameRate: 9
   lightAttackSpriteName: sprite2_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 2
+  lightAttackFrameRate: 4
   lightAttack2SpriteName: sprite2_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 2
+  lightAttack2FrameRate: 4
   heavyAttackSpriteName: sprite2_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 2
+  heavyAttackFrameRate: 4
   heavyAttackChainSpriteName: sprite2_heavyattack
   heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite2_block
   blockFrameCount: 2
-  blockFrameRate: 2
+  blockFrameRate: 4
   knockBackSpriteName: sprite2_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
@@ -1715,6 +1716,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 0
   damage: 10
+  characterType: 0
   input: {fileID: 1433223902}
 --- !u!54 &1433223904
 Rigidbody:
@@ -2103,19 +2105,19 @@ MonoBehaviour:
   runningFrameRate: 9
   lightAttackSpriteName: sprite4_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 2
+  lightAttackFrameRate: 4
   lightAttack2SpriteName: sprite4_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 2
+  lightAttack2FrameRate: 4
   heavyAttackSpriteName: sprite4_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 2
+  heavyAttackFrameRate: 4
   heavyAttackChainSpriteName: sprite4_heavyattack
   heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite4_block
   blockFrameCount: 2
-  blockFrameRate: 2
+  blockFrameRate: 4
   knockBackSpriteName: sprite4_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
@@ -2129,6 +2131,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 0
   damage: 10
+  characterType: 0
   input: {fileID: 1668434880}
 --- !u!54 &1668434882
 Rigidbody:
@@ -2237,19 +2240,19 @@ MonoBehaviour:
   runningFrameRate: 9
   lightAttackSpriteName: sprite3_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 2
+  lightAttackFrameRate: 4
   lightAttack2SpriteName: sprite3_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 2
+  lightAttack2FrameRate: 4
   heavyAttackSpriteName: sprite3_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 2
+  heavyAttackFrameRate: 4
   heavyAttackChainSpriteName: sprite3_heavyattack
   heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite3_block
   blockFrameCount: 2
-  blockFrameRate: 2
+  blockFrameRate: 4
   knockBackSpriteName: sprite3_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
@@ -2263,6 +2266,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 0
   damage: 10
+  characterType: 0
   input: {fileID: 1786441826}
 --- !u!54 &1786441828
 Rigidbody:

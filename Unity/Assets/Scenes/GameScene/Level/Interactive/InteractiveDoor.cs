@@ -47,7 +47,7 @@ public class InteractiveDoor : LevelInteractive
 			SetDoorStateByFactor(currentFactor);
 		}
 		
-		if (isOpen && currentFactor == 0f && !spawnedEnemies)
+		if (doorType == DoorType.Enemy && isOpen && currentFactor == 0f && !spawnedEnemies)
 		{
 			StartCoroutine(SpawnEnemies());
 		}
