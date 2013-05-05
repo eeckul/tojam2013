@@ -429,6 +429,29 @@ public class Character : MonoBehaviour
 					}
 					break;
 				}
+				case AttackState.Block:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.Block:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								//end animation
+								nextAttackState = AttackState.None;
+								currentAttackState = AttackState.None;
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.Block;
+							currentAttackState = AttackState.Block;
+							break;
+						}					
+					}
+					break;
+				}
 
 				default:
 				{
@@ -582,7 +605,7 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerJump()
 	{
-		if ( nextAttackState == AttackState.None && !IsDead() && knockbackTime == 0 )
+		if ( nextAttackState == AttackState.None && !IsDead() && knockbackTime == 0 && !playInteractionAnimation )
 		{
 			Vector3 velocity = rigidbody.velocity;
 			velocity.y = jumpSpeed;
@@ -618,6 +641,14 @@ public class Character : MonoBehaviour
 		{
 			attackCount = 1;
 			nextAttackState = AttackState.Attack1;
+		}
+	}
+	
+	protected void TriggerBlock()
+	{
+		if ( nextAttackState == AttackState.None )
+		{
+			nextAttackState = AttackState.Block;
 		}
 	}
 	
@@ -784,7 +815,7 @@ public class Character : MonoBehaviour
 	{
 		if ( characterType == CharacterType.Player || attacker.characterType == CharacterType.Player )
 		{
-			if ( IsDead() || damageFlashTime > 0 )
+			if ( IsDead() || damageFlashTime > 0 || currentAttackState == AttackState.Block || playInteractionAnimation)
 			{
 				return;
 			}		

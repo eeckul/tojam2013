@@ -201,6 +201,14 @@ public class Player : Character
 		}
 	}
 	
+	private void OnRightBumperPress(bool pressed)
+	{
+		if (pressed && isGrounded)
+		{
+			TriggerPlayerAttack();	
+		}		
+	}
+	
 	#endregion
 	
 	#region Interaction
