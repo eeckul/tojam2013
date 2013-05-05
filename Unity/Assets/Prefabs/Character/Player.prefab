@@ -265,7 +265,7 @@ MonoBehaviour:
   runningFrameRate: 9
   attack1SpriteName: sprite_lightattack
   attack1FrameCount: 2
-  attack1FrameRate: 4
+  attack1FrameRate: 9
   attack2SpriteName: sprite_2lightattack
   attack2FrameCount: 2
   attack2FrameRate: 4
@@ -294,6 +294,8 @@ MonoBehaviour:
   winFrameCount: 4
   winFrameRate: 4
   victoryState: 0
+  playInteractionAnimation: 0
+  requiresRevive: 0
   hitBox: {fileID: 6500002}
   maxHealth: 100
   currHealth: 0
