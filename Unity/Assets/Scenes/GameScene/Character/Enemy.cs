@@ -75,7 +75,7 @@ public class Enemy : Character
 		
 		Vector2 leftStickInput = new Vector2(movementSpeed * directionMult * 10, 0);
 		
-		if (leftStickInput.x == 0 || combatRange )
+		if (leftStickInput.x == 0 || combatRange || IsDead () || nextAttackState != AttackState.None )
 		{
 			movementMagnitude = 0;
 		}

@@ -51,7 +51,7 @@ public class Player : Character
 			ActivateReadyDoor();
 		}
 		
-		if (leftStickInput.x == 0)
+		if (leftStickInput.x == 0 || IsDead () || nextAttackState != AttackState.None)
 		{
 			movementMagnitude = 0;
 		}
