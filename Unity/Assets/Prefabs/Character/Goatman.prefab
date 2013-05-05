@@ -208,24 +208,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite_enemy2_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite_enemy2_walk
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_enemy2_attacking
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite_enemy2_attacking
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite_enemy2_attacking
-  heavyAttackFrameCount: 2
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite_enemy2_attacking
-  heavyAttackChainFrameCount: 2
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite_enemy2_attacking
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite_enemy2_attacking
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite_enemy2_attacking
+  attack3FrameCount: 2
+  attack3FrameRate: 4
+  attack4SpriteName: sprite_enemy2_attacking
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite_enemy2_attacking
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite_enemy2_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -241,12 +245,18 @@ MonoBehaviour:
   hitBox: {fileID: 6500002}
   maxHealth: 50
   currHealth: 0
-  damage: 10
+  attack1Damage: 10
+  attack2Damage: 10
+  attack3Damage: 10
+  attack4Damage: 10
+  attack5Damage: 10
+  lives: 0
   characterType: 1
   isEnabled: 0
   movementSpeed: 40
   minCombatDistance: 16
   minJumpDistance: 32
+  behaviour: 0
   direction: 0
 --- !u!114 &11400004
 MonoBehaviour:

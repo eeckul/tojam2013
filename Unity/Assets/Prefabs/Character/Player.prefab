@@ -228,24 +228,28 @@ MonoBehaviour:
   jumpSpeed: 150
   knockbackSpeed: 100
   animationState: 0
+  currentAttackState: 0
   standingSpriteName: sprite_idle
   standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightattack
-  lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite_2lightattack
-  lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite_heavyattack
-  heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 4
-  heavyAttackChainSpriteName: sprite_heavyattack
-  heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 4
+  attack1SpriteName: sprite_lightattack
+  attack1FrameCount: 2
+  attack1FrameRate: 4
+  attack2SpriteName: sprite_2lightattack
+  attack2FrameCount: 2
+  attack2FrameRate: 4
+  attack3SpriteName: sprite_heavattack
+  attack3FrameCount: 1
+  attack3FrameRate: 2
+  attack4SpriteName: sprite_2heavyattack
+  attack4FrameCount: 2
+  attack4FrameRate: 4
+  attack5SpriteName: sprite_2heavyattack
+  attack5FrameCount: 2
+  attack5FrameRate: 4
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -261,9 +265,15 @@ MonoBehaviour:
   hitBox: {fileID: 6500002}
   maxHealth: 100
   currHealth: 0
-  damage: 10
+  attack1Damage: 20
+  attack2Damage: 25
+  attack3Damage: 30
+  attack4Damage: 35
+  attack5Damage: 40
+  lives: 5
   characterType: 0
   input: {fileID: 11400006}
+  hud: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

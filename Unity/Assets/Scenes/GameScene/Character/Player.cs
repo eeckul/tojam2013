@@ -117,7 +117,7 @@ public class Player : Character
 			}
 			else if (isGrounded)
 			{
-				TriggerLightAttack();
+				TriggerPlayerAttack();
 			}
 		}
 	}
@@ -129,10 +129,6 @@ public class Player : Character
 			if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
-			}
-			else if (isGrounded)
-			{
-				TriggerHeavyAttack();
 			}
 		}
 	}
