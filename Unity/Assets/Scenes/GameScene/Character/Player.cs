@@ -194,6 +194,10 @@ public class Player : Character
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
 			}
+			else if (isGrounded)
+			{
+				TriggerBlock ();
+			}
 		}
 		else
 		{
@@ -201,13 +205,6 @@ public class Player : Character
 		}
 	}
 	
-	private void OnRightBumperPress(bool pressed)
-	{
-		if (pressed && isGrounded)
-		{
-			TriggerPlayerAttack();	
-		}		
-	}
 	
 	#endregion
 	
