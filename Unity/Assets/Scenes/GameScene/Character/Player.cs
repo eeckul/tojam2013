@@ -107,6 +107,10 @@ public class Player : Character
 			{
 				ActivateInteractive(CharacterInput.Button.X);
 			}
+			else if (isGrounded)
+			{
+				TriggerLightAttack();
+			}
 		}
 	}
 	
@@ -117,6 +121,10 @@ public class Player : Character
 			if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
+			}
+			else if (isGrounded)
+			{
+				TriggerHeavyAttack();
 			}
 		}
 	}

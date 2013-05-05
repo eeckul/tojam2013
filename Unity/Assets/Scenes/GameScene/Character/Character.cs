@@ -39,6 +39,7 @@ public class Character : MonoBehaviour
 		LightAttack,
 		LightAttack2,
 		HeavyAttack,
+		HeavyAttackChain,
 		Block,
 		KnockBack,
 		Jump,
@@ -57,7 +58,7 @@ public class Character : MonoBehaviour
 	public AnimationState animationState = AnimationState.Standing;
 	private AnimationState currentState = AnimationState.Standing;
 	
-	private AttackState attackState = AttackState.None;
+	private AttackState nextAttackState = AttackState.None;
 	private AttackState currentAttackState = AttackState.None;
 	
 	public string standingSpriteName;
@@ -79,6 +80,10 @@ public class Character : MonoBehaviour
 	public string heavyAttackSpriteName;
 	public int heavyAttackFrameCount;
 	public float heavyAttackFrameRate;
+	
+	public string heavyAttackChainSpriteName;
+	public int heavyAttackChainFrameCount;
+	public float heavyAttackChainFrameRate;
 	
 	public string blockSpriteName;
 	public int blockFrameCount;
@@ -134,9 +139,9 @@ public class Character : MonoBehaviour
 		{
 			animationState = AnimationState.Down;
 		}
-		else if (isGrounded && attackState != AttackState.None )
+		else if ( nextAttackState != AttackState.None )
 		{
-			switch ( attackState )
+			switch ( nextAttackState )
 			{
 				case AttackState.LightAttack:
 				{
@@ -147,7 +152,7 @@ public class Character : MonoBehaviour
 							if ( currentLoopCount > 0 )
 							{
 								//end animation
-								attackState = AttackState.None;
+								nextAttackState = AttackState.None;
 								currentAttackState = AttackState.None;
 							}
 							break;
@@ -170,7 +175,7 @@ public class Character : MonoBehaviour
 							if ( currentLoopCount > 0 )
 							{
 								//end animation
-								attackState = AttackState.None;
+								nextAttackState = AttackState.None;
 								currentAttackState = AttackState.None;
 							}
 							break;
@@ -193,7 +198,7 @@ public class Character : MonoBehaviour
 							if ( currentLoopCount > 0 )
 							{
 								//end animation
-								attackState = AttackState.None;
+								nextAttackState = AttackState.None;
 								currentAttackState = AttackState.None;
 							}
 							break;
@@ -216,18 +221,23 @@ public class Character : MonoBehaviour
 							if ( currentLoopCount > 0 )
 							{
 								//end animation
-								attackState = AttackState.None;
+								nextAttackState = AttackState.None;
 								currentAttackState = AttackState.None;
 							}
 							break;
 						}
 						default:
 						{
-							animationState = AnimationState.HeavyAttack;
+							animationState = AnimationState.HeavyAttackChain;
 							currentAttackState = AttackState.HeavyAttackChain;
 							break;
 						}					
 					}
+					break;
+				}
+				default:
+				{
+					//DO NOTHING
 					break;
 				}
 			}
@@ -235,7 +245,7 @@ public class Character : MonoBehaviour
 		else
 		{
 			//clear attack state
-			attackState = AttackState.None;
+			nextAttackState = AttackState.None;
 			currentAttackState = AttackState.None;
 			
 			if (movementMagnitude == 0)
@@ -382,25 +392,25 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerLightAttack()
 	{
-		if ( attackState == AttackState.None )
+		if ( nextAttackState == AttackState.None )
 		{
-			attackState = AttackState.LightAttack;
+			nextAttackState = AttackState.LightAttack;
 		}
-		else if ( attackState == AttackState.LightAttack )
+		else if ( nextAttackState == AttackState.LightAttack )
 		{
-			attackState = AttackState.LightAttack2;
+			nextAttackState = AttackState.LightAttack2;
 		}		
 	}
 	
 	protected void TriggerHeavyAttack()
 	{
-		if ( attackState == AttackState.None )
+		if ( nextAttackState == AttackState.None )
 		{
-			attackState = AttackState.HeavyAttack;
+			nextAttackState = AttackState.HeavyAttack;
 		}
-		else if ( attackState == AttackState.LightAttack || attackState == AttackState.LightAttack2 )
+		else if ( nextAttackState == AttackState.LightAttack || nextAttackState == AttackState.LightAttack2 )
 		{
-			attackState = AttackState.HeavyAttackChain;
+			nextAttackState = AttackState.HeavyAttackChain;
 		}
 	}
 	
@@ -449,6 +459,12 @@ public class Character : MonoBehaviour
 				Animate (heavyAttackSpriteName);
 				break;
 			}
+			case AnimationState.HeavyAttackChain:
+			{
+				if (changedState) SetAnimationInfo(heavyAttackChainFrameCount, heavyAttackChainFrameRate);
+				Animate (heavyAttackChainSpriteName);
+				break;
+			}
 			case AnimationState.Block:
 			{
 				if (changedState) SetAnimationInfo(blockFrameCount, blockFrameRate);
@@ -486,7 +502,7 @@ public class Character : MonoBehaviour
 		currentFrameInterval = frameRate > 0 ? 1f / frameRate : 0;
 		currentFrameIndex = 0;
 		currentFrameTime = currentFrameInterval;
-		currentLoopCount = 0;
+		currentLoopCount = -1;
 	}
 	
 	private void Animate(string baseSpriteName)
@@ -499,10 +515,8 @@ public class Character : MonoBehaviour
 			sprite.spriteName = frameSpriteName;
 			
 			currentFrameTime = 0;
-			int frameIndex = currentFrameIndex;
 			currentFrameIndex = (currentFrameIndex + 1) % currentFrameCount;
-			
-			if (currentFrameIndex < frameIndex)
+			if ( currentFrameIndex == 0 )
 			{
 				currentLoopCount ++;
 			}
