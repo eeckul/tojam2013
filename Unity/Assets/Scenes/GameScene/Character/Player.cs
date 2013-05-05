@@ -127,6 +127,19 @@ public class Player : Character
 			{
 				ActivateInteractive(CharacterInput.Button.B);
 			}
+			else if (isGrounded && lives > 1)
+			{
+				for ( int i = 0; i < GameRoot.current.players.size; i++ )
+				{
+					if (GameRoot.current.players[i] != this && GameRoot.current.players[i].requiresRevive 
+						&& (GameRoot.current.players[i].transform.localPosition - transform.localPosition).sqrMagnitude < 256)
+					{
+						lives--;
+						GameRoot.current.players[i].Revive();
+						break;
+					}
+				}
+			}
 		}
 		else
 		{

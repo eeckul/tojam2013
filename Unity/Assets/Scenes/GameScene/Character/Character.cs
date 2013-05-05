@@ -125,6 +125,8 @@ public class Character : MonoBehaviour
 	private float damageFlashRate;
 	private float damageFlashTimeSinceLastFlash;
 	
+	private float deadTime;
+	
 	public enum VictoryState
 	{
 		None,
@@ -135,6 +137,8 @@ public class Character : MonoBehaviour
 	public VictoryState victoryState;
 	
 	public bool playInteractionAnimation;
+	
+	public bool requiresRevive;
 		
 	#endregion
 	
@@ -198,13 +202,33 @@ public class Character : MonoBehaviour
 			c.a = damageFlashTimeSinceLastFlash / damageFlashRate;
 			sprite.color = c;
 		}
-		else
+		else if ( IsDead() )
 		{
-			if ( IsDead() && lives > 0 )
+			if ( lives > 0 )
 			{
 				Respawn();
 			}
-			
+			else if ( characterType == CharacterType.Enemy )
+			{
+				deadTime += Time.deltaTime;
+				if ( deadTime > 5.0f )
+				{
+					deadTime = 5.0f;
+				}
+				Color c = sprite.color;
+				c.a = 1.0f - (deadTime / 5.0f);
+				sprite.color = c;
+			}
+			else
+			{
+				requiresRevive = true;
+				Color c = sprite.color;
+				c.a = 1.0f;
+				sprite.color = c;
+			}
+		}
+		else
+		{		
 			Color c = sprite.color;
 			c.a = 1.0f;
 			sprite.color = c;
@@ -577,14 +601,9 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerPlayerAttack()
 	{
-		attackCount++;
-		
-		if (attackCount >= 5)
-		{
-			attackCount = 5;
-		}
 		if ( nextAttackState == AttackState.None )
 		{
+			attackCount = 1;
 			nextAttackState = AttackState.Attack1;
 		}
 	}
@@ -837,6 +856,16 @@ public class Character : MonoBehaviour
 			currHealth = maxHealth;
 			lives--;
 		}		
+	}
+	
+	public void Revive()
+	{
+		if ( requiresRevive )
+		{
+			requiresRevive = false;
+			lives ++;
+			Respawn();
+		}
 	}
 	
 	#endregion

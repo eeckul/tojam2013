@@ -85,7 +85,7 @@ public class Enemy : Character
 						}	
 						else if ( isGrounded 
 							&& (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) < -minJumpDistance 
-							&& nextAttackState == AttackState.None && IsPlatformDownJumpable(currentPlatform) )
+							&& nextAttackState == AttackState.None && currentPlatform != null && IsPlatformDownJumpable(currentPlatform) )
 						{
 							isDownJumping = true;
 							downJumpingPlatform = currentPlatform;
@@ -98,14 +98,14 @@ public class Enemy : Character
 			{
 				if ( direction == Direction.Left )
 				{
-					if ( (currentPlatform.transform.localPosition.x) > (transform.localPosition.x - 16) )
+					if ( currentPlatform != null && (currentPlatform.transform.localPosition.x) > (transform.localPosition.x - 16) )
 					{
 						direction = Direction.Right;
 					}
 				}
 				else 
 				{
-					if ( (currentPlatform.transform.localPosition.x + currentPlatform.boxCollider.size.x) < (transform.localPosition.x + 16) )
+					if ( currentPlatform != null && (currentPlatform.transform.localPosition.x + currentPlatform.boxCollider.size.x) < (transform.localPosition.x + 16) )
 					{
 						direction = Direction.Left;
 					}
