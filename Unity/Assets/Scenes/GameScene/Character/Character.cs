@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 	public float movementForce;
 	public float movementMax;
 	public float jumpSpeed;
+	public float knockbackSpeed;
 	
 	protected float movementMagnitude;
 	
@@ -58,8 +59,8 @@ public class Character : MonoBehaviour
 	public AnimationState animationState = AnimationState.Standing;
 	private AnimationState currentState = AnimationState.Standing;
 	
-	private AttackState nextAttackState = AttackState.None;
-	private AttackState currentAttackState = AttackState.None;
+	protected AttackState nextAttackState = AttackState.None;
+	protected AttackState currentAttackState = AttackState.None;
 	
 	public string standingSpriteName;
 	public int standingFrameCount;
@@ -107,6 +108,12 @@ public class Character : MonoBehaviour
 	private float currentFrameTime;
 	private int currentLoopCount;
 	
+	private float knockbackTime;
+	
+	private float damageFlashTime;
+	private float damageFlashRate;
+	private float damageFlashTimeSinceLastFlash;
+	
 	#endregion
 	
 	#region Combat Info
@@ -122,6 +129,7 @@ public class Character : MonoBehaviour
 	protected virtual void Start()
 	{
 		currHealth = maxHealth;
+		knockbackTime = 0.0f;;
 		
 		NGUITools.SetActive(hitBox.gameObject, false);
 		
@@ -133,6 +141,28 @@ public class Character : MonoBehaviour
 		UpdateMotion();
 		
 		UpdateAnimation();
+		
+		//update color flash
+		if (damageFlashTime > 0)
+		{
+			damageFlashTime -= Time.deltaTime;
+			damageFlashTimeSinceLastFlash += Time.deltaTime;
+			
+			while(damageFlashTimeSinceLastFlash > damageFlashRate)
+			{
+				damageFlashTimeSinceLastFlash -= damageFlashRate;
+			}
+			
+			Color c = sprite.color;
+			c.a = damageFlashTimeSinceLastFlash / damageFlashRate;
+			sprite.color = c;
+		}
+		else
+		{
+			Color c = sprite.color;
+			c.a = 1.0f;
+			sprite.color = c;
+		}
 	}
 	
 	#region Motion
@@ -142,6 +172,15 @@ public class Character : MonoBehaviour
 		if (IsDead())
 		{
 			animationState = AnimationState.Down;
+		}
+		else if (knockbackTime > 0.0f)
+		{
+			//clear attack state
+			nextAttackState = AttackState.None;
+			currentAttackState = AttackState.None;
+			
+			knockbackTime -= Time.deltaTime;
+			animationState = AnimationState.KnockBack;
 		}
 		else if ( nextAttackState != AttackState.None )
 		{
@@ -368,6 +407,7 @@ public class Character : MonoBehaviour
 		HitBox hitBox = other.gameObject.GetComponent<HitBox>();
 		if (hitBox != null)
 		{
+			Hit(hitBox.owner);
 			Debug.Log(name + " got hit by " + other.gameObject.name);
 		}
 	}
@@ -393,9 +433,12 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerJump()
 	{
-		Vector3 velocity = rigidbody.velocity;
-		velocity.y = jumpSpeed;
-		rigidbody.velocity = velocity;
+		if ( nextAttackState == AttackState.None )
+		{
+			Vector3 velocity = rigidbody.velocity;
+			velocity.y = jumpSpeed;
+			rigidbody.velocity = velocity;
+		}
 	}
 	
 	private void ToggleJumpCollider(bool enable)
@@ -433,6 +476,15 @@ public class Character : MonoBehaviour
 		{
 			nextAttackState = AttackState.HeavyAttackChain;
 		}
+	}
+	
+	protected void TriggerKnockback(int direction)
+	{
+		Vector3 velocity = rigidbody.velocity;
+		velocity.x = knockbackSpeed * direction;
+		rigidbody.velocity = velocity;
+		
+		knockbackTime = 1.0f;
 	}
 	
 	#endregion
@@ -553,6 +605,35 @@ public class Character : MonoBehaviour
 	public bool IsDead()
 	{
 		return currHealth == 0;
+	}
+	
+	private void Hit(Character attacker)
+	{
+		if ( IsDead() )
+		{
+			return;
+		}		
+		
+		int damage = attacker.damage;
+		
+		if ( attacker.transform.localPosition.x < transform.localPosition.x )
+		{
+			TriggerKnockback(1);
+		}
+		else
+		{
+			TriggerKnockback(-1);
+		}
+		
+		currHealth -= damage;
+		if ( currHealth < 0 )
+		{
+			currHealth = 0;
+		}
+		
+		damageFlashTime = 1.0f;
+		damageFlashRate = 0.25f;
+		damageFlashTimeSinceLastFlash = 0.0f;
 	}
 	
 	#endregion
