@@ -153,6 +153,10 @@ public class Character : MonoBehaviour
 		if (damageFlashTime > 0)
 		{
 			damageFlashTime -= Time.deltaTime;
+			if ( damageFlashTime < 0 )
+			{
+				damageFlashTime = 0;
+			}
 			damageFlashTimeSinceLastFlash += Time.deltaTime;
 			
 			while(damageFlashTimeSinceLastFlash > damageFlashRate)

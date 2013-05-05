@@ -211,34 +211,35 @@ MonoBehaviour:
   runningSpriteName: sprite_gknight_walk
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_gknight_walk
-  lightAttackFrameCount: 3
-  lightAttackFrameRate: 9
-  lightAttack2SpriteName: sprite_gknight_walk
-  lightAttack2FrameCount: 3
-  lightAttack2FrameRate: 9
-  heavyAttackSpriteName: sprite_gknight_walk
-  heavyAttackFrameCount: 3
-  heavyAttackFrameRate: 9
-  heavyAttackChainSpriteName: sprite_gknight_walk
-  heavyAttackChainFrameCount: 3
-  heavyAttackChainFrameRate: 9
+  lightAttackSpriteName: sprite_gknight_lightattack
+  lightAttackFrameCount: 1
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_gknight_lightattack
+  lightAttack2FrameCount: 1
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_gknight_heavyattack
+  heavyAttackFrameCount: 2
+  heavyAttackFrameRate: 4
+  heavyAttackChainSpriteName: sprite_gknight_heavyattack
+  heavyAttackChainFrameCount: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite_gknight_block
   blockFrameCount: 2
   blockFrameRate: 4
-  knockBackSpriteName: sprite_gknight_knockback
+  knockBackSpriteName: sprite_gknight_thrown
   knockBackFrameCount: 2
   knockBackFrameRate: 4
   jumpSpriteName: sprite_gknight_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_gknight_walk
-  downFrameCount: 3
-  downFrameRate: 9
+  downSpriteName: sprite_gknight_dead
+  downFrameCount: 1
+  downFrameRate: 4
   hitBox: {fileID: 6500002}
   maxHealth: 50
   currHealth: 0
   damage: 10
+  characterType: 1
   isEnabled: 0
   movementSpeed: 40
   minCombatDistance: 32
