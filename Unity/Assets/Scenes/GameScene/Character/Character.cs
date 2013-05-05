@@ -191,6 +191,12 @@ public class Character : MonoBehaviour
 			currentAttackState = AttackState.None;
 			
 			knockbackTime -= Time.deltaTime;
+			
+			if ( knockbackTime < 0.0f )
+			{
+				knockbackTime = 0.0f;
+			}
+			
 			animationState = AnimationState.KnockBack;
 		}
 		else if ( nextAttackState != AttackState.None )
@@ -441,7 +447,7 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerJump()
 	{
-		if ( nextAttackState == AttackState.None && !IsDead() )
+		if ( nextAttackState == AttackState.None && !IsDead() && knockbackTime == 0 )
 		{
 			Vector3 velocity = rigidbody.velocity;
 			velocity.y = jumpSpeed;
