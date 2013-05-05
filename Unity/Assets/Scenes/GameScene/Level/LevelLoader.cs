@@ -11,7 +11,7 @@ public class LevelLoader : MonoBehaviour
 	public Player[] playerObjects;
 	private BetterList<Player> spawnPlayerList = new BetterList<Player>();
 	
-	public Texture2D colliderMap;
+	public Texture2D levelMap;
 	private int width;
 	private int height;
 	private Color[] colors;
@@ -58,9 +58,14 @@ public class LevelLoader : MonoBehaviour
 			spawnPlayerList.Add(playerObject);
 		}
 		
-		width = colliderMap.width;
-		height = colliderMap.height;
-		colors = colliderMap.GetPixels();
+		if (GameRoot.nextLevelIndex != 0)
+		{
+			levelMap = Resources.Load("level_" + GameRoot.nextLevelIndex.ToString()) as Texture2D;
+		}
+		
+		width = levelMap.width;
+		height = levelMap.height;
+		colors = levelMap.GetPixels();
 		
 		GroundPass();
 		ObjectPass();

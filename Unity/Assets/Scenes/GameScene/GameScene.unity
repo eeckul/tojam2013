@@ -415,6 +415,9 @@ MonoBehaviour:
   heavyAttackSpriteName: sprite_heavyAttack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 5
+  heavyAttackChainSpriteName: 
+  heavyAttackChainFrameCount: 0
+  heavyAttackChainFrameRate: 0
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -996,7 +999,7 @@ MonoBehaviour:
   - {fileID: 1433223903}
   - {fileID: 1786441827}
   - {fileID: 1668434881}
-  colliderMap: {fileID: 2800000, guid: e302a23bcedcf4f0a99ee49b00e4f764, type: 3}
+  levelMap: {fileID: 2800000, guid: ebae1db5a8754497fafbfa57489781fd, type: 3}
   groundPrefab: {fileID: 100000, guid: 5add1de3740ce4c5e991118004e143df, type: 2}
   groundColor: {r: 0, g: 0, b: 0, a: 1}
   platformShortPrefab: {fileID: 100002, guid: 7cd048ad8350a473d81d096a87754c1f, type: 2}
@@ -1289,6 +1292,9 @@ MonoBehaviour:
   heavyAttackSpriteName: sprite_heavyAttack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 5
+  heavyAttackChainSpriteName: 
+  heavyAttackChainFrameCount: 0
+  heavyAttackChainFrameRate: 0
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -1688,6 +1694,9 @@ MonoBehaviour:
   heavyAttackSpriteName: sprite_heavyAttack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 5
+  heavyAttackChainSpriteName: 
+  heavyAttackChainFrameCount: 0
+  heavyAttackChainFrameRate: 0
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -1816,6 +1825,9 @@ MonoBehaviour:
   heavyAttackSpriteName: sprite_heavyAttack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 5
+  heavyAttackChainSpriteName: 
+  heavyAttackChainFrameCount: 0
+  heavyAttackChainFrameRate: 0
   blockSpriteName: sprite_block
   blockFrameCount: 2
   blockFrameRate: 4

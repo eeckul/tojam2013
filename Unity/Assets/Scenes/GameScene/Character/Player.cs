@@ -153,8 +153,15 @@ public class Player : Character
 		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
 		if (interactive != null)
 		{
-			isInteracting = true;
-			currentInteractive = interactive;
+			InteractiveTerminal terminal = interactive as InteractiveTerminal;
+			InteractiveDoor door = interactive as InteractiveDoor;
+			
+			if (terminal != null ||
+				door != null && door.doorType == InteractiveDoor.DoorType.Exit && door.isReady)
+			{
+				isInteracting = true;
+				currentInteractive = interactive;
+			}
 		}
 	}
 	

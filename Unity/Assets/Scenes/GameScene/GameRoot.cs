@@ -4,6 +4,7 @@ using System.Collections;
 public class GameRoot : MonoBehaviour
 {
 	public static GameRoot current;
+	public static int nextLevelIndex = 0;
 	
 	public GameCamera gameCamera;
 	
@@ -146,6 +147,7 @@ public class GameRoot : MonoBehaviour
 			}
 		}
 		
-		// Load next level.
+		nextLevelIndex++;
+		Application.LoadLevel("GameScene");
 	}
 }
