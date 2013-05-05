@@ -190,6 +190,7 @@ MonoBehaviour:
   movementForce: 500
   movementMax: 50
   jumpSpeed: 0
+  knockbackSpeed: 100
   animationState: 0
   standingSpriteName: sprite_enemy_idle
   standingFrameCount: 3
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ed19ab8d9a941daa7bf986008b836f, type: 3}
   m_Name: 
+  owner: {fileID: 11400002}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
