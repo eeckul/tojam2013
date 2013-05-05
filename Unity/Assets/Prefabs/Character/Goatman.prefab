@@ -235,9 +235,9 @@ MonoBehaviour:
   jumpSpriteName: sprite_enemy2_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_enemy2_walk
-  downFrameCount: 3
-  downFrameRate: 9
+  downSpriteName: sprite_enemy2_death
+  downFrameCount: 1
+  downFrameRate: 4
   hitBox: {fileID: 6500002}
   maxHealth: 50
   currHealth: 0
