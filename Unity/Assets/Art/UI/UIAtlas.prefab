@@ -43,13 +43,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 216
-      y: 224
+      y: 191
       width: 32
       height: 32
     inner:
       serializedVersion: 2
       x: 216
-      y: 224
+      y: 191
       width: 32
       height: 32
     rotated: 0
@@ -60,14 +60,14 @@ MonoBehaviour:
   - name: DC_Display_Health_Empty
     outer:
       serializedVersion: 2
-      x: 129
-      y: 125
+      x: 151
+      y: 206
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 129
-      y: 125
+      x: 151
+      y: 206
       width: 64
       height: 50
     rotated: 0
@@ -78,14 +78,14 @@ MonoBehaviour:
   - name: DC_Healthgoo
     outer:
       serializedVersion: 2
-      x: 151
-      y: 206
+      x: 129
+      y: 125
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 151
-      y: 206
+      x: 129
+      y: 125
       width: 64
       height: 50
     rotated: 0
@@ -124,6 +124,24 @@ MonoBehaviour:
       y: 95
       width: 128
       height: 80
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: heart
+    outer:
+      serializedVersion: 2
+      x: 216
+      y: 224
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 216
+      y: 224
+      width: 32
+      height: 32
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
