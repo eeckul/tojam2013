@@ -44,7 +44,7 @@ public class Enemy : Character
 	{
 		bool combatRange = false;
 		
-		if ( targetPlayer == -1 )
+		if ( targetPlayer == -1 || GameRoot.current.players[targetPlayer].IsDead() )
 		{
 			targetPlayer = FindClosestPlayer();
 		}
@@ -64,7 +64,7 @@ public class Enemy : Character
 				direction = Direction.Right;
 			}
 			
-			if ( isGrounded && jumpSpeed > 0 && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance )
+			if ( isGrounded && jumpSpeed > 0 && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance && nextAttackState == AttackState.None)
 			{
 				TriggerJump();
 			}
@@ -77,11 +77,20 @@ public class Enemy : Character
 			directionMult = -1;
 		}		
 		
+		if ( combatRange && isGrounded )
+		{
+			TriggerLightAttack();
+		}
+		
 		Vector2 leftStickInput = new Vector2(movementSpeed * directionMult * 10, 0);
 		
 		if (leftStickInput.x == 0 || combatRange || IsDead () || nextAttackState != AttackState.None )
 		{
 			movementMagnitude = 0;
+		}
+		else if (combatRange && targetPlayer != -1)
+		{
+			transform.localScale = new Vector3(directionMult > 0 ? 1 : -1, 1, 1);
 		}
 		else
 		{
@@ -97,7 +106,7 @@ public class Enemy : Character
 		for (int i = 0; i < GameRoot.current.players.size; i++)
 		{
 			float currentDistance = (transform.localPosition - GameRoot.current.players[i].transform.localPosition).sqrMagnitude;
-			if ( minDistance == -1 || minDistance > currentDistance )
+			if ( (minDistance == -1 || minDistance > currentDistance) && !GameRoot.current.players[i].IsDead() )
 			{
 				minPlayer = i;
 				minDistance = currentDistance;
@@ -105,6 +114,27 @@ public class Enemy : Character
 		}
 		
 		return minPlayer;
+	}
+	
+	#endregion
+	
+	#region Combat
+
+	protected override void HandleAggro(Character attacker)
+	{
+		if (attacker.characterType == CharacterType.Player)
+		{
+			Player player = (Player)attacker;
+			int controllerNum = player.input.controller;
+			
+			for (int i = 0; i < GameRoot.current.players.size; i++)
+			{
+				if (GameRoot.current.players[i].input.controller == controllerNum)
+				{
+					targetPlayer = i;
+				}
+			}
+		}
 	}
 	
 	#endregion

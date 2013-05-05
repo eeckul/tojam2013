@@ -209,23 +209,23 @@ MonoBehaviour:
   knockbackSpeed: 100
   animationState: 0
   standingSpriteName: sprite_enemy2_idle
-  standingFrameCount: 2
+  standingFrameCount: 3
   standingFrameRate: 4
   runningSpriteName: sprite_enemy2_walk
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_enemy2_walk
-  lightAttackFrameCount: 3
-  lightAttackFrameRate: 9
-  lightAttack2SpriteName: sprite_enemy2_walk
-  lightAttack2FrameCount: 3
-  lightAttack2FrameRate: 9
-  heavyAttackSpriteName: sprite_enemy2_walk
-  heavyAttackFrameCount: 3
-  heavyAttackFrameRate: 9
-  heavyAttackChainSpriteName: sprite_enemy2_walk
-  heavyAttackChainFrameCount: 3
-  heavyAttackChainFrameRate: 9
+  lightAttackSpriteName: sprite_enemy2_attacking
+  lightAttackFrameCount: 2
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_enemy2_attacking
+  lightAttack2FrameCount: 2
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_enemy2_attacking
+  heavyAttackFrameCount: 2
+  heavyAttackFrameRate: 4
+  heavyAttackChainSpriteName: sprite_enemy2_attacking
+  heavyAttackChainFrameCount: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite_enemy2_block
   blockFrameCount: 2
   blockFrameRate: 4
@@ -242,8 +242,10 @@ MonoBehaviour:
   maxHealth: 50
   currHealth: 0
   damage: 10
+  characterType: 1
+  isEnabled: 0
   movementSpeed: 40
-  minCombatDistance: 32
+  minCombatDistance: 16
   minJumpDistance: 32
   direction: 0
 --- !u!114 &11400004
