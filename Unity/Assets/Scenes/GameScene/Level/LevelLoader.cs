@@ -11,10 +11,13 @@ public class LevelLoader : MonoBehaviour
 	public Player[] playerObjects;
 	private BetterList<Player> spawnPlayerList = new BetterList<Player>();
 	
-	public Texture2D levelMap;
+	private Texture2D levelMap;
+	public Texture2D forceLevel;
 	private int width;
 	private int height;
 	private Color[] colors;
+	
+	private bool spawnSaboteurFirst = true;
 	
 	public GameObject groundPrefab;
 	public Color groundColor = RGBColor(0, 0, 0);
@@ -60,9 +63,22 @@ public class LevelLoader : MonoBehaviour
 			spawnPlayerList.Add(playerObject);
 		}
 		
-		if (GameRoot.nextLevelIndex != 0)
+		if (GameRoot.nextLevelIndex == -1)
+		{
+			levelMap = Resources.Load("level_tut") as Texture2D;
+		}
+		else if (forceLevel != null)
+		{
+			levelMap = forceLevel;
+		}
+		else
 		{
 			levelMap = Resources.Load("level_" + GameRoot.nextLevelIndex.ToString()) as Texture2D;
+			if (levelMap == null)
+			{
+				levelMap = Resources.Load("level_end") as Texture2D;
+				GameRoot.current.isEndGame = true;
+			}
 		}
 		
 		width = levelMap.width;
@@ -197,7 +213,24 @@ public class LevelLoader : MonoBehaviour
 	{
 		if (pixelColor == spawnColor)
 		{
-			int randomIndex = UnityEngine.Random.Range(0, spawnPlayerList.size);
+			int randomIndex = 0;
+			
+			if (GameRoot.current.isEndGame && spawnSaboteurFirst)
+			{
+				for (int i = 0; i < spawnPlayerList.size; i++)
+				{
+					if (spawnPlayerList[i].playerIndex == GameRoot.saboteur)
+					{
+						randomIndex = i;
+						break;
+					}
+				}
+			}
+			else
+			{
+				randomIndex = UnityEngine.Random.Range(0, spawnPlayerList.size);
+			}
+			
 			Player randomPlayer = spawnPlayerList[randomIndex];
 			spawnPlayerList.RemoveAt(randomIndex);
 			

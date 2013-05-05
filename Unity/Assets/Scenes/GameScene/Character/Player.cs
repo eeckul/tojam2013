@@ -5,6 +5,9 @@ public class Player : Character
 {
 	public CharacterInput input;
 	public PlayerHUD hud;
+	public int playerIndex;
+	
+	public UISprite saboteurButton;
 	
 	#region Input Info
 	
@@ -19,6 +22,11 @@ public class Player : Character
 	private LevelInteractive currentInteractive;
 	
 	#endregion
+	
+	private void Awake()
+	{
+		NGUITools.SetActive(saboteurButton.gameObject, false);
+	}
 	
 	protected override void Start()
 	{
@@ -61,6 +69,7 @@ public class Player : Character
 		else
 		{
 			transform.localScale = new Vector3(leftStickInput.x > 0 ? 1 : -1, 1, 1);
+			saboteurButton.transform.localScale = new Vector3(leftStickInput.x > 0 ? 32 : -32, 32, 1);
 			movementMagnitude = leftStickInput.x;
 		}
 		
@@ -76,7 +85,12 @@ public class Player : Character
 	{
 		if (pressed)
 		{
-			if (isInteracting)
+			if (GameRoot.current.isSaboteurStage)
+			{
+				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "Y" : "A");
+				NGUITools.SetActive(saboteurButton.gameObject, true);
+			}
+			else if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.A);
 			}
@@ -94,16 +108,29 @@ public class Player : Character
 				TriggerJump();
 			}
 		}
+		else
+		{
+			NGUITools.SetActive(saboteurButton.gameObject, false);
+		}
 	}
 	
 	private void OnBPress(bool pressed)
 	{
 		if (pressed)
 		{
-			if (isInteracting)
+			if (GameRoot.current.isSaboteurStage)
+			{
+				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "X" : "B");
+				NGUITools.SetActive(saboteurButton.gameObject, true);
+			}
+			else if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.B);
 			}
+		}
+		else
+		{
+			NGUITools.SetActive(saboteurButton.gameObject, false);
 		}
 	}
 	
@@ -111,7 +138,12 @@ public class Player : Character
 	{
 		if (pressed)
 		{
-			if (isInteracting)
+			if (GameRoot.current.isSaboteurStage)
+			{
+				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "B" : "X");
+				NGUITools.SetActive(saboteurButton.gameObject, true);
+			}
+			else if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.X);
 			}
@@ -120,13 +152,22 @@ public class Player : Character
 				TriggerLightAttack();
 			}
 		}
+		else
+		{
+			NGUITools.SetActive(saboteurButton.gameObject, false);
+		}
 	}
 	
 	private void OnYPress(bool pressed)
 	{
 		if (pressed)
 		{
-			if (isInteracting)
+			if (GameRoot.current.isSaboteurStage)
+			{
+				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "A" : "Y");
+				NGUITools.SetActive(saboteurButton.gameObject, true);
+			}
+			else if (isInteracting)
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
 			}
@@ -134,6 +175,10 @@ public class Player : Character
 			{
 				TriggerHeavyAttack();
 			}
+		}
+		else
+		{
+			NGUITools.SetActive(saboteurButton.gameObject, false);
 		}
 	}
 	

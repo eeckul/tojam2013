@@ -4,7 +4,13 @@ using System.Collections;
 public class GameRoot : MonoBehaviour
 {
 	public static GameRoot current;
-	public static int nextLevelIndex = 0;
+	public static int nextLevelIndex = -1;
+	
+	public static int saboteur = -1;
+	public bool isSaboteurStage;
+	public float saboteurStageTime = 15f;
+	
+	public bool isEndGame;
 	
 	public GameCamera gameCamera;
 	
@@ -26,13 +32,32 @@ public class GameRoot : MonoBehaviour
 	private InteractiveDoor exitDoor = null;
 	private BetterList<InteractiveDoor> enemyDoors = new BetterList<InteractiveDoor>();
 	
+	private bool nextScreenHack;
 	private bool isScreenReady;
 	public bool screenTransitionReady;
 	private bool nextLevelTriggered;
 	
+	private bool endGameTriggered;
+	
 	private void Awake()
 	{
 		current = this;
+		
+		if (saboteur == -1)
+		{
+			isSaboteurStage = true;
+			saboteur = Random.Range(0, 4);
+			Debug.Log("Saboteur: " + saboteur);
+			
+			TriggerNextLevel(saboteurStageTime);
+		}
+	}
+	
+	private IEnumerator Start()
+	{
+		yield return new WaitForSeconds(1);
+		
+		nextScreenHack = true;
 	}
 	
 	private void LateUpdate()
@@ -47,6 +72,11 @@ public class GameRoot : MonoBehaviour
 			UpdateTerminalStates();
 			UpdateEnemyStates();
 			CheckGameState();
+		}
+		
+		if (isEndGame)
+		{
+			StartCoroutine(TriggerEndGame());
 		}
 	}
 	
@@ -199,6 +229,21 @@ public class GameRoot : MonoBehaviour
 				SetTerminalStates(InteractiveTerminal.TerminalState.Offline);
 			}
 		}
+		
+		bool allRobotsDead = true;
+		
+		foreach (Player player in players)
+		{
+			if (player.playerIndex != saboteur && !player.IsDead())
+			{
+				allRobotsDead = false;
+			}
+		}
+		
+		if (allRobotsDead)
+		{
+			StartCoroutine(TriggerGameOver());
+		}
 	}
 	
 	private bool HasClosedEnemyDoors()
@@ -256,6 +301,9 @@ public class GameRoot : MonoBehaviour
 	
 	private IEnumerator TriggerNextScreen()
 	{
+		if (!nextScreenHack) yield break;
+		if (isSaboteurStage || isEndGame) yield break;
+		
 		UIManager.current.ToggleNextScreenArrow(true);
 		
 		isScreenReady = false;
@@ -269,7 +317,53 @@ public class GameRoot : MonoBehaviour
 		gameCamera.NextScreen();
 	}
 	
-	public void TriggerNextLevel()
+	private IEnumerator TriggerGameOver()
+	{
+		if (endGameTriggered) yield break;
+		
+		endGameTriggered = true;
+		
+		foreach (Enemy enemy in enemiesOnCamera)
+		{
+			enemy.isEnabled = false;
+		}
+		
+		yield return new WaitForSeconds(2);
+		
+		UIManager.current.ToggleGoatsWin(true);
+		
+		foreach (Player player in players)
+		{
+			if (player.playerIndex == saboteur)
+			{
+				player.currHealth = player.maxHealth;
+				break;
+			}
+		}
+	}
+	
+	private IEnumerator TriggerEndGame()
+	{
+		if (endGameTriggered) yield break;
+		
+		endGameTriggered = true;
+		
+		UIManager.current.ToggleRobotsWin(true);
+		
+		foreach (Player player in players)
+		{
+			if (player.playerIndex != saboteur)
+			{
+				player.currHealth = player.maxHealth;
+			}
+			else
+			{
+				player.currHealth = 0;
+			}
+		}
+	}
+	
+	public void TriggerNextLevel(float delay = 0)
 	{
 		if (nextLevelTriggered)
 		{
@@ -277,12 +371,12 @@ public class GameRoot : MonoBehaviour
 		}
 		
 		nextLevelTriggered = true;
-		StartCoroutine(DelayedNextLevel());
+		StartCoroutine(DelayedNextLevel(delay));
 	}
 	
-	private IEnumerator DelayedNextLevel()
+	private IEnumerator DelayedNextLevel(float delay)
 	{
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(delay);
 		
 		nextLevelIndex++;
 		Application.LoadLevel("GameScene");
