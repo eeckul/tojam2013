@@ -110,11 +110,11 @@ public class Player : Character
 				
 				if (isGrounded)
 				{
-					//Sound: DoubleJump.wav
+					AudioManager.current.PlaySound("Jump");
 				}
 				else
 				{
-					//Sound: Jump.wav
+					AudioManager.current.PlaySound("DoubleJump");
 				}
 			}
 		}

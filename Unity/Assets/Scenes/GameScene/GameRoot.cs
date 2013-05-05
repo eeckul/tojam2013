@@ -43,7 +43,7 @@ public class GameRoot : MonoBehaviour
 	{
 		current = this;
 		
-		//Sound: level_transition.mp3
+		AudioManager.current.PlaySound("level_transition");
 		
 		if (saboteur == -1)
 		{
@@ -187,7 +187,7 @@ public class GameRoot : MonoBehaviour
 			{
 				if (HasClosedEnemyDoors())
 				{
-					//Sound: door_enemy.wav
+					AudioManager.current.PlaySound("door_enemy");
 					OpenEnemyDoors();
 				}
 				else
@@ -203,7 +203,7 @@ public class GameRoot : MonoBehaviour
 				{
 					if (allTerminalsCorrect || !HasClosedEnemyDoors())
 					{
-						//Sound: terminal_success.wav
+						AudioManager.current.PlaySound("terminal_success");
 						SetTerminalStates(InteractiveTerminal.TerminalState.Accepted);
 						exitDoor.isOpen = true;
 						exitDoor.isReady = true;
@@ -228,7 +228,7 @@ public class GameRoot : MonoBehaviour
 		{
 			if (allTerminalsActivated)
 			{
-				//Sound: terminal_fail.mp3
+				AudioManager.current.PlaySound("terminal_fail");
 				SetTerminalStates(InteractiveTerminal.TerminalState.Rejected);
 				foreach (Player player in players) player.playInteractionAnimation = false;
 			}
@@ -355,7 +355,7 @@ public class GameRoot : MonoBehaviour
 			}
 		}
 		
-		//Sound: theme_defeat.wav
+		AudioManager.current.PlaySound("theme_defeat");
 	}
 	
 	private IEnumerator TriggerEndGame()
@@ -380,7 +380,7 @@ public class GameRoot : MonoBehaviour
 			}
 		}
 		
-		//Sound: theme_victory.mp3
+		AudioManager.current.PlaySound("theme_victory");
 	}
 	
 	public void TriggerNextLevel(float delay = 0)

@@ -574,6 +574,120 @@ MonoBehaviour:
   mFillDirection: 1
   mFillAmount: .75999999
   mInvert: 0
+--- !u!1 &130092271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 130092272}
+  - 114: {fileID: 130092273}
+  - 82: {fileID: 130092274}
+  m_Layer: 9
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &130092272
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130092271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1287820665}
+--- !u!114 &130092273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130092271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b4b92622e4d408ab84ae6a5e392951, type: 3}
+  m_Name: 
+  soundfx:
+  - {fileID: 8300000, guid: f9a938b03063646e6aed95cac70c1750, type: 3}
+  - {fileID: 8300000, guid: 9f53041182e58470eb9223ca03d44242, type: 3}
+  - {fileID: 8300000, guid: ebd197324a96248ba8b98238e850768d, type: 3}
+  - {fileID: 8300000, guid: 6a9e5642e62724a8ca50c3a6db3803f6, type: 3}
+  - {fileID: 8300000, guid: beb86154947e14916af2effb4bca60cc, type: 3}
+  - {fileID: 8300000, guid: ef154d16fffd8454bb335f028c9b24d6, type: 3}
+  - {fileID: 8300000, guid: 4c02b9d6bd1164e99852795aa2217ce9, type: 3}
+  - {fileID: 8300000, guid: 4bfb60a76a4314cd7b93811f3a099aec, type: 3}
+  - {fileID: 8300000, guid: cbde94d9e91394caa88365e57c9f116b, type: 3}
+  - {fileID: 8300000, guid: 4512dde96696f402dbaab562da8e75fd, type: 3}
+  - {fileID: 8300000, guid: e4acc3eab239243e69774b5046a72ff2, type: 3}
+  - {fileID: 8300000, guid: 9154080c6d940470eba8924359b3c377, type: 3}
+  - {fileID: 8300000, guid: be5eea9ce603643dfa0acb04e2bcaecc, type: 3}
+  - {fileID: 8300000, guid: e7b3f76d8939040878ac4b3e1c386d09, type: 3}
+  - {fileID: 8300000, guid: 22e19a0e93470479fbda4d6a876e56ab, type: 3}
+  - {fileID: 8300000, guid: dcc2375ec8b764666b65f44397224eee, type: 3}
+  - {fileID: 8300000, guid: ba22c06f0ecd54ee58c4935291523a33, type: 3}
+  - {fileID: 8300000, guid: a90ab8ef8d2064cf6a0bc0d7b09ff354, type: 3}
+  src: {fileID: 130092274}
+--- !u!82 &130092274
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 130092271}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &183779196
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +1013,7 @@ MonoBehaviour:
   winFrameRate: 4
   victoryState: 0
   playInteractionAnimation: 0
+  requiresRevive: 0
   hitBox: {fileID: 63545919}
   maxHealth: 100
   currHealth: 0
@@ -2679,6 +2794,7 @@ GameObject:
   - 114: {fileID: 1287820667}
   - 114: {fileID: 1287820666}
   - 114: {fileID: 1287820668}
+  - 82: {fileID: 1287820669}
   m_Layer: 9
   m_Name: GameRoot
   m_TagString: Untagged
@@ -2697,6 +2813,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 706056121}
+  - {fileID: 130092272}
   - {fileID: 323769806}
   - {fileID: 1362062010}
   m_Father: {fileID: 0}
@@ -2790,6 +2907,62 @@ MonoBehaviour:
   doorExitPrefab: {fileID: 100002, guid: 1d68aa100020541698afdcba21db506b, type: 2}
   doorExitColor: {r: .501960814, g: 0, b: 0, a: 1}
   spawnColor: {r: .752941191, g: .752941191, b: 0, a: 1}
+--- !u!82 &1287820669
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1287820664}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: de52e49b13ebf42b3af9c5725f4ea069, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1296809403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,6 +3648,7 @@ MonoBehaviour:
   winFrameRate: 4
   victoryState: 0
   playInteractionAnimation: 0
+  requiresRevive: 0
   hitBox: {fileID: 570218097}
   maxHealth: 100
   currHealth: 0
@@ -4042,6 +4216,7 @@ MonoBehaviour:
   winFrameRate: 4
   victoryState: 0
   playInteractionAnimation: 0
+  requiresRevive: 0
   hitBox: {fileID: 1195186708}
   maxHealth: 100
   currHealth: 0
@@ -4245,6 +4420,7 @@ MonoBehaviour:
   winFrameRate: 4
   victoryState: 0
   playInteractionAnimation: 0
+  requiresRevive: 0
   hitBox: {fileID: 2119457282}
   maxHealth: 100
   currHealth: 0

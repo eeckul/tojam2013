@@ -243,7 +243,7 @@ public class Character : MonoBehaviour
 		{
 			if ( animationState != AnimationState.Down )
 			{
-				//Sound: dead.wav
+				AudioManager.current.PlaySound("dead");
 			}
 			animationState = AnimationState.Down;
 		}
@@ -821,6 +821,8 @@ public class Character : MonoBehaviour
 			}		
 		
 			//Sound: Hit1.wav ~ Hit6.wav (Random)
+			int randomHit = Random.Range(1, 7);
+			AudioManager.current.PlaySound("Hit" + randomHit.ToString());
 			
 			int damage = 0;
 			switch (attacker.currentAttackState)
@@ -899,7 +901,7 @@ public class Character : MonoBehaviour
 	{
 		if ( requiresRevive )
 		{
-			//Sound: Revive.wav
+			AudioManager.current.PlaySound("Revive");
 			requiresRevive = false;
 			lives ++;
 			Respawn();
