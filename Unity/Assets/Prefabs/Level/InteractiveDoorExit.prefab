@@ -84,7 +84,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 1
   mAtlas: {fileID: 11400000, guid: 978b9e794b5244899bcd8de3a65e9b92, type: 2}
-  mSpriteName: door
+  mSpriteName: door4
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -101,7 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712d16cf2cd0b42ddb012411f98f9c48, type: 3}
   m_Name: 
   boxCollider: {fileID: 6500000}
+  sprite: {fileID: 11400000}
   doorType: 1
+  isOpen: 0
+  animationBaseName: door
+  animationFrameCount: 4
+  animationFrameRate: 12
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

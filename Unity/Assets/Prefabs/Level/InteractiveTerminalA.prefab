@@ -108,9 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde106b842a7e4664a039797998ce993, type: 3}
   m_Name: 
   boxCollider: {fileID: 6500000}
+  sprite: {fileID: 11400002}
   terminalType: 0
   buttonSprite: {fileID: 11400006}
   buttonTweenAlpha: {fileID: 11400004}
+  isActivated: 0
+  activatedCorrectly: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

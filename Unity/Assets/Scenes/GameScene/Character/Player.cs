@@ -26,6 +26,9 @@ public class Player : Character
 		GameRoot.current.players.Add(this);
 		
 		input.OnAPress += OnAPress;
+		input.OnBPress += OnBPress;
+		input.OnXPress += OnXPress;
+		input.OnYPress += OnYPress;
 	}
 	
 	protected override void FixedUpdate()
@@ -67,7 +70,7 @@ public class Player : Character
 		{
 			if (isInteracting)
 			{
-				
+				ActivateInteractive(CharacterInput.Button.A);
 			}
 			else if (isGrounded && isHoldingDown)
 			{
@@ -81,6 +84,39 @@ public class Player : Character
 			{
 				allowDoubleJump = false;
 				TriggerJump();
+			}
+		}
+	}
+	
+	private void OnBPress(bool pressed)
+	{
+		if (pressed)
+		{
+			if (isInteracting)
+			{
+				ActivateInteractive(CharacterInput.Button.B);
+			}
+		}
+	}
+	
+	private void OnXPress(bool pressed)
+	{
+		if (pressed)
+		{
+			if (isInteracting)
+			{
+				ActivateInteractive(CharacterInput.Button.X);
+			}
+		}
+	}
+	
+	private void OnYPress(bool pressed)
+	{
+		if (pressed)
+		{
+			if (isInteracting)
+			{
+				ActivateInteractive(CharacterInput.Button.Y);
 			}
 		}
 	}
@@ -128,18 +164,52 @@ public class Player : Character
 	private void ToggleCurrentInteractive(bool toggle)
 	{
 		InteractiveTerminal terminal = currentInteractive.GetComponent<InteractiveTerminal>();
-		if (terminal != null)
+		if (terminal != null && !terminal.isActivated)
 		{
 			terminal.ToggleButton(toggle);
 		}
 	}
 	
-	private void ActivateInteractive()
+	private void ActivateInteractive(CharacterInput.Button button)
 	{
 		InteractiveTerminal terminal = currentInteractive.GetComponent<InteractiveTerminal>();
 		if (terminal != null)
 		{
-			terminal.Activate();
+			bool terminalActivated = false;
+			
+			switch (button)
+			{
+				case CharacterInput.Button.A:
+				{
+					terminalActivated = terminal.Activate(InteractiveTerminal.TerminalType.A);
+					break;
+				}
+				case CharacterInput.Button.B:
+				{
+					terminalActivated = terminal.Activate(InteractiveTerminal.TerminalType.B);
+					break;
+				}
+				case CharacterInput.Button.X:
+				{
+					terminalActivated = terminal.Activate(InteractiveTerminal.TerminalType.X);
+					break;
+				}
+				case CharacterInput.Button.Y:
+				{
+					terminalActivated = terminal.Activate(InteractiveTerminal.TerminalType.Y);
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
+			
+			if (terminalActivated)
+			{
+				// Freeze player.
+				isInteracting = false;
+			}
 		}
 	}
 	

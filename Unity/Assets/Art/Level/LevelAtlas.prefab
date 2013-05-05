@@ -42,13 +42,13 @@ MonoBehaviour:
   - name: sprite_computer1
     outer:
       serializedVersion: 2
-      x: 334
+      x: 367
       y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 334
+      x: 367
       y: 195
       width: 32
       height: 32
@@ -111,24 +111,6 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: door
-    outer:
-      serializedVersion: 2
-      x: 301
-      y: 224
-      width: 32
-      height: 32
-    inner:
-      serializedVersion: 2
-      x: 301
-      y: 224
-      width: 32
-      height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: 100_raisedplatform
     outer:
       serializedVersion: 2
@@ -169,6 +151,24 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 301
+      y: 224
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 301
+      y: 224
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: DC_buttons_A
+    outer:
+      serializedVersion: 2
+      x: 301
       y: 191
       width: 32
       height: 32
@@ -183,35 +183,17 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: DC_buttons_A
-    outer:
-      serializedVersion: 2
-      x: 400
-      y: 195
-      width: 32
-      height: 32
-    inner:
-      serializedVersion: 2
-      x: 400
-      y: 195
-      width: 32
-      height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: DC_buttons_B
     outer:
       serializedVersion: 2
-      x: 453
-      y: 224
+      x: 334
+      y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 453
-      y: 224
+      x: 334
+      y: 195
       width: 32
       height: 32
     rotated: 0
@@ -222,14 +204,86 @@ MonoBehaviour:
   - name: DC_buttons_X
     outer:
       serializedVersion: 2
-      x: 367
+      x: 453
+      y: 224
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 453
+      y: 224
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: door1
+    outer:
+      serializedVersion: 2
+      x: 400
       y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 367
+      x: 400
       y: 195
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: door3
+    outer:
+      serializedVersion: 2
+      x: 433
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 433
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: door2
+    outer:
+      serializedVersion: 2
+      x: 466
+      y: 191
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 466
+      y: 191
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: door4
+    outer:
+      serializedVersion: 2
+      x: 334
+      y: 162
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 334
+      y: 162
       width: 32
       height: 32
     rotated: 0

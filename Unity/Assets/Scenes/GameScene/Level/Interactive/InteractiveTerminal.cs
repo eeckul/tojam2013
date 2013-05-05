@@ -16,6 +16,9 @@ public class InteractiveTerminal : LevelInteractive
 	public UISprite buttonSprite;
 	public TweenAlpha buttonTweenAlpha;
 	
+	public bool isActivated;
+	public bool activatedCorrectly;
+	
 	private void Start()
 	{
 		ToggleButton(false);
@@ -31,8 +34,20 @@ public class InteractiveTerminal : LevelInteractive
 		}
 	}
 	
-	public void Activate()
+	public bool Activate(TerminalType activationType)
 	{
+		if (!isActivated)
+		{
+			isActivated = true;
+			activatedCorrectly = activationType == terminalType;
+			boxCollider.enabled = false;
+			ToggleButton(false);
+			Debug.Log(name + " activated correctly: " + activatedCorrectly);
+			
+			GameRoot.current.ActivatedLevelTerminal();
+			return true;
+		}
 		
+		return false;
 	}
 }

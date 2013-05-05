@@ -26,17 +26,12 @@ public class GameCamera : MonoBehaviour
 		leftBoundary.size = new Vector3(5f, boxCollider.size.y, boxCollider.size.z);
 		rightBoundary.size = new Vector3(5f, boxCollider.size.y, boxCollider.size.z);
 		
-		Vector3 boundaryCenter = leftBoundary.center;
-		boundaryCenter.x = -levelScreenWidth * 0.5f - 2.5f;
-		leftBoundary.center = boundaryCenter;
-		boundaryCenter.x = levelScreenWidth * 0.5f + 2.5f;
-		rightBoundary.center = boundaryCenter;
+		ToggleBoundaries(true);
 	}
 	
 	public void NextScreen()
 	{
-		NGUITools.SetActive(leftBoundary.gameObject, false);
-		NGUITools.SetActive(rightBoundary.gameObject, false);
+		ToggleBoundaries(false);
 		
 		Vector3 camPosition = transform.localPosition;
 		cameraTween.from = camPosition;
@@ -48,7 +43,51 @@ public class GameCamera : MonoBehaviour
 	
 	private void CameraTweenFinished(UITweener tween)
 	{
-		NGUITools.SetActive(leftBoundary.gameObject, true);
-		NGUITools.SetActive(rightBoundary.gameObject, true);
+		ToggleBoundaries(true);
+	}
+	
+	private void ToggleBoundaries(bool toggle)
+	{
+		if (toggle)
+		{
+			Vector3 boundaryCenter = leftBoundary.center;
+			boundaryCenter.x = -levelScreenWidth * 0.5f - 2.5f;
+			leftBoundary.center = boundaryCenter;
+			boundaryCenter.x = levelScreenWidth * 0.5f + 2.5f;
+			rightBoundary.center = boundaryCenter;
+		}
+			
+		NGUITools.SetActive(leftBoundary.gameObject, toggle);
+		NGUITools.SetActive(rightBoundary.gameObject, toggle);
+	}
+	
+	private void OnTriggerEnter(Collider other)
+	{
+		Enemy enemy = other.gameObject.GetComponent<Enemy>();
+		if (enemy != null)
+		{
+			GameRoot.current.enemiesOnCamera.Add(enemy);
+		}
+		
+		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
+		if (interactive != null)
+		{
+			GameRoot.current.interactivesOnCamera.Add(interactive);
+		}
+	}
+	
+	private void OnTriggerExit(Collider other)
+	{
+		Enemy enemy = other.gameObject.GetComponent<Enemy>();
+		if (enemy != null)
+		{
+			GameRoot.current.enemiesOnCamera.Remove(enemy);
+		}
+		
+		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
+		if (interactive != null)
+		{
+			GameRoot.current.interactivesOnCamera.Remove(interactive);
+		}
 	}
 }
