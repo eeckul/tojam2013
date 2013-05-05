@@ -176,21 +176,24 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightAttack
+  lightAttackSpriteName: sprite_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 4
-  lightAttack2SpriteName: sprite_2lightAttack
+  lightAttackFrameRate: 2
+  lightAttack2SpriteName: sprite_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 4
-  heavyAttackSpriteName: sprite_heavyAttack
+  lightAttack2FrameRate: 2
+  heavyAttackSpriteName: sprite_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 5
+  heavyAttackFrameRate: 2
+  heavyAttackChainSpriteName: sprite_heavyattack
+  heavyAttackChainFrameCount: 1
+  heavyAttackChainFrameRate: 2
   blockSpriteName: sprite_block
   blockFrameCount: 2
-  blockFrameRate: 4
-  knockBackSpriteName: 
-  knockBackFrameCount: 0
-  knockBackFrameRate: 0
+  blockFrameRate: 2
+  knockBackSpriteName: sprite_knockback
+  knockBackFrameCount: 2
+  knockBackFrameRate: 4
   jumpSpriteName: sprite_jump
   jumpFrameCount: 2
   jumpFrameRate: 4

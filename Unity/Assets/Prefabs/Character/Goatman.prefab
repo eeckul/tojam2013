@@ -165,6 +165,9 @@ MonoBehaviour:
   heavyAttackSpriteName: sprite_enemy2_walk
   heavyAttackFrameCount: 3
   heavyAttackFrameRate: 9
+  heavyAttackChainSpriteName: sprite_enemy2_walk
+  heavyAttackChainFrameCount: 3
+  heavyAttackChainFrameRate: 9
   blockSpriteName: sprite_enemy2_block
   blockFrameCount: 2
   blockFrameRate: 4
