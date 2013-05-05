@@ -591,7 +591,7 @@ public class Character : MonoBehaviour
 	
 	private void Hit(Character attacker)
 	{
-		if ( IsDead() )
+		if ( IsDead() || damageFlashTime > 0 )
 		{
 			return;
 		}		
