@@ -942,7 +942,7 @@ MonoBehaviour:
   mPivot: 6
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: 8980a291e9a5a4b3cb90c53136a57a3f, type: 2}
-  mSpriteName: level_bg
+  mSpriteName: level_bg_peach
   mFillCenter: 1
   mType: 2
   mFillDirection: 4
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   - {fileID: 1433223903}
   - {fileID: 1786441827}
   - {fileID: 1668434881}
-  levelMap: {fileID: 2800000, guid: 26472fb0e1d8a47308ac33730517a4ae, type: 3}
+  levelMap: {fileID: 2800000, guid: e302a23bcedcf4f0a99ee49b00e4f764, type: 3}
   groundPrefab: {fileID: 100000, guid: 5add1de3740ce4c5e991118004e143df, type: 2}
   groundColor: {r: 0, g: 0, b: 0, a: 1}
   platformReallyShortPrefab: {fileID: 100002, guid: c06aaafc7e11f41049071d88123afbae,

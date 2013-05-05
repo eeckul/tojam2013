@@ -3,8 +3,6 @@ using System.Collections;
 
 public class InteractiveTerminal : LevelInteractive
 {
-	public UISprite activatedSprite;
-	
 	public enum TerminalType
 	{
 		A,
@@ -15,6 +13,26 @@ public class InteractiveTerminal : LevelInteractive
 	
 	public TerminalType terminalType;
 	
+	public enum TerminalState
+	{
+		Offline,
+		WaitingInput,
+		Rejected,
+		Accepted
+	}
+	
+	public TerminalState terminalState;
+	
+	public string offlineSpriteName = "sprite_computeroffline";
+	public string inputSpriteName = "sprite_computerinput";
+	public string acceptedSpriteName = "sprite_computeraccepted";
+	public string rejectSpriteBaseName = "sprite_computerreject";
+	
+	public int rejectFrameCount = 2;
+	public float rejectFrameRate = 4;
+	private int rejectFrameIndex;
+	private float rejectFrameTime;
+	
 	public UISprite buttonSprite;
 	public TweenAlpha buttonTweenAlpha;
 	
@@ -24,7 +42,44 @@ public class InteractiveTerminal : LevelInteractive
 	private void Start()
 	{
 		ToggleButton(false);
-		NGUITools.SetActive(activatedSprite.gameObject, false);
+		SetTerminalState(TerminalState.WaitingInput);
+	}
+	
+	private void Update()
+	{
+		switch (terminalState)
+		{
+			case TerminalState.Offline:
+			{
+				sprite.spriteName = offlineSpriteName;
+				break;
+			}
+			case TerminalState.WaitingInput:
+			{
+				sprite.spriteName = inputSpriteName;
+				break;
+			}
+			case TerminalState.Accepted:
+			{
+				sprite.spriteName = acceptedSpriteName;
+				break;
+			}
+			case TerminalState.Rejected:
+			{
+				rejectFrameTime -= Time.deltaTime;
+				if (rejectFrameTime <= 0f)
+				{
+					rejectFrameTime = 1f / rejectFrameRate;
+					rejectFrameIndex = (rejectFrameIndex + 1) % rejectFrameCount;
+					sprite.spriteName = inputSpriteName + (rejectFrameIndex + 1).ToString();
+				}
+				break;
+			}
+			default:
+			{
+				break;
+			}
+		}
 	}
 	
 	public void ToggleButton(bool toggle)
@@ -37,6 +92,11 @@ public class InteractiveTerminal : LevelInteractive
 		}
 	}
 	
+	public void SetTerminalState(TerminalState state)
+	{
+		terminalState = state;
+	}
+	
 	public bool Activate(TerminalType activationType)
 	{
 		if (!isActivated)
@@ -45,7 +105,7 @@ public class InteractiveTerminal : LevelInteractive
 			activatedCorrectly = activationType == terminalType;
 			boxCollider.enabled = false;
 			ToggleButton(false);
-			NGUITools.SetActive(activatedSprite.gameObject, true);
+			SetTerminalState(TerminalState.Accepted);
 			Debug.Log(name + " activated correctly: " + activatedCorrectly);
 			return true;
 		}

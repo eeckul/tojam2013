@@ -39,24 +39,6 @@ MonoBehaviour:
   m_Name: 
   material: {fileID: 2100000, guid: d5d625bdf02d443279edd50e3d4b9ef0, type: 2}
   sprites:
-  - name: sprite_computer1
-    outer:
-      serializedVersion: 2
-      x: 418
-      y: 162
-      width: 32
-      height: 32
-    inner:
-      serializedVersion: 2
-      x: 418
-      y: 162
-      width: 32
-      height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: platform_long
     outer:
       serializedVersion: 2
@@ -150,14 +132,14 @@ MonoBehaviour:
   - name: DC_buttons_Y
     outer:
       serializedVersion: 2
-      x: 301
-      y: 129
+      x: 451
+      y: 125
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 301
-      y: 129
+      x: 451
+      y: 125
       width: 32
       height: 32
     rotated: 0
@@ -168,14 +150,14 @@ MonoBehaviour:
   - name: DC_buttons_A
     outer:
       serializedVersion: 2
-      x: 352
-      y: 129
+      x: 301
+      y: 96
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 352
-      y: 129
+      x: 301
+      y: 96
       width: 32
       height: 32
     rotated: 0
@@ -186,14 +168,14 @@ MonoBehaviour:
   - name: DC_buttons_B
     outer:
       serializedVersion: 2
-      x: 352
-      y: 162
+      x: 385
+      y: 129
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 352
-      y: 162
+      x: 385
+      y: 129
       width: 32
       height: 32
     rotated: 0
@@ -204,14 +186,14 @@ MonoBehaviour:
   - name: DC_buttons_X
     outer:
       serializedVersion: 2
-      x: 352
-      y: 195
+      x: 418
+      y: 129
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 352
-      y: 195
+      x: 418
+      y: 129
       width: 32
       height: 32
     rotated: 0
@@ -222,13 +204,13 @@ MonoBehaviour:
   - name: door1
     outer:
       serializedVersion: 2
-      x: 301
+      x: 352
       y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 301
+      x: 352
       y: 195
       width: 32
       height: 32
@@ -240,14 +222,14 @@ MonoBehaviour:
   - name: door3
     outer:
       serializedVersion: 2
-      x: 453
-      y: 224
+      x: 301
+      y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 453
-      y: 224
+      x: 301
+      y: 195
       width: 32
       height: 32
     rotated: 0
@@ -258,14 +240,14 @@ MonoBehaviour:
   - name: door2
     outer:
       serializedVersion: 2
-      x: 451
-      y: 191
+      x: 385
+      y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 451
-      y: 191
+      x: 385
+      y: 195
       width: 32
       height: 32
     rotated: 0
@@ -276,32 +258,14 @@ MonoBehaviour:
   - name: door4
     outer:
       serializedVersion: 2
-      x: 418
-      y: 195
+      x: 453
+      y: 224
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 418
-      y: 195
-      width: 32
-      height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: sprite_computer2
-    outer:
-      serializedVersion: 2
-      x: 385
-      y: 195
-      width: 32
-      height: 32
-    inner:
-      serializedVersion: 2
-      x: 385
-      y: 195
+      x: 453
+      y: 224
       width: 32
       height: 32
     rotated: 0
@@ -330,14 +294,14 @@ MonoBehaviour:
   - name: door_bad4
     outer:
       serializedVersion: 2
-      x: 301
-      y: 162
+      x: 451
+      y: 191
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 301
-      y: 162
+      x: 451
+      y: 191
       width: 32
       height: 32
     rotated: 0
@@ -348,14 +312,14 @@ MonoBehaviour:
   - name: door_bad3
     outer:
       serializedVersion: 2
-      x: 385
-      y: 162
+      x: 418
+      y: 195
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 385
-      y: 162
+      x: 418
+      y: 195
       width: 32
       height: 32
     rotated: 0
@@ -366,6 +330,78 @@ MonoBehaviour:
   - name: door_bad1
     outer:
       serializedVersion: 2
+      x: 301
+      y: 162
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 301
+      y: 162
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: door_bad2
+    outer:
+      serializedVersion: 2
+      x: 352
+      y: 162
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 352
+      y: 162
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite_computeraccepted
+    outer:
+      serializedVersion: 2
+      x: 385
+      y: 162
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 385
+      y: 162
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite_computeroffline
+    outer:
+      serializedVersion: 2
+      x: 418
+      y: 162
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 418
+      y: 162
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite_computerinput
+    outer:
+      serializedVersion: 2
       x: 451
       y: 158
       width: 32
@@ -381,16 +417,34 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: door_bad2
+  - name: sprite_computerreject1
     outer:
       serializedVersion: 2
-      x: 385
+      x: 352
       y: 129
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 385
+      x: 352
+      y: 129
+      width: 32
+      height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sprite_computerreject2
+    outer:
+      serializedVersion: 2
+      x: 301
+      y: 129
+      width: 32
+      height: 32
+    inner:
+      serializedVersion: 2
+      x: 301
       y: 129
       width: 32
       height: 32
