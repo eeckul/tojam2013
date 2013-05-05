@@ -109,7 +109,8 @@ MonoBehaviour:
   animationFrameRate: 12
   isReady: 0
   spawnedEnemies: 0
-  enemyCount: 050000000300000000000000
+  isSpawning: 0
+  enemyCount: 000000000000000000000000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -1248,7 +1248,7 @@ MonoBehaviour:
   enemiesRoot: {fileID: 441676073}
   enemyPrefab1: {fileID: 100004, guid: 58e4abcc6b7c14e459a2a3ba7164a3ba, type: 2}
   enemyPrefab2: {fileID: 100004, guid: 30bd8e6830777439d8822d3fe8e27c0f, type: 2}
-  enemyPrefab3: {fileID: 0}
+  enemyPrefab3: {fileID: 100000, guid: cfddcb9124fa0491d99ce22d8f006b9e, type: 2}
   screenTransitionReady: 0
 --- !u!114 &1287820667
 MonoBehaviour:
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   enemyColor1: {r: 0, g: .250980407, b: 0, a: 1}
   enemyPrefab2: {fileID: 100004, guid: 30bd8e6830777439d8822d3fe8e27c0f, type: 2}
   enemyColor2: {r: 0, g: .501960814, b: 0, a: 1}
-  enemyPrefab3: {fileID: 0}
+  enemyPrefab3: {fileID: 100000, guid: cfddcb9124fa0491d99ce22d8f006b9e, type: 2}
   enemyColor3: {r: 0, g: .752941191, b: 0, a: 1}
   terminalAPrefab: {fileID: 100000, guid: 960e494bcbf32462c80ff37e0b76dbec, type: 2}
   terminalAColor: {r: .250980407, g: .250980407, b: 0, a: 1}
