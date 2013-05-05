@@ -45,8 +45,20 @@ public class Character : MonoBehaviour
 		Down
 	}
 	
+	public enum AttackState
+	{
+		None,
+		LightAttack,
+		LightAttack2,
+		HeavyAttack,
+		HeavyAttackChain
+	}
+	
 	public AnimationState animationState = AnimationState.Standing;
 	private AnimationState currentState = AnimationState.Standing;
+	
+	private AttackState attackState = AttackState.None;
+	private AttackState currentAttackState = AttackState.None;
 	
 	public string standingSpriteName;
 	public int standingFrameCount;
@@ -122,8 +134,110 @@ public class Character : MonoBehaviour
 		{
 			animationState = AnimationState.Down;
 		}
+		else if (isGrounded && attackState != AttackState.None )
+		{
+			switch ( attackState )
+			{
+				case AttackState.LightAttack:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.LightAttack:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								//end animation
+								attackState = AttackState.None;
+								currentAttackState = AttackState.None;
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.LightAttack;
+							currentAttackState = AttackState.LightAttack;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.LightAttack2:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.LightAttack2:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								//end animation
+								attackState = AttackState.None;
+								currentAttackState = AttackState.None;
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.LightAttack2;
+							currentAttackState = AttackState.LightAttack2;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.HeavyAttack:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.HeavyAttack:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								//end animation
+								attackState = AttackState.None;
+								currentAttackState = AttackState.None;
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.HeavyAttack;
+							currentAttackState = AttackState.HeavyAttack;
+							break;
+						}					
+					}
+					break;
+				}
+				case AttackState.HeavyAttackChain:
+				{
+					switch ( currentAttackState )
+					{
+						case AttackState.HeavyAttackChain:
+						{
+							if ( currentLoopCount > 0 )
+							{
+								//end animation
+								attackState = AttackState.None;
+								currentAttackState = AttackState.None;
+							}
+							break;
+						}
+						default:
+						{
+							animationState = AnimationState.HeavyAttack;
+							currentAttackState = AttackState.HeavyAttackChain;
+							break;
+						}					
+					}
+					break;
+				}
+			}
+		}
 		else
 		{
+			//clear attack state
+			attackState = AttackState.None;
+			currentAttackState = AttackState.None;
+			
 			if (movementMagnitude == 0)
 			{
 				if (isGrounded)
@@ -268,12 +382,26 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerLightAttack()
 	{
-		
+		if ( attackState == AttackState.None )
+		{
+			attackState = AttackState.LightAttack;
+		}
+		else if ( attackState == AttackState.LightAttack )
+		{
+			attackState = AttackState.LightAttack2;
+		}		
 	}
 	
 	protected void TriggerHeavyAttack()
 	{
-		
+		if ( attackState == AttackState.None )
+		{
+			attackState = AttackState.HeavyAttack;
+		}
+		else if ( attackState == AttackState.LightAttack || attackState == AttackState.LightAttack2 )
+		{
+			attackState = AttackState.HeavyAttackChain;
+		}
 	}
 	
 	#endregion
