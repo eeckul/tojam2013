@@ -197,6 +197,8 @@ public class GameRoot : MonoBehaviour
 			}
 			else if (allTerminalsActivated)
 			{
+				foreach (Player player in players) player.playInteractionAnimation = false;
+				
 				if (exitDoor != null)
 				{
 					if (allTerminalsCorrect || !HasClosedEnemyDoors())
@@ -228,6 +230,7 @@ public class GameRoot : MonoBehaviour
 			{
 				//Sound: terminal_fail.mp3
 				SetTerminalStates(InteractiveTerminal.TerminalState.Rejected);
+				foreach (Player player in players) player.playInteractionAnimation = false;
 			}
 			else
 			{
@@ -340,10 +343,15 @@ public class GameRoot : MonoBehaviour
 		
 		foreach (Player player in players)
 		{
+			player.currHealth = player.maxHealth;
+			
 			if (player.playerIndex == saboteur)
 			{
-				player.currHealth = player.maxHealth;
-				break;
+				player.victoryState = Character.VictoryState.Win;
+			}
+			else
+			{
+				player.victoryState = Character.VictoryState.Lose;
 			}
 		}
 		
@@ -360,13 +368,15 @@ public class GameRoot : MonoBehaviour
 		
 		foreach (Player player in players)
 		{
+			player.currHealth = player.maxHealth;
+			
 			if (player.playerIndex != saboteur)
 			{
-				player.currHealth = player.maxHealth;
+				player.victoryState = Character.VictoryState.Win;
 			}
 			else
 			{
-				player.currHealth = 0;
+				player.victoryState = Character.VictoryState.Lose;
 			}
 		}
 		

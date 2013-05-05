@@ -299,7 +299,7 @@ public class Player : Character
 			
 			if (terminalActivated)
 			{
-				// Freeze player.
+				playInteractionAnimation = true;
 				isInteracting = false;
 			}
 		}

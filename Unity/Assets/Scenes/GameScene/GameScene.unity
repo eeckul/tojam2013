@@ -1925,7 +1925,7 @@ MonoBehaviour:
   mPivot: 6
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: 8980a291e9a5a4b3cb90c53136a57a3f, type: 2}
-  mSpriteName: level_bg_peach
+  mSpriteName: level_bg_war
   mFillCenter: 1
   mType: 2
   mFillDirection: 4

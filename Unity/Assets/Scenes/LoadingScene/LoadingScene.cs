@@ -3,10 +3,21 @@ using System.Collections;
 
 public class LoadingScene : MonoBehaviour
 {
-	private IEnumerator Start()
+	public CharacterInput input0;
+	public CharacterInput input1;
+	public CharacterInput input2;
+	public CharacterInput input3;
+	
+	private void Awake()
 	{
-		yield return new WaitForSeconds(3);
-		
-		Application.LoadLevel("InputTestScene");
+		input0.OnStartPress += StartPressed;
+		input1.OnStartPress += StartPressed;
+		input2.OnStartPress += StartPressed;
+		input3.OnStartPress += StartPressed;
+	}
+
+	private void StartPressed (bool pressed)
+	{
+		Application.LoadLevel("GameScene");
 	}
 }
