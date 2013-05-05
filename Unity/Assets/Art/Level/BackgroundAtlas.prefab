@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Name: 
   material: {fileID: 2100000, guid: a162815790f3147698d8eccf715a4837, type: 2}
   sprites:
-  - name: level_bg_peach
+  - name: level_bg_war
     outer:
       serializedVersion: 2
       x: 0
