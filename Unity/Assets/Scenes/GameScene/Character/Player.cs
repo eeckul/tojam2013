@@ -46,6 +46,11 @@ public class Player : Character
 	{
 		Vector2 leftStickInput = input.GetStick(CharacterInput.Stick.Left);
 		
+		if (leftStickInput.y < -0.5f)
+		{
+			ActivateReadyDoor();
+		}
+		
 		if (leftStickInput.x == 0)
 		{
 			movementMagnitude = 0;
@@ -172,7 +177,7 @@ public class Player : Character
 	
 	private void ActivateInteractive(CharacterInput.Button button)
 	{
-		InteractiveTerminal terminal = currentInteractive.GetComponent<InteractiveTerminal>();
+		InteractiveTerminal terminal = currentInteractive as InteractiveTerminal;
 		if (terminal != null)
 		{
 			bool terminalActivated = false;
@@ -210,6 +215,15 @@ public class Player : Character
 				// Freeze player.
 				isInteracting = false;
 			}
+		}
+	}
+	
+	private void ActivateReadyDoor()
+	{
+		InteractiveDoor door = currentInteractive as InteractiveDoor;
+		if (door != null && door.isReady)
+		{
+			GameRoot.current.TriggerNextLevel();
 		}
 	}
 	

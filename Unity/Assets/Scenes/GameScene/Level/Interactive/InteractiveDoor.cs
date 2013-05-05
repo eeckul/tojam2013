@@ -18,6 +18,8 @@ public class InteractiveDoor : LevelInteractive
 	public int animationFrameCount;
 	public float animationFrameRate;
 	
+	public bool isReady;
+	
 	private void Start()
 	{
 		Vector3 size = boxCollider.size;
