@@ -64,9 +64,19 @@ public class Enemy : Character
 				direction = Direction.Right;
 			}
 			
-			if ( isGrounded && jumpSpeed > 0 && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance && nextAttackState == AttackState.None)
+			if ( jumpSpeed > 0 )
 			{
-				TriggerJump();
+				if ( isGrounded && (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) > minJumpDistance && nextAttackState == AttackState.None)
+				{
+					TriggerJump();
+				}
+				else if ( isGrounded 
+					&& (GameRoot.current.players[targetPlayer].transform.localPosition.y - transform.localPosition.y) < -minJumpDistance 
+					&& nextAttackState == AttackState.None && IsPlatformDownJumpable(currentPlatform) )
+				{
+					isDownJumping = true;
+					downJumpingPlatform = currentPlatform;
+				}
 			}
 		}
 		
