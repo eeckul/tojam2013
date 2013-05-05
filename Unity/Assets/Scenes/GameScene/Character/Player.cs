@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : Character
 {
 	public CharacterInput input;
+	public PlayerHUD hud;
 	
 	#region Input Info
 	
@@ -38,6 +39,8 @@ public class Player : Character
 		base.FixedUpdate();
 		
 		UpdateInteraction();
+		
+		hud.SetHealth((float)currHealth / (float)maxHealth);
 	}
 	
 	#region Input

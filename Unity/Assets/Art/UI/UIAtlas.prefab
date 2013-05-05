@@ -42,16 +42,52 @@ MonoBehaviour:
   - name: DC_Arrow
     outer:
       serializedVersion: 2
-      x: 0
-      y: 0
+      x: 65
+      y: 96
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 0
-      y: 0
+      x: 65
+      y: 96
       width: 32
       height: 32
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: DC_Display_Health_Empty
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 78
+      width: 64
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 78
+      width: 64
+      height: 50
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: DC_Healthgoo
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 27
+      width: 64
+      height: 50
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 27
+      width: 64
+      height: 50
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
