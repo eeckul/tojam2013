@@ -42,7 +42,7 @@ public class InteractiveTerminal : LevelInteractive
 	private void Start()
 	{
 		ToggleButton(false);
-		SetTerminalState(TerminalState.WaitingInput);
+		SetTerminalState(TerminalState.Offline);
 	}
 	
 	private void Update()
@@ -71,7 +71,7 @@ public class InteractiveTerminal : LevelInteractive
 				{
 					rejectFrameTime = 1f / rejectFrameRate;
 					rejectFrameIndex = (rejectFrameIndex + 1) % rejectFrameCount;
-					sprite.spriteName = inputSpriteName + (rejectFrameIndex + 1).ToString();
+					sprite.spriteName = rejectSpriteBaseName + (rejectFrameIndex + 1).ToString();
 				}
 				break;
 			}
@@ -86,9 +86,19 @@ public class InteractiveTerminal : LevelInteractive
 	{
 		if (toggle != NGUITools.GetActive(buttonSprite.gameObject))
 		{
-			buttonTweenAlpha.Play(true);
-			buttonTweenAlpha.Reset();
-			NGUITools.SetActive(buttonSprite.gameObject, toggle);
+			if (toggle)
+			{
+				if (terminalState == TerminalState.WaitingInput)
+				{
+					buttonTweenAlpha.Play(true);
+					buttonTweenAlpha.Reset();
+					NGUITools.SetActive(buttonSprite.gameObject, true);
+				}
+			}
+			else
+			{
+				NGUITools.SetActive(buttonSprite.gameObject, false);
+			}
 		}
 	}
 	
@@ -99,7 +109,7 @@ public class InteractiveTerminal : LevelInteractive
 	
 	public bool Activate(TerminalType activationType)
 	{
-		if (!isActivated)
+		if (terminalState == TerminalState.WaitingInput && !isActivated)
 		{
 			isActivated = true;
 			activatedCorrectly = activationType == terminalType;

@@ -168,6 +168,7 @@ public class GameRoot : MonoBehaviour
 				{
 					if (allTerminalsCorrect || !HasClosedEnemyDoors())
 					{
+						SetTerminalStates(InteractiveTerminal.TerminalState.Accepted);
 						exitDoor.isOpen = true;
 						exitDoor.isReady = true;
 					}
@@ -178,8 +179,24 @@ public class GameRoot : MonoBehaviour
 				}
 				else if (isScreenReady)
 				{
+					SetTerminalStates(InteractiveTerminal.TerminalState.Accepted);
 					StartCoroutine(TriggerNextScreen());
 				}
+			}
+			else
+			{
+				SetTerminalStates(InteractiveTerminal.TerminalState.WaitingInput);
+			}
+		}
+		else
+		{
+			if (allTerminalsActivated)
+			{
+				SetTerminalStates(InteractiveTerminal.TerminalState.Rejected);
+			}
+			else
+			{
+				SetTerminalStates(InteractiveTerminal.TerminalState.Offline);
 			}
 		}
 	}
@@ -215,6 +232,25 @@ public class GameRoot : MonoBehaviour
 		foreach (InteractiveDoor door in enemyDoors)
 		{
 			door.isOpen = true;
+		}
+	}
+	
+	private void SetTerminalStates(InteractiveTerminal.TerminalState terminalState)
+	{
+		foreach (LevelInteractive interactive in interactivesOnCamera)
+		{
+			InteractiveTerminal terminal = interactive as InteractiveTerminal;
+			if (terminal != null)
+			{
+				if (terminal.isActivated && terminalState == InteractiveTerminal.TerminalState.WaitingInput)
+				{
+					terminal.terminalState = InteractiveTerminal.TerminalState.Accepted;
+				}
+				else
+				{
+					terminal.terminalState = terminalState;
+				}
+			}
 		}
 	}
 	
