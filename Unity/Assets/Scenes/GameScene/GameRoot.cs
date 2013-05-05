@@ -161,7 +161,7 @@ public class GameRoot : MonoBehaviour
 	
 	private IEnumerator DelayedNextLevel()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1);
 		
 		nextLevelIndex++;
 		Application.LoadLevel("GameScene");

@@ -367,8 +367,21 @@ public class Character : MonoBehaviour
 		LevelFloor platform = collisionInfo.gameObject.GetComponent<LevelFloor>();
 		if (platform != null)
 		{
-			isGrounded = true;
-			currentPlatform = platform;
+			bool isUnderneath = false;
+			
+			foreach (ContactPoint contact in collisionInfo.contacts)
+			{
+				if (contact.normal.y > 0.9f)
+				{
+					isUnderneath = true;
+				}
+			}
+			
+			if (isUnderneath)
+			{
+				isGrounded = true;
+				currentPlatform = platform;
+			}
 		}
 	}
 	
@@ -535,7 +548,7 @@ public class Character : MonoBehaviour
 			case AnimationState.Jump:
 			{
 				if (changedState) SetAnimationInfo(jumpFrameCount, jumpFrameRate);
-				Animate (jumpSpriteName);
+				Animate (jumpSpriteName, false);
 				break;
 			}
 			case AnimationState.Down:
@@ -562,7 +575,7 @@ public class Character : MonoBehaviour
 		NGUITools.SetActive(hitBox.gameObject, isAttack);
 	}
 	
-	private void Animate(string baseSpriteName)
+	private void Animate(string baseSpriteName, bool shouldLoopAnimation = true)
 	{
 		currentFrameTime += Time.deltaTime;
 		
@@ -572,8 +585,21 @@ public class Character : MonoBehaviour
 			sprite.spriteName = frameSpriteName;
 			
 			currentFrameTime = 0;
-			currentFrameIndex = (currentFrameIndex + 1) % currentFrameCount;
-			if ( currentFrameIndex == 0 )
+			
+			if (shouldLoopAnimation)
+			{
+				currentFrameIndex = (currentFrameIndex + 1) % currentFrameCount;
+			}
+			else if (currentFrameIndex < currentFrameCount)
+			{
+				currentFrameIndex++;
+			}
+			else
+			{
+				currentLoopCount = 1;
+			}
+			
+			if (shouldLoopAnimation && currentFrameIndex == 0)
 			{
 				currentLoopCount ++;
 			}

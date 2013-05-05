@@ -199,12 +199,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: c5e9c71ad8b044f6fa739c1567c3604c, type: 2}
-  mTex: {fileID: 2800000, guid: 7b01a8e7431fb463bada78dbb8fb25d4, type: 3}
+  mMat: {fileID: 2100000, guid: 2e0d9dd4252d5490195515fb95a27b6d, type: 2}
+  mTex: {fileID: 2800000, guid: e09114b278cd248f7bd8b44bf9b90790, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 8ec9868e0a53b4102935269fbedead93, type: 2}
+  mAtlas: {fileID: 11400000, guid: c1daf95a0b7184e7598ae670879a725c, type: 2}
   mSpriteName: sprite_idle1
   mFillCenter: 1
   mType: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   knockBackFrameRate: 4
   jumpSpriteName: sprite_jump
   jumpFrameCount: 2
-  jumpFrameRate: 4
+  jumpFrameRate: 8
   downSpriteName: sprite_downstate
   downFrameCount: 3
   downFrameRate: 4

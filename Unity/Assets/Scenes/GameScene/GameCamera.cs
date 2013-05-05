@@ -108,6 +108,7 @@ public class GameCamera : MonoBehaviour
 			if (enemy != null)
 			{
 				GameRoot.current.enemiesOnCamera.Remove(enemy);
+				enemy.isEnabled = false;
 			}
 		}
 		
