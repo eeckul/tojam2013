@@ -236,19 +236,19 @@ MonoBehaviour:
   runningFrameRate: 9
   lightAttackSpriteName: sprite_lightattack
   lightAttackFrameCount: 2
-  lightAttackFrameRate: 2
+  lightAttackFrameRate: 4
   lightAttack2SpriteName: sprite_2lightattack
   lightAttack2FrameCount: 2
-  lightAttack2FrameRate: 2
+  lightAttack2FrameRate: 4
   heavyAttackSpriteName: sprite_heavyattack
   heavyAttackFrameCount: 1
-  heavyAttackFrameRate: 2
+  heavyAttackFrameRate: 4
   heavyAttackChainSpriteName: sprite_heavyattack
   heavyAttackChainFrameCount: 1
-  heavyAttackChainFrameRate: 2
+  heavyAttackChainFrameRate: 4
   blockSpriteName: sprite_block
   blockFrameCount: 2
-  blockFrameRate: 2
+  blockFrameRate: 4
   knockBackSpriteName: sprite_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
@@ -262,6 +262,7 @@ MonoBehaviour:
   maxHealth: 100
   currHealth: 0
   damage: 10
+  characterType: 0
   input: {fileID: 11400006}
 --- !u!114 &11400006
 MonoBehaviour:

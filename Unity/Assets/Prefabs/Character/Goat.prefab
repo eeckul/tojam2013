@@ -242,8 +242,10 @@ MonoBehaviour:
   maxHealth: 20
   currHealth: 0
   damage: 5
+  characterType: 1
+  isEnabled: 0
   movementSpeed: 50
-  minCombatDistance: 32
+  minCombatDistance: 16
   minJumpDistance: 32
   direction: 1
 --- !u!114 &11400004

@@ -105,6 +105,7 @@ public class Character : MonoBehaviour
 	private int currentFrameIndex;
 	private float currentFrameTime;
 	private int currentLoopCount;
+	private bool currentAnimationIsAttack;
 	
 	private float knockbackTime;
 	
@@ -121,6 +122,14 @@ public class Character : MonoBehaviour
 	public int maxHealth;
 	public int currHealth;
 	public int damage;
+	
+	public enum CharacterType
+	{
+		Player,
+		Enemy
+	}
+	
+	public CharacterType characterType;
 	
 	#endregion
 	
@@ -428,7 +437,7 @@ public class Character : MonoBehaviour
 	
 	protected void TriggerJump()
 	{
-		if ( nextAttackState == AttackState.None )
+		if ( nextAttackState == AttackState.None && !IsDead() )
 		{
 			Vector3 velocity = rigidbody.velocity;
 			velocity.y = jumpSpeed;
@@ -571,8 +580,9 @@ public class Character : MonoBehaviour
 		currentFrameIndex = 0;
 		currentFrameTime = currentFrameInterval;
 		currentLoopCount = -1;
+		currentAnimationIsAttack = isAttack;
 		
-		NGUITools.SetActive(hitBox.gameObject, isAttack);
+		NGUITools.SetActive(hitBox.gameObject, false);
 	}
 	
 	private void Animate(string baseSpriteName, bool shouldLoopAnimation = true)
@@ -604,6 +614,10 @@ public class Character : MonoBehaviour
 				currentLoopCount ++;
 			}
 		}
+		else if (currentAnimationIsAttack)
+		{
+			NGUITools.SetActive(hitBox.gameObject, true);
+		}
 	}
 	
 	#endregion
@@ -615,33 +629,43 @@ public class Character : MonoBehaviour
 		return currHealth == 0;
 	}
 	
-	private void Hit(Character attacker)
+	protected void Hit(Character attacker)
 	{
-		if ( IsDead() || damageFlashTime > 0 )
+		if ( characterType == CharacterType.Player || attacker.characterType == CharacterType.Player )
 		{
-			return;
-		}		
+			if ( IsDead() || damageFlashTime > 0 )
+			{
+				return;
+			}		
 		
-		int damage = attacker.damage;
+			int damage = attacker.damage;
 		
-		if ( attacker.transform.localPosition.x < transform.localPosition.x )
-		{
-			TriggerKnockback(1);
+			if ( attacker.transform.localPosition.x < transform.localPosition.x )
+			{
+				TriggerKnockback(1);
+			}
+			else
+			{
+				TriggerKnockback(-1);
+			}
+		
+			currHealth -= damage;
+			if ( currHealth < 0 )
+			{
+				currHealth = 0;
+			}
+		
+			damageFlashTime = 1.0f;
+			damageFlashRate = 0.25f;
+			damageFlashTimeSinceLastFlash = 0.0f;
+			
+			HandleAggro(attacker);
 		}
-		else
-		{
-			TriggerKnockback(-1);
-		}
+	}
+	
+	protected virtual void HandleAggro(Character attacker)
+	{
 		
-		currHealth -= damage;
-		if ( currHealth < 0 )
-		{
-			currHealth = 0;
-		}
-		
-		damageFlashTime = 1.0f;
-		damageFlashRate = 0.25f;
-		damageFlashTimeSinceLastFlash = 0.0f;
 	}
 	
 	#endregion
