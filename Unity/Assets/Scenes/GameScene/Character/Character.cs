@@ -241,6 +241,10 @@ public class Character : MonoBehaviour
 	{
 		if (IsDead())
 		{
+			if ( animationState != AnimationState.Down )
+			{
+				//Sound: dead.wav
+			}
 			animationState = AnimationState.Down;
 		}
 		else if (victoryState != VictoryState.None)
@@ -785,6 +789,8 @@ public class Character : MonoBehaviour
 				return;
 			}		
 		
+			//Sound: Hit1.wav ~ Hit6.wav (Random)
+			
 			int damage = 0;
 			switch (attacker.currentAttackState)
 			{
@@ -862,6 +868,7 @@ public class Character : MonoBehaviour
 	{
 		if ( requiresRevive )
 		{
+			//Sound: Revive.wav
 			requiresRevive = false;
 			lives ++;
 			Respawn();

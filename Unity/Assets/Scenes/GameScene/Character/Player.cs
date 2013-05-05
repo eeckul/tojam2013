@@ -107,6 +107,15 @@ public class Player : Character
 			{
 				allowDoubleJump = false;
 				TriggerJump();
+				
+				if (isGrounded)
+				{
+					//Sound: DoubleJump.wav
+				}
+				else
+				{
+					//Sound: Jump.wav
+				}
 			}
 		}
 		else
