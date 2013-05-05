@@ -156,6 +156,27 @@ MonoBehaviour:
   runningSpriteName: sprite_enemy2_walk
   runningFrameCount: 3
   runningFrameRate: 9
+  lightAttackSpriteName: sprite_enemy2_walk
+  lightAttackFrameCount: 3
+  lightAttackFrameRate: 9
+  lightAttack2SpriteName: sprite_enemy2_walk
+  lightAttack2FrameCount: 3
+  lightAttack2FrameRate: 9
+  heavyAttackSpriteName: sprite_enemy2_walk
+  heavyAttackFrameCount: 3
+  heavyAttackFrameRate: 9
+  blockSpriteName: sprite_enemy2_block
+  blockFrameCount: 2
+  blockFrameRate: 4
+  knockBackSpriteName: sprite_enemy2_knockback
+  knockBackFrameCount: 2
+  knockBackFrameRate: 4
+  jumpSpriteName: sprite_enemy2_jump
+  jumpFrameCount: 2
+  jumpFrameRate: 4
+  downSpriteName: sprite_enemy2_walk
+  downFrameCount: 3
+  downFrameRate: 9
   maxHealth: 50
   currHealth: 0
   damage: 10

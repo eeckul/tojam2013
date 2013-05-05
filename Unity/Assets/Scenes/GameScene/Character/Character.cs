@@ -35,7 +35,14 @@ public class Character : MonoBehaviour
 	public enum AnimationState
 	{
 		Standing,
-		Running
+		Running,
+		LightAttack,
+		LightAttack2,
+		HeavyAttack,
+		Block,
+		KnockBack,
+		Jump,
+		Down
 	}
 	
 	public AnimationState animationState = AnimationState.Standing;
@@ -49,10 +56,39 @@ public class Character : MonoBehaviour
 	public int runningFrameCount;
 	public float runningFrameRate;
 	
+	public string lightAttackSpriteName;
+	public int lightAttackFrameCount;
+	public float lightAttackFrameRate;
+	
+	public string lightAttack2SpriteName;
+	public int lightAttack2FrameCount;
+	public float lightAttack2FrameRate;
+	
+	public string heavyAttackSpriteName;
+	public int heavyAttackFrameCount;
+	public float heavyAttackFrameRate;
+	
+	public string blockSpriteName;
+	public int blockFrameCount;
+	public float blockFrameRate;
+	
+	public string knockBackSpriteName;
+	public int knockBackFrameCount;
+	public float knockBackFrameRate;
+	
+	public string jumpSpriteName;
+	public int jumpFrameCount;
+	public float jumpFrameRate;
+	
+	public string downSpriteName;
+	public int downFrameCount;
+	public float downFrameRate;
+	
 	private int currentFrameCount;
 	private float currentFrameInterval;
 	private int currentFrameIndex;
 	private float currentFrameTime;
+	private int currentLoopCount;
 	
 	#endregion
 	
@@ -82,51 +118,69 @@ public class Character : MonoBehaviour
 	
 	private void UpdateMotion()
 	{
-		if (movementMagnitude == 0)
+		if (IsDead())
 		{
-			if (isGrounded)
+			animationState = AnimationState.Down;
+		}
+		else
+		{
+			if (movementMagnitude == 0)
+			{
+				if (isGrounded)
+				{
+					Vector3 velocity = rigidbody.velocity;
+					velocity.x = 0;
+					rigidbody.velocity = velocity;
+				}
+			}
+			else
+			{
+				float actualMovementForce = movementMagnitude * movementForce;
+			
+				if (actualMovementForce > 0 && rightBlockingObjects.size == 0
+					|| actualMovementForce < 0 && leftBlockingObjects.size == 0)
+				{
+					rigidbody.AddForce(new Vector3(actualMovementForce, 0, 0));
+				}
+			}
+			
+			if (rigidbody.velocity.x != 0)
 			{
 				Vector3 velocity = rigidbody.velocity;
-				velocity.x = 0;
+				velocity.x = Mathf.Clamp(velocity.x, -movementMax, movementMax);
 				rigidbody.velocity = velocity;
 			}
-		}
-		else
-		{
-			float actualMovementForce = movementMagnitude * movementForce;
-			
-			if (actualMovementForce > 0 && rightBlockingObjects.size == 0
-				|| actualMovementForce < 0 && leftBlockingObjects.size == 0)
+		
+			if (isGrounded)
 			{
-				rigidbody.AddForce(new Vector3(actualMovementForce, 0, 0));
+				if (rigidbody.velocity.x != 0)
+				{
+					animationState = AnimationState.Running;
+				}
+				else
+				{
+					animationState = AnimationState.Standing;
+				}
 			}
-		}
-		
-		if (rigidbody.velocity.x != 0)
-		{
-			Vector3 velocity = rigidbody.velocity;
-			velocity.x = Mathf.Clamp(velocity.x, -movementMax, movementMax);
-			rigidbody.velocity = velocity;
-			animationState = AnimationState.Running;
-		}
-		else
-		{
-			animationState = AnimationState.Standing;
-		}
-		
-		isUpJumping = rigidbody.velocity.y > jumpSpeed * 0.05f;
-		ToggleJumpCollider(isUpJumping || isDownJumping);
-		
-		if (isDownJumping)
-		{
-			float characterY = rigidbody.position.y + boxCollider.size.y * 0.5f + boxCollider.center.y;
-			BoxCollider platformCollider = (BoxCollider)downJumpingPlatform.collider;
-			float platformY = downJumpingPlatform.transform.localPosition.y - platformCollider.size.y * 0.5f + platformCollider.center.y;
-			
-			if (characterY < platformY)
+			else
 			{
-				isDownJumping = false;
-			}	
+				animationState = AnimationState.Jump;
+			}
+		
+			isUpJumping = rigidbody.velocity.y > jumpSpeed * 0.05f;
+			ToggleJumpCollider(isUpJumping || isDownJumping);
+		
+			if (isDownJumping)
+			{
+				float characterY = rigidbody.position.y + boxCollider.size.y * 0.5f + boxCollider.center.y;
+				BoxCollider platformCollider = (BoxCollider)downJumpingPlatform.collider;
+				float platformY = downJumpingPlatform.transform.localPosition.y - platformCollider.size.y * 0.5f + platformCollider.center.y;
+			
+				if (characterY < platformY)
+				{
+					isDownJumping = false;
+				}	
+			}
 		}
 	}
 	
@@ -212,6 +266,16 @@ public class Character : MonoBehaviour
 		return platformCollider.size.z <= 25f;
 	}
 	
+	protected void TriggerLightAttack()
+	{
+		
+	}
+	
+	protected void TriggerHeavyAttack()
+	{
+		
+	}
+	
 	#endregion
 	
 	#region Animation
@@ -239,6 +303,48 @@ public class Character : MonoBehaviour
 				Animate(runningSpriteName);
 				break;
 			}
+			case AnimationState.LightAttack:
+			{
+				if (changedState) SetAnimationInfo(lightAttackFrameCount, lightAttackFrameRate);
+				Animate (lightAttackSpriteName);
+				break;
+			}
+			case AnimationState.LightAttack2:
+			{
+				if (changedState) SetAnimationInfo(lightAttack2FrameCount, lightAttack2FrameRate);
+				Animate (lightAttack2SpriteName);
+				break;
+			}
+			case AnimationState.HeavyAttack:
+			{
+				if (changedState) SetAnimationInfo(heavyAttackFrameCount, heavyAttackFrameRate);
+				Animate (heavyAttackSpriteName);
+				break;
+			}
+			case AnimationState.Block:
+			{
+				if (changedState) SetAnimationInfo(blockFrameCount, blockFrameRate);
+				Animate (blockSpriteName);
+				break;
+			}
+			case AnimationState.KnockBack:
+			{
+				if (changedState) SetAnimationInfo(knockBackFrameCount, knockBackFrameRate);
+				Animate (knockBackSpriteName);
+				break;
+			}
+			case AnimationState.Jump:
+			{
+				if (changedState) SetAnimationInfo(jumpFrameCount, jumpFrameRate);
+				Animate (jumpSpriteName);
+				break;
+			}
+			case AnimationState.Down:
+			{
+				if (changedState) SetAnimationInfo(downFrameCount, downFrameRate);
+				Animate(downSpriteName);
+				break;
+			}
 			default:
 			{
 				break;
@@ -252,6 +358,7 @@ public class Character : MonoBehaviour
 		currentFrameInterval = frameRate > 0 ? 1f / frameRate : 0;
 		currentFrameIndex = 0;
 		currentFrameTime = currentFrameInterval;
+		currentLoopCount = 0;
 	}
 	
 	private void Animate(string baseSpriteName)
@@ -264,8 +371,23 @@ public class Character : MonoBehaviour
 			sprite.spriteName = frameSpriteName;
 			
 			currentFrameTime = 0;
+			int frameIndex = currentFrameIndex;
 			currentFrameIndex = (currentFrameIndex + 1) % currentFrameCount;
+			
+			if (currentFrameIndex < frameIndex)
+			{
+				currentLoopCount ++;
+			}
 		}
+	}
+	
+	#endregion
+	
+	#region Combat
+	
+	public bool IsDead()
+	{
+		return currHealth == 0;
 	}
 	
 	#endregion
