@@ -49,6 +49,7 @@ public class Player : Character
 		UpdateInteraction();
 		
 		hud.SetHealth((float)currHealth / (float)maxHealth);
+		hud.SetLives(lives);
 	}
 	
 	#region Input

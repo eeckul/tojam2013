@@ -28,7 +28,7 @@ public class GameCamera : MonoBehaviour
 		
 		ToggleBoundaries(true);
 		
-		yield return new WaitForEndOfFrame();
+		yield return new WaitForSeconds(0.25f);
 		
 		GameRoot.current.EnteredNewScreen();
 	}
