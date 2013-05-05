@@ -61,6 +61,30 @@ public class GameRoot : MonoBehaviour
 				break;
 			}
 		}
+		
+		Vector3 warpPoint;
+		warpPoint.x = gameCamera.leftBoundary.transform.localPosition.x +
+			((BoxCollider)gameCamera.leftBoundary.collider).center.x +
+				((BoxCollider)gameCamera.leftBoundary.collider).size.x * 0.5f;
+		warpPoint.y = gameCamera.transform.localPosition.y + gameCamera.camera.orthographicSize;
+		warpPoint.z = 12.5f;
+		
+		Ray ray = new Ray(warpPoint, Vector3.down);
+		RaycastHit hitInfo;
+		Physics.Raycast(ray, out hitInfo);
+		float xOffset = 8f;
+		
+		foreach (Player player in players)
+		{
+			if (player.transform.localPosition.x < gameCamera.leftBoundary.transform.localPosition.x)
+			{
+				Vector3 playerPosition = player.transform.localPosition;
+				playerPosition.x = hitInfo.point.x + player.boxCollider.size.x * 0.5f + xOffset;
+				playerPosition.y = hitInfo.point.y + player.boxCollider.size.y * 0.5f;
+				player.transform.localPosition = playerPosition;
+				xOffset += 8f;
+			}
+		}
 	}
 	
 	private void UpdateTerminalStates()

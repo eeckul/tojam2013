@@ -56,11 +56,11 @@ public class GameCamera : MonoBehaviour
 		if (toggle)
 		{
 			Vector3 leftBoundaryPosition = leftBoundary.transform.localPosition;
-			leftBoundaryPosition.x = transform.localPosition.x - levelScreenWidth * 0.5f;
+			leftBoundaryPosition.x = transform.localPosition.x - levelScreenWidth * 0.5f + 5f;
 			leftBoundary.transform.localPosition = leftBoundaryPosition;
 			
 			Vector3 rightBoundaryPosition = rightBoundary.transform.localPosition;
-			rightBoundaryPosition.x = transform.localPosition.x + levelScreenWidth * 0.5f;
+			rightBoundaryPosition.x = transform.localPosition.x + levelScreenWidth * 0.5f - 5f;
 			rightBoundary.transform.localPosition = rightBoundaryPosition;
 		}
 			
