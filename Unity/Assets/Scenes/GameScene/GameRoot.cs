@@ -14,25 +14,42 @@ public class GameRoot : MonoBehaviour
 	public BetterList<Enemy> enemiesOnCamera = new BetterList<Enemy>();
 	public BetterList<LevelInteractive> interactivesOnCamera = new BetterList<LevelInteractive>();
 	
+	private bool allEnemiesKilled;
+	private bool allTerminalsActivated;
+	private bool allTerminalsCorrect;
 	private InteractiveDoor exitDoor = null;
 	
-	private bool nextLevelTriggered = false;
+	private bool terminalPenaltyTriggered;
+	private bool isScreenReady;
+	public bool screenTransitionReady;
+	private bool nextLevelTriggered;
 	
 	private void Awake()
 	{
 		current = this;
 	}
 	
-	private void Update()
+	private void LateUpdate()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
+		
+		if (isScreenReady)
+		{
+			UpdateTerminalStates();
+			UpdateEnemyStates();
+			CheckGameState();
+		}
 	}
 	
 	public void EnteredNewScreen()
 	{
+		UIManager.current.ToggleNextScreenArrow(false);
+		
+		terminalPenaltyTriggered = false;
+		isScreenReady = true;
 		exitDoor = null;
 		
 		foreach (LevelInteractive interactive in interactivesOnCamera)
@@ -46,10 +63,10 @@ public class GameRoot : MonoBehaviour
 		}
 	}
 	
-	public void ActivatedLevelTerminal()
+	private void UpdateTerminalStates()
 	{
-		bool allTerminalsActivated = true;
-		bool allTerminalsCorrect = true;
+		allTerminalsActivated = true;
+		allTerminalsCorrect = true;
 		
 		foreach (LevelInteractive interactive in interactivesOnCamera)
 		{
@@ -59,6 +76,7 @@ public class GameRoot : MonoBehaviour
 				if (!terminal.isActivated)
 				{
 					allTerminalsActivated = false;
+					allTerminalsCorrect = false;
 					break;
 				}
 				else if (!terminal.activatedCorrectly)
@@ -67,32 +85,11 @@ public class GameRoot : MonoBehaviour
 				}
 			}
 		}
-		
-		if (allTerminalsActivated)
-		{
-			if (exitDoor != null)
-			{
-				exitDoor.isOpen = true;
-				
-				if (allTerminalsCorrect)
-				{
-					exitDoor.isReady = true;
-				}
-				else
-				{
-					// Spawn enemies.
-				}
-			}
-			else
-			{
-				gameCamera.NextScreen();
-			}
-		}
 	}
 	
-	public void KilledEnemy()
+	private void UpdateEnemyStates()
 	{
-		bool allEnemiesKilled = true;
+		allEnemiesKilled = true;
 		
 		foreach (Enemy enemy in enemiesOnCamera)
 		{
@@ -102,19 +99,53 @@ public class GameRoot : MonoBehaviour
 				break;
 			}
 		}
-		
+	}
+	
+	private void CheckGameState()
+	{
 		if (allEnemiesKilled)
 		{
-			if (exitDoor != null)
+			if (allTerminalsActivated)
 			{
-				exitDoor.isOpen = true;
-				exitDoor.isReady = true;
-			}
-			else
-			{
-				gameCamera.NextScreen();
+				if (exitDoor != null)
+				{
+					exitDoor.isOpen = true;
+						
+					if (allTerminalsCorrect || terminalPenaltyTriggered)
+					{
+						exitDoor.isReady = true;
+					}
+					else
+					{
+						TriggerTerminalPenalty();
+					}
+				}
+				else if (isScreenReady)
+				{
+					StartCoroutine(TriggerNextScreen());
+				}
 			}
 		}
+	}
+	
+	private void TriggerTerminalPenalty()
+	{
+		terminalPenaltyTriggered = true;
+	}
+	
+	private IEnumerator TriggerNextScreen()
+	{
+		UIManager.current.ToggleNextScreenArrow(true);
+		
+		isScreenReady = false;
+		screenTransitionReady = false;
+		
+		while (!screenTransitionReady)
+		{
+			yield return new WaitForEndOfFrame();
+		}
+		
+		gameCamera.NextScreen();
 	}
 	
 	public void TriggerNextLevel()
@@ -125,27 +156,12 @@ public class GameRoot : MonoBehaviour
 		}
 		
 		nextLevelTriggered = true;
-		
 		StartCoroutine(DelayedNextLevel());
 	}
 	
 	private IEnumerator DelayedNextLevel()
 	{
-		UIPanel[] panels = current.gameObject.GetComponentsInChildren<UIPanel>();
-		
-		float delay = 3f;
-		float timeRemaining = delay;
-		while (timeRemaining > 0)
-		{
-			yield return new WaitForEndOfFrame();
-			
-			timeRemaining -= Time.deltaTime;
-			
-			foreach (UIPanel panel in panels)
-			{
-				panel.alpha = timeRemaining / delay;
-			}
-		}
+		yield return new WaitForSeconds(2f);
 		
 		nextLevelIndex++;
 		Application.LoadLevel("GameScene");

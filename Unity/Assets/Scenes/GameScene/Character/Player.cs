@@ -144,6 +144,11 @@ public class Player : Character
 		{
 			ToggleCurrentInteractive(true);
 		}
+		
+		if (rightBlockingObjects.Contains(GameRoot.current.gameCamera.rightBoundary.gameObject))
+		{
+			GameRoot.current.screenTransitionReady = true;
+		}
 	}
 	
 	protected override void OnTriggerEnter(Collider other)

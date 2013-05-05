@@ -19,6 +19,8 @@ public class LevelLoader : MonoBehaviour
 	public GameObject groundPrefab;
 	public Color groundColor = RGBColor(0, 0, 0);
 	
+	public GameObject platformReallyShortPrefab;
+	public Color platformReallyShortColor = RGBColor(0, 192, 192);
 	public GameObject platformShortPrefab;
 	public Color platformShortColor = RGBColor(0, 0, 64);
 	public GameObject platformShortMediumPrefab;
@@ -126,6 +128,7 @@ public class LevelLoader : MonoBehaviour
 			{
 				Color color = colors[w + h * width];
 				
+				CreateObject(color, platformReallyShortColor, platformReallyShortPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformShortColor, platformShortPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformShortMediumColor, platformShortMediumPrefab, levelRoot, w, h, true);
 				CreateObject(color, platformMediumColor, platformMediumPrefab, levelRoot, w, h, true);

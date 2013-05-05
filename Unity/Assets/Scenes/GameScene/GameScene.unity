@@ -318,6 +318,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ed19ab8d9a941daa7bf986008b836f, type: 3}
   m_Name: 
+  owner: {fileID: 291969662}
 --- !u!54 &63545921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -372,13 +373,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: c5e9c71ad8b044f6fa739c1567c3604c, type: 2}
-  mTex: {fileID: 2800000, guid: 7b01a8e7431fb463bada78dbb8fb25d4, type: 3}
-  mColor: {r: 1, g: 1, b: 0, a: 1}
+  mMat: {fileID: 2100000, guid: cf6c269a6af434daaab53016fb49eaf6, type: 2}
+  mTex: {fileID: 2800000, guid: 9b88cb24599bd4884ae90e9e50810b55, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 8ec9868e0a53b4102935269fbedead93, type: 2}
-  mSpriteName: sprite_idle1
+  mAtlas: {fileID: 11400000, guid: bd2da635cb1284a78aea3b19ef7690bd, type: 2}
+  mSpriteName: sprite3_idle1
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -469,6 +470,7 @@ MonoBehaviour:
   movementForce: 500
   movementMax: 50
   jumpSpeed: 150
+  knockbackSpeed: 100
   animationState: 0
   standingSpriteName: sprite_idle
   standingFrameCount: 3
@@ -497,7 +499,7 @@ MonoBehaviour:
   jumpSpriteName: sprite_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_down
+  downSpriteName: sprite_downstate
   downFrameCount: 3
   downFrameRate: 4
   hitBox: {fileID: 63545919}
@@ -602,7 +604,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 2.5, y: 0, z: 0}
 --- !u!1 &441676073
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +684,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ed19ab8d9a941daa7bf986008b836f, type: 3}
   m_Name: 
+  owner: {fileID: 1433223903}
 --- !u!54 &570218099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -722,7 +725,7 @@ Transform:
   m_GameObject: {fileID: 576978027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1000, z: 0}
-  m_LocalScale: {x: .00277777785, y: .00277777785, z: .00277777785}
+  m_LocalScale: {x: .0078125, y: .0078125, z: .0078125}
   m_Children:
   - {fileID: 1635724326}
   m_Father: {fileID: 0}
@@ -738,9 +741,95 @@ MonoBehaviour:
   m_Name: 
   scalingStyle: 1
   automatic: 0
-  manualHeight: 720
+  manualHeight: 256
   minimumHeight: 720
   maximumHeight: 720
+--- !u!1 &655947428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 655947430}
+  - 114: {fileID: 655947429}
+  - 114: {fileID: 655947431}
+  m_Layer: 8
+  m_Name: NextScreenArrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &655947429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655947428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: f95230384a69f48ddb21b03061818667, type: 2}
+  mTex: {fileID: 2800000, guid: ad2cf9465579c49c4a5d41f350f6be3a, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 0
+  mAtlas: {fileID: 11400000, guid: 20ab8f24a837e44119ec1f7f3b6cb3c5, type: 2}
+  mSpriteName: DC_Arrow
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+--- !u!4 &655947430
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655947428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170, y: 35, z: 0}
+  m_LocalScale: {x: 32, y: 32, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296809405}
+--- !u!114 &655947431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655947428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
+  m_Name: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: .5
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: 0
+  to: 1
 --- !u!1 &673561717
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,13 +986,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: c5e9c71ad8b044f6fa739c1567c3604c, type: 2}
-  mTex: {fileID: 2800000, guid: 7b01a8e7431fb463bada78dbb8fb25d4, type: 3}
-  mColor: {r: 1, g: 0, b: 1, a: 1}
+  mMat: {fileID: 2100000, guid: 76a7bc2faa7f54cbb81cfd7bbc57270f, type: 2}
+  mTex: {fileID: 2800000, guid: 125c06de522364bfcabc94d69b0a31ab, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 8ec9868e0a53b4102935269fbedead93, type: 2}
-  mSpriteName: sprite_idle1
+  mAtlas: {fileID: 11400000, guid: c772649766918462f88c155b636ff17e, type: 2}
+  mSpriteName: sprite4_idle1
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -972,7 +1061,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933984806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.694885254, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296809405}
@@ -1031,13 +1120,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: c5e9c71ad8b044f6fa739c1567c3604c, type: 2}
-  mTex: {fileID: 2800000, guid: 7b01a8e7431fb463bada78dbb8fb25d4, type: 3}
-  mColor: {r: 1, g: 0, b: 0, a: 1}
+  mMat: {fileID: 2100000, guid: f0498ba7c19444cf79deae3be25b1457, type: 2}
+  mTex: {fileID: 2800000, guid: 734ba170d33644ba0a8d1259ff1c6128, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 8ec9868e0a53b4102935269fbedead93, type: 2}
-  mSpriteName: sprite_idle1
+  mAtlas: {fileID: 11400000, guid: f25e9fc3bd68a4b30a02f765d684805f, type: 2}
+  mSpriteName: sprite2_idle1
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -1096,6 +1185,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ed19ab8d9a941daa7bf986008b836f, type: 3}
   m_Name: 
+  owner: {fileID: 1668434881}
 --- !u!54 &1195186710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1155,6 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae33090b9e6e34db49ea2387e84252cd, type: 3}
   m_Name: 
   gameCamera: {fileID: 26403960}
+  screenTransitionReady: 0
 --- !u!114 &1287820667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,9 +1283,12 @@ MonoBehaviour:
   - {fileID: 1433223903}
   - {fileID: 1786441827}
   - {fileID: 1668434881}
-  levelMap: {fileID: 2800000, guid: e302a23bcedcf4f0a99ee49b00e4f764, type: 3}
+  levelMap: {fileID: 2800000, guid: 81869204c56204a259f773892cd41f9e, type: 3}
   groundPrefab: {fileID: 100000, guid: 5add1de3740ce4c5e991118004e143df, type: 2}
   groundColor: {r: 0, g: 0, b: 0, a: 1}
+  platformReallyShortPrefab: {fileID: 100002, guid: c06aaafc7e11f41049071d88123afbae,
+    type: 2}
+  platformReallyShortColor: {r: 0, g: .752941191, b: .752941191, a: 1}
   platformShortPrefab: {fileID: 100002, guid: 7cd048ad8350a473d81d096a87754c1f, type: 2}
   platformShortColor: {r: 0, g: 0, b: .250980407, a: 1}
   platformShortMediumPrefab: {fileID: 100002, guid: 804581d8a158e4ffd9d8bf987704660e,
@@ -1232,6 +1326,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1296809405}
   - 114: {fileID: 1296809404}
+  - 114: {fileID: 1296809406}
   m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
@@ -1267,8 +1362,20 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 655947430}
   m_Father: {fileID: 933984807}
+--- !u!114 &1296809406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1296809403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ece7c1a491d46b8bd351784e0b3714, type: 3}
+  m_Name: 
+  nextScreenArrow: {fileID: 655947429}
 --- !u!1001 &1303121654
 Prefab:
   m_ObjectHideFlags: 0
@@ -1298,7 +1405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mColor.b
@@ -1315,6 +1422,55 @@ Prefab:
     - target: {fileID: 400000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: m_LocalPosition.z
       value: 12.8000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 11400000, guid: c772649766918462f88c155b636ff17e,
+        type: 2}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mSpriteName
+      value: sprite4_idle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: standingSpriteName
+      value: sprite4_idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: runningSpriteName
+      value: sprite4_run
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttackSpriteName
+      value: sprite4_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttack2SpriteName
+      value: sprite4_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackSpriteName
+      value: sprite4_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackChainSpriteName
+      value: sprite4_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: blockSpriteName
+      value: sprite4_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: knockBackSpriteName
+      value: sprite4_knockback
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: jumpSpriteName
+      value: sprite4_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: downSpriteName
+      value: sprite4_downstate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -1350,11 +1506,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: m_IsActive
@@ -1375,6 +1531,55 @@ Prefab:
     - target: {fileID: 400000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: m_LocalPosition.z
       value: 12.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 11400000, guid: f25e9fc3bd68a4b30a02f765d684805f,
+        type: 2}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mSpriteName
+      value: sprite2_idle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: standingSpriteName
+      value: sprite2_idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: runningSpriteName
+      value: sprite2_run
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttackSpriteName
+      value: sprite2_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttack2SpriteName
+      value: sprite2_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackSpriteName
+      value: sprite2_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackChainSpriteName
+      value: sprite2_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: blockSpriteName
+      value: sprite2_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: knockBackSpriteName
+      value: sprite2_knockback
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: jumpSpriteName
+      value: sprite2_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: downSpriteName
+      value: sprite2_downstate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -1470,35 +1675,36 @@ MonoBehaviour:
   movementForce: 500
   movementMax: 50
   jumpSpeed: 150
+  knockbackSpeed: 100
   animationState: 0
-  standingSpriteName: sprite_idle
+  standingSpriteName: sprite2_idle
   standingFrameCount: 3
   standingFrameRate: 4
-  runningSpriteName: sprite_run
+  runningSpriteName: sprite2_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightattack
+  lightAttackSpriteName: sprite2_lightattack
   lightAttackFrameCount: 2
   lightAttackFrameRate: 2
-  lightAttack2SpriteName: sprite_2lightattack
+  lightAttack2SpriteName: sprite2_2lightattack
   lightAttack2FrameCount: 2
   lightAttack2FrameRate: 2
-  heavyAttackSpriteName: sprite_heavyattack
+  heavyAttackSpriteName: sprite2_heavyattack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 2
-  heavyAttackChainSpriteName: sprite_heavyattack
+  heavyAttackChainSpriteName: sprite2_heavyattack
   heavyAttackChainFrameCount: 1
   heavyAttackChainFrameRate: 2
-  blockSpriteName: sprite_block
+  blockSpriteName: sprite2_block
   blockFrameCount: 2
   blockFrameRate: 2
-  knockBackSpriteName: sprite_knockback
+  knockBackSpriteName: sprite2_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
-  jumpSpriteName: sprite_jump
+  jumpSpriteName: sprite2_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_down
+  downSpriteName: sprite2_downstate
   downFrameCount: 3
   downFrameRate: 4
   hitBox: {fileID: 570218097}
@@ -1556,11 +1762,11 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: cf6c269a6af434daaab53016fb49eaf6, type: 2}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: 9b88cb24599bd4884ae90e9e50810b55, type: 3}
     - target: {fileID: 11400006, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: controller
       value: 2
@@ -1575,7 +1781,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: m_IsActive
@@ -1596,6 +1802,55 @@ Prefab:
     - target: {fileID: 400000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: m_LocalPosition.z
       value: 12.6999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 11400000, guid: bd2da635cb1284a78aea3b19ef7690bd,
+        type: 2}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mSpriteName
+      value: sprite3_idle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: standingSpriteName
+      value: sprite3_idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: runningSpriteName
+      value: sprite3_run
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttackSpriteName
+      value: sprite3_lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lightAttack2SpriteName
+      value: sprite3_2lightattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackSpriteName
+      value: sprite3_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: heavyAttackChainSpriteName
+      value: sprite3_heavyattack
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: blockSpriteName
+      value: sprite3_block
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: knockBackSpriteName
+      value: sprite3_knockback
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: jumpSpriteName
+      value: sprite3_jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: downSpriteName
+      value: sprite3_downstate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -1640,7 +1895,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -2.5, y: 0, z: 0}
 --- !u!1 &1635724325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,35 +2089,36 @@ MonoBehaviour:
   movementForce: 500
   movementMax: 50
   jumpSpeed: 150
+  knockbackSpeed: 100
   animationState: 0
-  standingSpriteName: sprite_idle
+  standingSpriteName: sprite4_idle
   standingFrameCount: 3
   standingFrameRate: 4
-  runningSpriteName: sprite_run
+  runningSpriteName: sprite4_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightattack
+  lightAttackSpriteName: sprite4_lightattack
   lightAttackFrameCount: 2
   lightAttackFrameRate: 2
-  lightAttack2SpriteName: sprite_2lightattack
+  lightAttack2SpriteName: sprite4_2lightattack
   lightAttack2FrameCount: 2
   lightAttack2FrameRate: 2
-  heavyAttackSpriteName: sprite_heavyattack
+  heavyAttackSpriteName: sprite4_heavyattack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 2
-  heavyAttackChainSpriteName: sprite_heavyattack
+  heavyAttackChainSpriteName: sprite4_heavyattack
   heavyAttackChainFrameCount: 1
   heavyAttackChainFrameRate: 2
-  blockSpriteName: sprite_block
+  blockSpriteName: sprite4_block
   blockFrameCount: 2
   blockFrameRate: 2
-  knockBackSpriteName: sprite_knockback
+  knockBackSpriteName: sprite4_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
-  jumpSpriteName: sprite_jump
+  jumpSpriteName: sprite4_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_down
+  downSpriteName: sprite4_downstate
   downFrameCount: 3
   downFrameRate: 4
   hitBox: {fileID: 1195186708}
@@ -1948,11 +2204,16 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 2e0d9dd4252d5490195515fb95a27b6d, type: 2}
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: e09114b278cd248f7bd8b44bf9b90790, type: 3}
+    - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mAtlas
+      value: 
+      objectReference: {fileID: 11400000, guid: c1daf95a0b7184e7598ae670879a725c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
   m_RootGameObject: {fileID: 291969658}
@@ -2019,35 +2280,36 @@ MonoBehaviour:
   movementForce: 500
   movementMax: 50
   jumpSpeed: 150
+  knockbackSpeed: 100
   animationState: 0
-  standingSpriteName: sprite_idle
+  standingSpriteName: sprite3_idle
   standingFrameCount: 3
   standingFrameRate: 4
-  runningSpriteName: sprite_run
+  runningSpriteName: sprite3_run
   runningFrameCount: 3
   runningFrameRate: 9
-  lightAttackSpriteName: sprite_lightattack
+  lightAttackSpriteName: sprite3_lightattack
   lightAttackFrameCount: 2
   lightAttackFrameRate: 2
-  lightAttack2SpriteName: sprite_2lightattack
+  lightAttack2SpriteName: sprite3_2lightattack
   lightAttack2FrameCount: 2
   lightAttack2FrameRate: 2
-  heavyAttackSpriteName: sprite_heavyattack
+  heavyAttackSpriteName: sprite3_heavyattack
   heavyAttackFrameCount: 1
   heavyAttackFrameRate: 2
-  heavyAttackChainSpriteName: sprite_heavyattack
+  heavyAttackChainSpriteName: sprite3_heavyattack
   heavyAttackChainFrameCount: 1
   heavyAttackChainFrameRate: 2
-  blockSpriteName: sprite_block
+  blockSpriteName: sprite3_block
   blockFrameCount: 2
   blockFrameRate: 2
-  knockBackSpriteName: sprite_knockback
+  knockBackSpriteName: sprite3_knockback
   knockBackFrameCount: 2
   knockBackFrameRate: 4
-  jumpSpriteName: sprite_jump
+  jumpSpriteName: sprite3_jump
   jumpFrameCount: 2
   jumpFrameRate: 4
-  downSpriteName: sprite_down
+  downSpriteName: sprite3_downstate
   downFrameCount: 3
   downFrameRate: 4
   hitBox: {fileID: 2119457282}
@@ -2169,12 +2431,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: c5e9c71ad8b044f6fa739c1567c3604c, type: 2}
-  mTex: {fileID: 2800000, guid: 7b01a8e7431fb463bada78dbb8fb25d4, type: 3}
+  mMat: {fileID: 2100000, guid: 2e0d9dd4252d5490195515fb95a27b6d, type: 2}
+  mTex: {fileID: 2800000, guid: e09114b278cd248f7bd8b44bf9b90790, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mAtlas: {fileID: 11400000, guid: 8ec9868e0a53b4102935269fbedead93, type: 2}
+  mAtlas: {fileID: 11400000, guid: c1daf95a0b7184e7598ae670879a725c, type: 2}
   mSpriteName: sprite_idle1
   mFillCenter: 1
   mType: 0
@@ -2234,6 +2496,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ed19ab8d9a941daa7bf986008b836f, type: 3}
   m_Name: 
+  owner: {fileID: 1786441827}
 --- !u!54 &2119457284
 Rigidbody:
   m_ObjectHideFlags: 0

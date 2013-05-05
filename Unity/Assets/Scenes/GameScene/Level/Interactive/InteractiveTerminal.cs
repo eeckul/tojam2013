@@ -47,8 +47,6 @@ public class InteractiveTerminal : LevelInteractive
 			ToggleButton(false);
 			NGUITools.SetActive(activatedSprite.gameObject, true);
 			Debug.Log(name + " activated correctly: " + activatedCorrectly);
-			
-			GameRoot.current.ActivatedLevelTerminal();
 			return true;
 		}
 		

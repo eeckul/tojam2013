@@ -23,11 +23,9 @@ public class Character : MonoBehaviour
 	protected LevelFloor downJumpingPlatform;
 	
 	protected bool isBlockedOnRight;
-	protected BetterList<GameObject> rightBlockingObjects = new BetterList<GameObject>();
+	public BetterList<GameObject> rightBlockingObjects = new BetterList<GameObject>();
 	protected bool isBlockedOnLeft;
-	protected BetterList<GameObject> leftBlockingObjects = new BetterList<GameObject>();
-	
-	protected bool isOnCamera;
+	public BetterList<GameObject> leftBlockingObjects = new BetterList<GameObject>();
 	
 	#endregion
 	
@@ -399,36 +397,20 @@ public class Character : MonoBehaviour
 	
 	protected virtual void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject == GameRoot.current.gameCamera.gameObject)
+		HitBox otherHitBox = other.gameObject.GetComponent<HitBox>();
+		if (otherHitBox != null && other != hitBox)
 		{
-			isOnCamera = true;
-		}
-		
-		HitBox hitBox = other.gameObject.GetComponent<HitBox>();
-		if (hitBox != null)
-		{
-			Hit(hitBox.owner);
-			Debug.Log(name + " got hit by " + other.gameObject.name);
+			Hit(otherHitBox.owner);
 		}
 	}
 	
 	protected virtual void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject == GameRoot.current.gameCamera.gameObject)
+		HitBox otherHitBox = other.gameObject.GetComponent<HitBox>();
+		if (otherHitBox != null && other != hitBox)
 		{
-			isOnCamera = false;
+			// Stub for leaving hit box.
 		}
-		
-		HitBox hitBox = other.gameObject.GetComponent<HitBox>();
-		if (hitBox != null)
-		{
-			Debug.Log(name + " left " + other.gameObject.name);
-		}
-	}
-	
-	public void ReceivedHit()
-	{
-		Debug.Log(name + " got hit!");
 	}
 	
 	protected void TriggerJump()

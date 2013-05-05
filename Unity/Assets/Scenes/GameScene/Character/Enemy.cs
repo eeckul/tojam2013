@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Enemy : Character
 {
+	public bool isEnabled;
+		
 	public float movementSpeed;
 	public int minCombatDistance;
 	public int minJumpDistance;
@@ -24,12 +26,14 @@ public class Enemy : Character
 		GameRoot.current.enemies.Add(this);
 		
 		targetPlayer = -1;
-
 	}
 	
 	protected override void FixedUpdate()
 	{
-		UpdateAI();
+		if (isEnabled)
+		{
+			UpdateAI();
+		}
 		
 		base.FixedUpdate();
 	}
@@ -104,5 +108,4 @@ public class Enemy : Character
 	}
 	
 	#endregion
-	
 }

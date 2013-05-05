@@ -55,23 +55,42 @@ public class GameCamera : MonoBehaviour
 	{
 		if (toggle)
 		{
-			Vector3 boundaryCenter = leftBoundary.center;
-			boundaryCenter.x = -levelScreenWidth * 0.5f - 2.5f;
-			leftBoundary.center = boundaryCenter;
-			boundaryCenter.x = levelScreenWidth * 0.5f + 2.5f;
-			rightBoundary.center = boundaryCenter;
+			Vector3 leftBoundaryPosition = leftBoundary.transform.localPosition;
+			leftBoundaryPosition.x = transform.localPosition.x - levelScreenWidth * 0.5f;
+			leftBoundary.transform.localPosition = leftBoundaryPosition;
+			
+			Vector3 rightBoundaryPosition = rightBoundary.transform.localPosition;
+			rightBoundaryPosition.x = transform.localPosition.x + levelScreenWidth * 0.5f;
+			rightBoundary.transform.localPosition = rightBoundaryPosition;
 		}
 			
 		NGUITools.SetActive(leftBoundary.gameObject, toggle);
 		NGUITools.SetActive(rightBoundary.gameObject, toggle);
+		
+		foreach (Player player in GameRoot.current.players)
+		{
+			while (player.leftBlockingObjects.Contains(leftBoundary.gameObject))
+			{
+				player.leftBlockingObjects.Remove(leftBoundary.gameObject);
+			}
+			
+			while (player.rightBlockingObjects.Contains(rightBoundary.gameObject))
+			{
+				player.rightBlockingObjects.Remove(rightBoundary.gameObject);
+			}
+		}
 	}
 	
 	private void OnTriggerEnter(Collider other)
 	{
-		Enemy enemy = other.gameObject.GetComponent<Enemy>();
-		if (enemy != null)
+		if (other.transform.parent != null)
 		{
-			GameRoot.current.enemiesOnCamera.Add(enemy);
+			Enemy enemy = other.transform.parent.GetComponent<Enemy>();
+			if (enemy != null)
+			{
+				GameRoot.current.enemiesOnCamera.Add(enemy);
+				enemy.isEnabled = true;
+			}
 		}
 		
 		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
@@ -83,10 +102,13 @@ public class GameCamera : MonoBehaviour
 	
 	private void OnTriggerExit(Collider other)
 	{
-		Enemy enemy = other.gameObject.GetComponent<Enemy>();
-		if (enemy != null)
+		if (other.transform.parent != null)
 		{
-			GameRoot.current.enemiesOnCamera.Remove(enemy);
+			Enemy enemy = other.transform.parent.GetComponent<Enemy>();
+			if (enemy != null)
+			{
+				GameRoot.current.enemiesOnCamera.Remove(enemy);
+			}
 		}
 		
 		LevelInteractive interactive = other.gameObject.GetComponent<LevelInteractive>();
