@@ -13,6 +13,10 @@ public class GameRoot : MonoBehaviour
 	public BetterList<Enemy> enemiesOnCamera = new BetterList<Enemy>();
 	public BetterList<LevelInteractive> interactivesOnCamera = new BetterList<LevelInteractive>();
 	
+	private InteractiveDoor exitDoor = null;
+	
+	private bool nextLevelTriggered = false;
+	
 	private void Awake()
 	{
 		current = this;
@@ -23,6 +27,21 @@ public class GameRoot : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
+		}
+	}
+	
+	public void EnteredNewScreen()
+	{
+		exitDoor = null;
+		
+		foreach (LevelInteractive interactive in interactivesOnCamera)
+		{
+			InteractiveDoor door = interactive as InteractiveDoor;
+			if (door != null && door.doorType == InteractiveDoor.DoorType.Exit)
+			{
+				exitDoor = door;
+				break;
+			}
 		}
 	}
 	
@@ -50,21 +69,18 @@ public class GameRoot : MonoBehaviour
 		
 		if (allTerminalsActivated)
 		{
-			InteractiveDoor exitDoor = null;
-			
-			foreach (LevelInteractive interactive in interactivesOnCamera)
-			{
-				InteractiveDoor door = interactive as InteractiveDoor;
-				if (door != null && door.doorType == InteractiveDoor.DoorType.Exit)
-				{
-					exitDoor = door;
-					break;
-				}
-			}
-			
 			if (exitDoor != null)
 			{
-				// Check for correct activation.
+				exitDoor.isOpen = true;
+				
+				if (allTerminalsCorrect)
+				{
+					exitDoor.isReady = true;
+				}
+				else
+				{
+					// Spawn enemies.
+				}
 			}
 			else
 			{
@@ -79,12 +95,57 @@ public class GameRoot : MonoBehaviour
 		
 		foreach (Enemy enemy in enemiesOnCamera)
 		{
-			// Check for living enemies.
+			if (!enemy.IsDead())
+			{
+				allEnemiesKilled = false;
+				break;
+			}
 		}
 		
 		if (allEnemiesKilled)
 		{
-			gameCamera.NextScreen();
+			if (exitDoor != null)
+			{
+				exitDoor.isOpen = true;
+				exitDoor.isReady = true;
+			}
+			else
+			{
+				gameCamera.NextScreen();
+			}
 		}
+	}
+	
+	public void TriggerNextLevel()
+	{
+		if (nextLevelTriggered)
+		{
+			return;
+		}
+		
+		nextLevelTriggered = true;
+		
+		StartCoroutine(DelayedNextLevel());
+	}
+	
+	private IEnumerator DelayedNextLevel()
+	{
+		UIPanel[] panels = current.gameObject.GetComponentsInChildren<UIPanel>();
+		
+		float delay = 3f;
+		float timeRemaining = delay;
+		while (timeRemaining > 0)
+		{
+			yield return new WaitForEndOfFrame();
+			
+			timeRemaining -= Time.deltaTime;
+			
+			foreach (UIPanel panel in panels)
+			{
+				panel.alpha = timeRemaining / delay;
+			}
+		}
+		
+		// Load next level.
 	}
 }

@@ -11,7 +11,7 @@ public class GameCamera : MonoBehaviour
 	
 	private float levelScreenWidth;
 	
-	private void Start()
+	private IEnumerator Start()
 	{
 		levelScreenWidth = (float)Screen.width / (float)Screen.height * gameCamera.orthographicSize * 2f;
 		Vector3 camPosition = transform.localPosition;
@@ -27,6 +27,10 @@ public class GameCamera : MonoBehaviour
 		rightBoundary.size = new Vector3(5f, boxCollider.size.y, boxCollider.size.z);
 		
 		ToggleBoundaries(true);
+		
+		yield return new WaitForEndOfFrame();
+		
+		GameRoot.current.EnteredNewScreen();
 	}
 	
 	public void NextScreen()
@@ -44,6 +48,7 @@ public class GameCamera : MonoBehaviour
 	private void CameraTweenFinished(UITweener tween)
 	{
 		ToggleBoundaries(true);
+		GameRoot.current.EnteredNewScreen();
 	}
 	
 	private void ToggleBoundaries(bool toggle)

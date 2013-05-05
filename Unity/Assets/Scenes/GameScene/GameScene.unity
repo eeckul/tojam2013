@@ -406,6 +406,27 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
+  lightAttackSpriteName: sprite_lightAttack
+  lightAttackFrameCount: 2
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_2lightAttack
+  lightAttack2FrameCount: 2
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_heavyAttack
+  heavyAttackFrameCount: 1
+  heavyAttackFrameRate: 5
+  blockSpriteName: sprite_block
+  blockFrameCount: 2
+  blockFrameRate: 4
+  knockBackSpriteName: 
+  knockBackFrameCount: 0
+  knockBackFrameRate: 0
+  jumpSpriteName: sprite_jump
+  jumpFrameCount: 2
+  jumpFrameRate: 4
+  downSpriteName: sprite_down
+  downFrameCount: 3
+  downFrameRate: 4
   maxHealth: 100
   currHealth: 0
   damage: 10
@@ -791,6 +812,10 @@ Prefab:
     - target: {fileID: 11400002, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: mTex
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: mAlpha
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -1255,6 +1280,27 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
+  lightAttackSpriteName: sprite_lightAttack
+  lightAttackFrameCount: 2
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_2lightAttack
+  lightAttack2FrameCount: 2
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_heavyAttack
+  heavyAttackFrameCount: 1
+  heavyAttackFrameRate: 5
+  blockSpriteName: sprite_block
+  blockFrameCount: 2
+  blockFrameRate: 4
+  knockBackSpriteName: 
+  knockBackFrameCount: 0
+  knockBackFrameRate: 0
+  jumpSpriteName: sprite_jump
+  jumpFrameCount: 2
+  jumpFrameRate: 4
+  downSpriteName: sprite_down
+  downFrameCount: 3
+  downFrameRate: 4
   maxHealth: 100
   currHealth: 0
   damage: 10
@@ -1633,6 +1679,27 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
+  lightAttackSpriteName: sprite_lightAttack
+  lightAttackFrameCount: 2
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_2lightAttack
+  lightAttack2FrameCount: 2
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_heavyAttack
+  heavyAttackFrameCount: 1
+  heavyAttackFrameRate: 5
+  blockSpriteName: sprite_block
+  blockFrameCount: 2
+  blockFrameRate: 4
+  knockBackSpriteName: 
+  knockBackFrameCount: 0
+  knockBackFrameRate: 0
+  jumpSpriteName: sprite_jump
+  jumpFrameCount: 2
+  jumpFrameRate: 4
+  downSpriteName: sprite_down
+  downFrameCount: 3
+  downFrameRate: 4
   maxHealth: 100
   currHealth: 0
   damage: 10
@@ -1740,6 +1807,27 @@ MonoBehaviour:
   runningSpriteName: sprite_run
   runningFrameCount: 3
   runningFrameRate: 9
+  lightAttackSpriteName: sprite_lightAttack
+  lightAttackFrameCount: 2
+  lightAttackFrameRate: 4
+  lightAttack2SpriteName: sprite_2lightAttack
+  lightAttack2FrameCount: 2
+  lightAttack2FrameRate: 4
+  heavyAttackSpriteName: sprite_heavyAttack
+  heavyAttackFrameCount: 1
+  heavyAttackFrameRate: 5
+  blockSpriteName: sprite_block
+  blockFrameCount: 2
+  blockFrameRate: 4
+  knockBackSpriteName: 
+  knockBackFrameCount: 0
+  knockBackFrameRate: 0
+  jumpSpriteName: sprite_jump
+  jumpFrameCount: 2
+  jumpFrameRate: 4
+  downSpriteName: sprite_down
+  downFrameCount: 3
+  downFrameRate: 4
   maxHealth: 100
   currHealth: 0
   damage: 10

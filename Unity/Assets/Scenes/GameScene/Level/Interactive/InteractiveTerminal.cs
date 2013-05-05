@@ -3,6 +3,8 @@ using System.Collections;
 
 public class InteractiveTerminal : LevelInteractive
 {
+	public UISprite activatedSprite;
+	
 	public enum TerminalType
 	{
 		A,
@@ -22,6 +24,7 @@ public class InteractiveTerminal : LevelInteractive
 	private void Start()
 	{
 		ToggleButton(false);
+		NGUITools.SetActive(activatedSprite.gameObject, false);
 	}
 	
 	public void ToggleButton(bool toggle)
@@ -42,6 +45,7 @@ public class InteractiveTerminal : LevelInteractive
 			activatedCorrectly = activationType == terminalType;
 			boxCollider.enabled = false;
 			ToggleButton(false);
+			NGUITools.SetActive(activatedSprite.gameObject, true);
 			Debug.Log(name + " activated correctly: " + activatedCorrectly);
 			
 			GameRoot.current.ActivatedLevelTerminal();
