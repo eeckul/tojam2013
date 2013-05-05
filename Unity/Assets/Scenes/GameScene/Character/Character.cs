@@ -790,6 +790,11 @@ public class Character : MonoBehaviour
 	{
 		if ( lives > 0 )
 		{
+			Vector3 playerPosition = transform.localPosition;
+			playerPosition.y = 300;
+			transform.localPosition = playerPosition;
+			damageFlashTime = 4.0f;
+			
 			knockbackTime = 0;
 			currHealth = maxHealth;
 			lives--;
