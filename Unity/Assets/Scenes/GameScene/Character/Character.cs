@@ -345,7 +345,7 @@ public class Character : MonoBehaviour
 				animationState = AnimationState.Jump;
 			}
 		
-			isUpJumping = rigidbody.velocity.y > jumpSpeed * 0.05f;
+			isUpJumping = (rigidbody.velocity.y > jumpSpeed * 0.05f) && jumpSpeed > 0;
 			ToggleJumpCollider(isUpJumping || isDownJumping);
 		
 			if (isDownJumping)
