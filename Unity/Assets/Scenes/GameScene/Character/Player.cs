@@ -194,12 +194,17 @@ public class Player : Character
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
 			}
+			else if (isGrounded)
+			{
+				TriggerBlock ();
+			}
 		}
 		else
 		{
 			NGUITools.SetActive(saboteurButton.gameObject, false);
 		}
 	}
+	
 	
 	#endregion
 	
