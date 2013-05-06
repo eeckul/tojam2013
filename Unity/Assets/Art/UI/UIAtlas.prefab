@@ -169,13 +169,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 452
-      y: 383
+      y: 448
       width: 128
       height: 64
     inner:
       serializedVersion: 2
       x: 452
-      y: 383
+      y: 448
       width: 128
       height: 64
     rotated: 0
@@ -187,13 +187,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 452
-      y: 448
+      y: 383
       width: 128
       height: 64
     inner:
       serializedVersion: 2
       x: 452
-      y: 448
+      y: 383
       width: 128
       height: 64
     rotated: 0
@@ -204,14 +204,14 @@ MonoBehaviour:
   - name: controls
     outer:
       serializedVersion: 2
-      x: 0
-      y: 51
+      x: 226
+      y: 282
       width: 225
       height: 230
     inner:
       serializedVersion: 2
-      x: 0
-      y: 51
+      x: 226
+      y: 282
       width: 225
       height: 230
     rotated: 0
@@ -240,14 +240,14 @@ MonoBehaviour:
   - name: SABOTEUR
     outer:
       serializedVersion: 2
-      x: 226
-      y: 282
+      x: 0
+      y: 51
       width: 225
       height: 230
     inner:
       serializedVersion: 2
-      x: 226
-      y: 282
+      x: 0
+      y: 51
       width: 225
       height: 230
     rotated: 0
