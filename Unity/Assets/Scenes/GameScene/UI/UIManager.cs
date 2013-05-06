@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
 	public UISprite goatsWin;
 	public UISprite robotsWin;
 	
+	public UISprite storySprite;
+	public UISprite controlsSprite;
+	public UISprite tutorialSprite;
+	
 	private void Awake()
 	{
 		current = this;
@@ -19,6 +23,10 @@ public class UIManager : MonoBehaviour
 		ToggleNextScreenArrow(false);
 		ToggleGoatsWin(false);
 		ToggleRobotsWin(false);
+		
+		NGUITools.SetActive(storySprite.gameObject, GameRoot.current.isSaboteurStage);
+		NGUITools.SetActive(controlsSprite.gameObject, GameRoot.current.isSaboteurStage);
+		NGUITools.SetActive(tutorialSprite.gameObject, GameRoot.current.isSaboteurStage);
 	}
 	
 	public void ToggleNextScreenArrow(bool toggle)

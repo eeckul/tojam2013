@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: DC_Arrow
     outer:
       serializedVersion: 2
-      x: 130
-      y: 65
+      x: 0
+      y: 18
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 130
-      y: 65
+      x: 0
+      y: 18
       width: 32
       height: 32
     rotated: 0
@@ -60,14 +60,14 @@ MonoBehaviour:
   - name: DC_Display_Health_Empty
     outer:
       serializedVersion: 2
-      x: 0
-      y: 15
+      x: 452
+      y: 332
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 0
-      y: 15
+      x: 452
+      y: 332
       width: 64
       height: 50
     rotated: 0
@@ -78,14 +78,14 @@ MonoBehaviour:
   - name: DC_Healthgoo
     outer:
       serializedVersion: 2
-      x: 65
-      y: 15
+      x: 477
+      y: 281
       width: 64
       height: 50
     inner:
       serializedVersion: 2
-      x: 65
-      y: 15
+      x: 477
+      y: 281
       width: 64
       height: 50
     rotated: 0
@@ -97,13 +97,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 226
-      y: 432
+      y: 50
       width: 150
       height: 80
     inner:
       serializedVersion: 2
       x: 226
-      y: 432
+      y: 50
       width: 150
       height: 80
     rotated: 0
@@ -114,14 +114,14 @@ MonoBehaviour:
   - name: DC_Goats Win
     outer:
       serializedVersion: 2
-      x: 226
-      y: 351
+      x: 377
+      y: 50
       width: 128
       height: 80
     inner:
       serializedVersion: 2
-      x: 226
-      y: 351
+      x: 377
+      y: 50
       width: 128
       height: 80
     rotated: 0
@@ -132,34 +132,16 @@ MonoBehaviour:
   - name: heart
     outer:
       serializedVersion: 2
-      x: 129
-      y: 98
+      x: 33
+      y: 18
       width: 32
       height: 32
     inner:
       serializedVersion: 2
-      x: 129
-      y: 98
+      x: 33
+      y: 18
       width: 32
       height: 32
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: DC_Story
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 282
-      width: 225
-      height: 230
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 282
-      width: 225
-      height: 230
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
@@ -168,13 +150,13 @@ MonoBehaviour:
   - name: DC_title
     outer:
       serializedVersion: 2
-      x: 0
+      x: 226
       y: 131
       width: 250
       height: 150
     inner:
       serializedVersion: 2
-      x: 0
+      x: 226
       y: 131
       width: 250
       height: 150
@@ -186,14 +168,14 @@ MonoBehaviour:
   - name: DC_req_tojam_logo
     outer:
       serializedVersion: 2
-      x: 226
-      y: 286
+      x: 452
+      y: 383
       width: 128
       height: 64
     inner:
       serializedVersion: 2
-      x: 226
-      y: 286
+      x: 452
+      y: 383
       width: 128
       height: 64
     rotated: 0
@@ -204,16 +186,70 @@ MonoBehaviour:
   - name: DC_start_button
     outer:
       serializedVersion: 2
-      x: 0
-      y: 66
+      x: 452
+      y: 448
       width: 128
       height: 64
     inner:
       serializedVersion: 2
-      x: 0
-      y: 66
+      x: 452
+      y: 448
       width: 128
       height: 64
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: controls
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 51
+      width: 225
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 51
+      width: 225
+      height: 230
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Story
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 282
+      width: 225
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 282
+      width: 225
+      height: 230
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: SABOTEUR
+    outer:
+      serializedVersion: 2
+      x: 226
+      y: 282
+      width: 225
+      height: 230
+    inner:
+      serializedVersion: 2
+      x: 226
+      y: 282
+      width: 225
+      height: 230
     rotated: 0
     paddingLeft: 0
     paddingRight: 0
