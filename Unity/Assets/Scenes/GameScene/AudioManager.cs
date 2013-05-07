@@ -5,11 +5,18 @@ public class AudioManager : MonoBehaviour
 {
 	public static AudioManager current;
 	public AudioClip[] soundfx;
-	public AudioSource src;
+	
+	private const int NUM_SOUNDS = 16;
+	private AudioSource[] soundsrc = new AudioSource[NUM_SOUNDS];
 	
 	public void Awake()
 	{
 		current = this;
+		
+		for (int i = 0; i < NUM_SOUNDS; i++)
+		{
+			soundsrc[i] = gameObject.AddComponent<AudioSource>();
+		}
 	}
 	
 	public void PlaySound(string soundName)
@@ -18,8 +25,17 @@ public class AudioManager : MonoBehaviour
 		{
 			if (soundfx[i].name == soundName)
 			{
-				src.clip = soundfx[i];
-				src.Play();
+				for (int j = 0; j < NUM_SOUNDS; j++)
+				{
+					if (!soundsrc[j].isPlaying)
+					{
+						soundsrc[j].clip = soundfx[i];
+						soundsrc[j].Play();
+						break;
+					}
+				}
+				
+				break;
 			}
 		}
 	}

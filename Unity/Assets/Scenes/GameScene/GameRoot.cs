@@ -37,13 +37,13 @@ public class GameRoot : MonoBehaviour
 	public bool screenTransitionReady;
 	private bool nextLevelTriggered;
 	
+	private bool playedTerminalFailSound = false;
+	
 	private bool endGameTriggered;
 	
 	private void Awake()
 	{
 		current = this;
-		
-		AudioManager.current.PlaySound("level_transition");
 		
 		if (saboteur == -1)
 		{
@@ -57,6 +57,8 @@ public class GameRoot : MonoBehaviour
 	
 	private IEnumerator Start()
 	{
+		AudioManager.current.PlaySound("level_transition");
+		
 		yield return new WaitForSeconds(1);
 		
 		nextScreenHack = true;
@@ -203,8 +205,13 @@ public class GameRoot : MonoBehaviour
 				{
 					if (allTerminalsCorrect || !HasClosedEnemyDoors())
 					{
-						AudioManager.current.PlaySound("terminal_success");
 						SetTerminalStates(InteractiveTerminal.TerminalState.Accepted);
+						
+						if (!exitDoor.isOpen && !exitDoor.isReady)
+						{
+							AudioManager.current.PlaySound("terminal_success");
+						}
+						
 						exitDoor.isOpen = true;
 						exitDoor.isReady = true;
 					}
@@ -228,7 +235,12 @@ public class GameRoot : MonoBehaviour
 		{
 			if (allTerminalsActivated)
 			{
-				AudioManager.current.PlaySound("terminal_fail");
+				if (!playedTerminalFailSound)
+				{
+					AudioManager.current.PlaySound("terminal_fail");
+					playedTerminalFailSound = true;
+				}
+				
 				SetTerminalStates(InteractiveTerminal.TerminalState.Rejected);
 				foreach (Player player in players) player.playInteractionAnimation = false;
 			}
@@ -282,7 +294,6 @@ public class GameRoot : MonoBehaviour
 	
 	private void OpenEnemyDoors()
 	{
-		
 		foreach (InteractiveDoor door in enemyDoors)
 		{
 			door.isOpen = true;

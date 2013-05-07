@@ -15,6 +15,6 @@ public class PlayerHUD : MonoBehaviour
 	
 	public void SetLives(int lives)
 	{
-		livesSprite.transform.localScale = new Vector3(32f, (float)lives * 32f, 1f);
+		livesSprite.transform.localScale = new Vector3(32f, Mathf.Max((float)lives * 32f, 0.01f), 1f);
 	}
 }

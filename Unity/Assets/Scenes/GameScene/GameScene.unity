@@ -519,6 +519,10 @@ Prefab:
       propertyPath: mTex
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lives
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
   m_RootGameObject: {fileID: 291969658}
@@ -583,7 +587,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 130092272}
   - 114: {fileID: 130092273}
-  - 82: {fileID: 130092274}
   m_Layer: 9
   m_Name: Audio
   m_TagString: Untagged
@@ -631,63 +634,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dcc2375ec8b764666b65f44397224eee, type: 3}
   - {fileID: 8300000, guid: ba22c06f0ecd54ee58c4935291523a33, type: 3}
   - {fileID: 8300000, guid: a90ab8ef8d2064cf6a0bc0d7b09ff354, type: 3}
-  src: {fileID: 130092274}
---- !u!82 &130092274
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 130092271}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &183779196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +968,7 @@ MonoBehaviour:
   attack3Damage: 30
   attack4Damage: 35
   attack5Damage: 40
-  lives: 5
+  lives: 0
   characterType: 0
   input: {fileID: 291969663}
   hud: {fileID: 586081016}
@@ -2277,7 +2223,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933984806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.2421875, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1296809405}
@@ -3360,6 +3306,10 @@ Prefab:
       propertyPath: winSpriteName
       value: sprite4_win
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lives
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
   m_RootGameObject: {fileID: 1668434878}
@@ -3566,6 +3516,10 @@ Prefab:
     - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: winSpriteName
       value: sprite2_win
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lives
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -3835,7 +3789,7 @@ MonoBehaviour:
   attack3Damage: 30
   attack4Damage: 35
   attack5Damage: 40
-  lives: 5
+  lives: 0
   characterType: 0
   input: {fileID: 1433223902}
   hud: {fileID: 2051797695}
@@ -4028,6 +3982,10 @@ Prefab:
     - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
       propertyPath: winSpriteName
       value: sprite3_win
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
+      propertyPath: lives
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3683268dbffb4c1785348035a9cf815, type: 2}
@@ -4403,7 +4361,7 @@ MonoBehaviour:
   attack3Damage: 30
   attack4Damage: 35
   attack5Damage: 40
-  lives: 5
+  lives: 0
   characterType: 0
   input: {fileID: 1668434880}
   hud: {fileID: 761252248}
@@ -4607,7 +4565,7 @@ MonoBehaviour:
   attack3Damage: 30
   attack4Damage: 35
   attack5Damage: 40
-  lives: 5
+  lives: 0
   characterType: 0
   input: {fileID: 1786441826}
   hud: {fileID: 1346385177}
