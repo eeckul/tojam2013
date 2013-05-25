@@ -27,7 +27,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-GameManager:
+LevelGameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -2253,7 +2253,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 947076938}
   - 114: {fileID: 947076939}
-  - 114: {fileID: 947076940}
   m_Layer: 8
   m_Name: Controls
   m_TagString: Untagged
@@ -2294,42 +2293,6 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
---- !u!114 &947076940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947076937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
-  m_Name: 
-  method: 0
-  style: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  ignoreTimeScale: 1
-  delay: 5
-  duration: 5
-  steeperCurves: 0
-  tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: {x: 350, y: 0, z: 0}
-  to: {x: -350, y: 0, z: 0}
 --- !u!1 &996671296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,7 +2429,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1014687141}
   - 114: {fileID: 1014687142}
-  - 114: {fileID: 1014687143}
   m_Layer: 8
   m_Name: Story
   m_TagString: Untagged
@@ -2507,42 +2469,6 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
---- !u!114 &1014687143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014687140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
-  m_Name: 
-  method: 0
-  style: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  ignoreTimeScale: 1
-  delay: 0
-  duration: 5
-  steeperCurves: 0
-  tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: {x: 350, y: 0, z: 0}
-  to: {x: -350, y: 0, z: 0}
 --- !u!1 &1095192391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2750,92 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1205456793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1205456794}
+  - 114: {fileID: 1205456796}
+  - 114: {fileID: 1205456795}
+  m_Layer: 8
+  m_Name: Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1205456794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205456793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -105, z: 0}
+  m_LocalScale: {x: 128, y: 64, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296809405}
+--- !u!114 &1205456795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205456793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
+  m_Name: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: 0
+  to: 1
+--- !u!114 &1205456796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1205456793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: f95230384a69f48ddb21b03061818667, type: 2}
+  mTex: {fileID: 2800000, guid: ad2cf9465579c49c4a5d41f350f6be3a, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 7
+  mAtlas: {fileID: 11400000, guid: 20ab8f24a837e44119ec1f7f3b6cb3c5, type: 2}
+  mSpriteName: DC_start_button
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1 &1232267779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,7 +2958,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae33090b9e6e34db49ea2387e84252cd, type: 3}
   m_Name: 
   isSaboteurStage: 0
-  saboteurStageTime: 30
+  isReadyToCheckSaboteur: 0
+  saboteurStageTime: 15
+  input0: {fileID: 291969663}
+  input1: {fileID: 1433223902}
+  input2: {fileID: 1786441826}
+  input3: {fileID: 1668434880}
   isEndGame: 0
   gameCamera: {fileID: 26403960}
   enemiesRoot: {fileID: 441676073}
@@ -3133,6 +3150,7 @@ Transform:
   - {fileID: 2051797694}
   - {fileID: 1346385176}
   - {fileID: 761252247}
+  - {fileID: 1205456794}
   - {fileID: 2111646971}
   - {fileID: 1014687141}
   - {fileID: 1568650649}
@@ -3154,6 +3172,7 @@ MonoBehaviour:
   storySprite: {fileID: 1014687142}
   controlsSprite: {fileID: 947076939}
   tutorialSprite: {fileID: 2111646972}
+  startSprite: {fileID: 1205456796}
 --- !u!1001 &1303121654
 Prefab:
   m_ObjectHideFlags: 0
@@ -5077,7 +5096,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2111646971}
   - 114: {fileID: 2111646972}
-  - 114: {fileID: 2111646973}
   m_Layer: 8
   m_Name: Tutorial
   m_TagString: Untagged
@@ -5118,42 +5136,6 @@ MonoBehaviour:
   mFillDirection: 4
   mFillAmount: 1
   mInvert: 0
---- !u!114 &2111646973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2111646970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
-  m_Name: 
-  method: 0
-  style: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  ignoreTimeScale: 1
-  delay: 10
-  duration: 5
-  steeperCurves: 0
-  tweenGroup: 0
-  eventReceiver: {fileID: 0}
-  callWhenFinished: 
-  from: {x: 350, y: 0, z: 0}
-  to: {x: -350, y: 0, z: 0}
 --- !u!1 &2119457280
 GameObject:
   m_ObjectHideFlags: 0

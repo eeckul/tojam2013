@@ -88,10 +88,13 @@ public class Player : Character
 		{
 			if (GameRoot.current.isSaboteurStage)
 			{
-				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "Y" : "A");
-				NGUITools.SetActive(saboteurButton.gameObject, true);
+				if (GameRoot.current.isReadyToCheckSaboteur)
+				{
+					saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "Y" : "A");
+					NGUITools.SetActive(saboteurButton.gameObject, true);
+				}
 			}
-			else if (isInteracting)
+			else if (isInteracting && currentInteractive != null)
 			{
 				ActivateInteractive(CharacterInput.Button.A);
 			}
@@ -130,10 +133,13 @@ public class Player : Character
 		{
 			if (GameRoot.current.isSaboteurStage)
 			{
-				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "X" : "B");
-				NGUITools.SetActive(saboteurButton.gameObject, true);
+				if (GameRoot.current.isReadyToCheckSaboteur)
+				{
+					saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "X" : "B");
+					NGUITools.SetActive(saboteurButton.gameObject, true);
+				}
 			}
-			else if (isInteracting)
+			else if (isInteracting && currentInteractive != null)
 			{
 				ActivateInteractive(CharacterInput.Button.B);
 			}
@@ -163,10 +169,13 @@ public class Player : Character
 		{
 			if (GameRoot.current.isSaboteurStage)
 			{
-				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "B" : "X");
-				NGUITools.SetActive(saboteurButton.gameObject, true);
+				if (GameRoot.current.isReadyToCheckSaboteur)
+				{
+					saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "B" : "X");
+					NGUITools.SetActive(saboteurButton.gameObject, true);
+				}
 			}
-			else if (isInteracting)
+			else if (isInteracting && currentInteractive != null)
 			{
 				ActivateInteractive(CharacterInput.Button.X);
 			}
@@ -187,10 +196,13 @@ public class Player : Character
 		{
 			if (GameRoot.current.isSaboteurStage)
 			{
-				saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "A" : "Y");
-				NGUITools.SetActive(saboteurButton.gameObject, true);
+				if (GameRoot.current.isReadyToCheckSaboteur)
+				{
+					saboteurButton.spriteName = "DC_buttons_" + (GameRoot.saboteur == playerIndex ? "A" : "Y");
+					NGUITools.SetActive(saboteurButton.gameObject, true);
+				}
 			}
-			else if (isInteracting)
+			else if (isInteracting && currentInteractive != null)
 			{
 				ActivateInteractive(CharacterInput.Button.Y);
 			}

@@ -8,7 +8,14 @@ public class GameRoot : MonoBehaviour
 	
 	public static int saboteur = -1;
 	public bool isSaboteurStage;
+	public bool isReadyToCheckSaboteur;
 	public float saboteurStageTime = 15f;
+	private bool nextTutorialStep = false;
+	
+	public CharacterInput input0;
+	public CharacterInput input1;
+	public CharacterInput input2;
+	public CharacterInput input3;
 	
 	public bool isEndGame;
 	
@@ -47,11 +54,7 @@ public class GameRoot : MonoBehaviour
 		
 		if (saboteur == -1)
 		{
-			isSaboteurStage = true;
-			saboteur = Random.Range(0, 4);
-			Debug.Log("Saboteur: " + saboteur);
-			
-			TriggerNextLevel(saboteurStageTime);
+			StartCoroutine(StartSaboteurSequence());
 		}
 	}
 	
@@ -82,6 +85,58 @@ public class GameRoot : MonoBehaviour
 		{
 			StartCoroutine(TriggerEndGame());
 		}
+	}
+	
+	private IEnumerator StartSaboteurSequence()
+	{
+		isSaboteurStage = true;
+		saboteur = Random.Range(0, 4);
+		Debug.Log("Saboteur: " + saboteur);
+		
+		while (UIManager.current == null) yield return new WaitForEndOfFrame();
+		
+		input0.OnStartPress += StartPressed;
+		input1.OnStartPress += StartPressed;
+		input2.OnStartPress += StartPressed;
+		input3.OnStartPress += StartPressed;
+		
+		Vector3 exitVector = new Vector3(-350f, 0, 0);
+		
+		NGUITools.SetActive(UIManager.current.startSprite.gameObject, true);
+		
+		NGUITools.SetActive(UIManager.current.storySprite.gameObject, true);
+		TweenPosition.Begin(UIManager.current.storySprite.gameObject, 1f, Vector3.zero);
+		nextTutorialStep = false;
+		while (!nextTutorialStep) yield return new WaitForEndOfFrame();
+		TweenPosition.Begin(UIManager.current.storySprite.gameObject, 1f, exitVector);
+		
+		NGUITools.SetActive(UIManager.current.controlsSprite.gameObject, true);
+		TweenPosition.Begin(UIManager.current.controlsSprite.gameObject, 1f, Vector3.zero);
+		nextTutorialStep = false;
+		while (!nextTutorialStep) yield return new WaitForEndOfFrame();
+		TweenPosition.Begin(UIManager.current.controlsSprite.gameObject, 1f, exitVector);
+		
+		NGUITools.SetActive(UIManager.current.tutorialSprite.gameObject, true);
+		TweenPosition.Begin(UIManager.current.tutorialSprite.gameObject, 1f, Vector3.zero);
+		nextTutorialStep = false;
+		while (!nextTutorialStep) yield return new WaitForEndOfFrame();
+		TweenPosition.Begin(UIManager.current.tutorialSprite.gameObject, 1f, exitVector);
+		
+		NGUITools.SetActive(UIManager.current.startSprite.gameObject, false);
+		
+		input0.OnStartPress -= StartPressed;
+		input1.OnStartPress -= StartPressed;
+		input2.OnStartPress -= StartPressed;
+		input3.OnStartPress -= StartPressed;
+		
+		isReadyToCheckSaboteur = true;
+		
+		TriggerNextLevel(saboteurStageTime);
+	}
+	
+	private void StartPressed(bool pressed)
+	{
+		if (pressed) nextTutorialStep = true;
 	}
 	
 	public void EnteredNewScreen()

@@ -16,8 +16,16 @@ public class LoadingScene : MonoBehaviour
 		input3.OnStartPress += StartPressed;
 	}
 
-	private void StartPressed (bool pressed)
+	private void StartPressed(bool pressed)
 	{
-		Application.LoadLevel("GameScene");
+		if (pressed) Application.LoadLevel("GameScene");
+	}
+	
+	private void LateUpdate()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
 	}
 }
